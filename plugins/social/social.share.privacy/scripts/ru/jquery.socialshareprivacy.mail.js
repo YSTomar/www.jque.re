@@ -1,0 +1,1 @@
+jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.mail,{txt_info:"Отправить по электронной почте другу.",txt_button:"Отправить E-Mail"});

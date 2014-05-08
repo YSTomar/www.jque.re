@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>	
+	<title>jquery-backgrounder v1.0</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<style>
+		html {
+			background-color: #000000;
+		}
+		body {
+			color:#efefef;
+			font-size:12px;
+			font-family: "Helvetica", sans-serif;
+		}
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	<script src="jquery.backgrounder.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			var images = [
+				"http://farm1.static.flickr.com/133/333784956_56749ca56c_b.jpg",
+				"http://farm1.static.flickr.com/141/333785078_72166a0c09_z.jpg?zz=1",
+				"http://farm1.static.flickr.com/147/333004440_f3889a07dc_z.jpg?zz=1"
+			];
+			
+			$.backgrounder( images, {
+				displayTime:5000,		// the time in ms how long an image is displayed. Default is 5000.
+				transitionTime:1500,	// the duration in ms for a transition. Default is 1600.
+				centeredX: true,		// Should the image be centered on the X axis? Default to true.
+		    centeredY: true,			// Should the image be centered on the Y axis? Default is true.
+				zIndex: -666			// The css z-index property of the photos. Default is -666.
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="overlay" style="background: url('img/black_dots.png'); left:0px; top:0px; width:100%; height:100%; position:absolute; z-index:-1;"></div>
+	<div id="welcome" style="background-color:hsla(0, 0%, 0%, .6);padding:10px;margin-top: 50px;-moz-box-shadow: 2px 2px 20px #222;-webkit-box-shadow: 2px 2px 20px #222;box-shadow: 2px 2px 20px #222;">
+		<h1 id="jquery_backgrounder_plugin">jquery-backgrounder plugin</h1>
+		<p><em>by Nico Di Rocco</em></p>
+	</div>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+
+</body>
+</html>

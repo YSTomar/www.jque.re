@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="jquery, plugin, character counter, input, text, password, textarea" />
+    <meta name="description" content="A jQuery plugin for `textarea`, `text` and `password` inputs to add a character counter bubble that fades in while you type and fades out when you stop typing." />
+    <meta name = "owner" content = "Websanova" />
+    <meta property="og:title" content="jQuery Character Counter Plugin"/>
+    <meta property="og:description" content="A jQuery plugin for textarea and text inputs to add a character counter bubble that fades in while you type and fades out when you stop typing." />
+    <meta property="og:url" content="http://wchar.websanova.com"/>
+    <meta property="og:image" content="http://www.websanova.com/wp-content/uploads/2012/04/wChar.png" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="Websanova"/>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="./assets/img/favicon.ico" />
+    <title>wChar :: jQuery Character Counter Plugin</title>
+    
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.9.1.min.js"><\/script>')</script>
+    <link rel="Stylesheet" type="text/css" href="assets/demo.css" />
+</head>
+<body>
+    <header>
+        <a id="header-logo" href="http://websanova.com"></a>
+
+        <div id="header-links">
+            <a href="http://websanova.com">Home</a>
+            <a href="http://websanova.com/plugins">Plugins</a>
+            <a href="http://websanova.com/extensions">Extensions</a>
+        </div>
+    </header>
+
+    <div id="content">
+        <h1 id="plugin-name">wChar.js</h1>
+
+        <h2>About</h2>
+
+        <div class="content-box">
+            A jQuery plugin for <code>textarea</code> and <code>text</code> inputs to add a character counter bubble that fades in while you type and fades out when you stop typing.
+        </div>
+
+        <ul>
+            <li><a href="https://github.com/websanova/wChar/tags">Download</a></li>
+            <li><a href="https://github.com/websanova/wChar#wcharjs">Documentation</a></li>
+        </ul>
+
+        <h2>Related Plugins</h2>
+
+        <ul>
+            <li><a href="http://wselect.websanova.com">wSelect</a> - Custom select boxes.</li>
+            <li><a href="http://winput.websanova.com">wInput</a> - Input plugin that handles backwards compatability for placeholders.</li>
+            <li><a href="http://wcheck.websanova.com">wCheck</a> - Radio and checkbox input plugin.</li>
+        </ul>
+
+        <h2>Demos</h2>
+
+        <script type="text/javascript" src="wChar.js"></script>
+        <link rel="Stylesheet" type="text/css" href="wChar.css" />
+
+        <div class="content-box">
+            <label>Username:</label> <input type="text" data-minlength="4" data-maxlength="32" style="width:100px;"/><br/>
+            <label>Bio:</label> <textarea cols="30" rows="6" data-minlength="10" data-maxlength="200" style="width:165px;"></textarea>
+        </div>
+
+        <script type="text/javascript">
+            $('input:text, input:password, textarea').wChar({message: 'left', messageMin: 'to go'});
+        </script>
+
+        <style>
+            label {
+                display: inline-block;
+                *display: inline; 
+                zoom: 1;
+                width: 80px;
+                text-align: right;
+                vertical-align: top;
+            }
+        </style>
+
+        <h2>Resources</h2>
+
+        <ul>
+            <li><a href="http://websanova.com/plugins">More jQuery plugins by Websanova</a></li>
+            <li><a href="http://wboiler.websanova.com">jQuery Plugin Development Boilerplate</a></li>
+            <li><a href="http://www.websanova.com/blog/jquery/the-ultimate-guide-to-writing-jquery-plugins">The Ultimate Guide to Writing jQuery Plugins</a></li>
+        </ul>
+        
+        
+        <script src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+    </div>
+
+    <footer>
+        <div id="footer-icons">
+            <!--a id="youtube-icon" href="http://websanova.com/youtube" target="_blank"></a-->
+            <a id="stumbleupon-icon" href="http://websanova.com/stumbleupon" target="_blank"></a>
+            <a id="linkedin-icon" href="http://websanova.com/linkedin" target="_blank"></a>
+            <a id="facebook-icon" href="http://websanova.com/facebook" target="_blank"></a>
+            <a id="googleplus-icon" href="http://websanova.com/googleplus" target="_blank"></a>
+            <a id="twitter-icon" href="http://websanova.com/twitter" target="_blank"></a>
+            <a id="github-icon" href="http://websanova.com/github" target="_blank"></a>
+            <a id="rss-icon" href="http://websanova.com/feed" target="_blank"></a>
+        </div>
+    </footer>
+<!--
+#####################################################################################
+{/no-adpack-misc}
+#####################################################################################
+-->
+</body>
+</html>

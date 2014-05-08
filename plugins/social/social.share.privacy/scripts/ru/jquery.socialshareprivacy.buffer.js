@@ -1,0 +1,1 @@
+jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.buffer,{txt_info:"Два клика для большей конфедициальности: Кнопка Buffer активируется если клините по ней мышкой. Активация кнопки отправляет и хранит данные на серверах Buffer &ndash; для подробной информации нажмите <em>i</em>.",txt_off:"Не соединяться с Buffer",txt_on:"Соединиться с Buffer"});

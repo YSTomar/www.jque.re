@@ -1,0 +1,163 @@
+﻿<!DOCTYPE HTML>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0;"/>
+<title>Tiler.JS (0.2.3)</title>
+<style>
+  body {
+    display:block;
+    overflow:hidden;
+    padding:0;
+    margin:0;
+    font-size:18px;
+    font-family:Monaco, sans-serif;
+    text-shadow:
+      -1px  0px 1px #000,
+       1px  0px 1px #000,
+       0px -1px 1px #000,
+       0px  1px 1px #000;
+    color:#fff;
+  }
+  
+  a {
+    text-decoration: none;
+    color:#fff;
+  }
+
+  a:hover {
+    color: gold;
+  }
+  
+  #viewport {
+    position:absolute;
+    overflow:hidden;
+    z-index:0;
+    height:100%;
+    width:100%;
+  }
+  
+  header {
+    display:block;
+    position:absolute;
+    z-index:1;
+    left:0;
+    top:0;
+    width:100%;
+    height:40px;
+  }
+  
+  section {
+    display:block;
+  }
+  
+  .title {
+    float:left;
+    padding-left:15px;
+    line-height:40px;
+  }
+  
+  .buttons {
+    float:right;
+    padding-top:10px;
+    padding-right:15px;
+  }
+</style>
+</head>
+
+<body>
+<header>
+  <section class="title">
+    <a href="https://github.com/borbit/tiler/">tiler.js 0.2.3</a>
+  </section>
+  <section class="buttons">
+    <iframe src="http://ghbtns.com/github-btn.html?user=borbit&repo=tiler&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="92px" height="20px"></iframe>
+    <iframe src="http://ghbtns.com/github-btn.html?user=borbit&repo=tiler&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="78px" height="20px"></iframe>
+    <a href="https://twitter.com/borbit" class="twitter-follow-button" data-show-count="false">Follow @borbit</a>
+  </section>
+</header>
+
+<div id="viewport"></div>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+
+<script src="jquery.event.drag.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
+
+<script src="row.js"></script>
+<script src="grid.js"></script>
+<script src="tiler.js"></script>
+
+<script>        
+  $(function() {
+    var fetched = new Grid();
+    var host = 'https://s3.amazonaws.com/serge.borb.it/tiler/';
+    var tiler = new Tiler($('#viewport'), {
+      tileSize: 150,
+      x: 35, y: 10,
+      
+      fetch: function(tofecth) {
+        tofecth.forEach(function(tile) {
+          var x = tile[0];
+          var y = tile[1];
+
+          if (fetched.get(x, y)) {
+            return tiler.show(x, y, fetched.get(x, y));
+          }
+
+          var img = new Image();
+          
+          img.onload = function() {
+            var tile = $('<img/>').attr('src', img.src);
+            
+            tiler.show(x, y, tile);
+            fetched.set(x, y, tile);
+          };
+
+          img.src = host + 'tile_' + x + '_' + y + '.jpg';
+        });
+      }
+    });
+
+    tiler.refresh();
+
+    var grid = tiler.grid;
+    var deltaX = 0;
+    var deltaY = 0;
+
+    grid.bind('drag', function(ev, dd) {
+      var x = deltaX + dd.deltaX;
+      var y = deltaY + dd.deltaY;
+
+      var translate = 'translate(' + x + 'px,' + y + 'px)';
+
+      grid.css('-webkit-transform', translate);
+      grid.css(   '-moz-transform', translate);
+      grid.css(        'transform', translate);
+
+      tiler.refresh();
+    });
+
+    grid.bind('dragend', function(ev, dd) {
+      deltaX += dd.deltaX;
+      deltaY += dd.deltaY;
+    });
+    
+    $(window).resize(function() {
+      tiler.refresh();
+    });
+  });
+</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<!--
+#####################################################################################
+{/no-adpack-misc}
+#####################################################################################
+-->
+
+</body>
+</html>

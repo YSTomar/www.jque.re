@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+		<meta name="author" content="www.frebsite.nl" />
+
+		<title>Grrrid</title>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+		<script type="text/javascript" language="javascript" src="jquery.grrrid-1.0.0.js"></script>
+		<script type="text/javascript" language="javascript">
+			$(function() {
+				$( '#equalize > div' ).grrrid( 'equalize', 'height' );
+				$( '#justify > div' ).grrrid( 'justify', 'height' );
+				$( '#grid > span' ).grrrid( 'grid', 50, 10 );
+			});
+		</script>
+		<style type="text/css" media="all">
+			html, body {
+				padding: 0;
+				margin: 0;
+				height: 100%;
+			}
+			body, div, p {
+				font-family: Arial, Helvetica, Verdana;
+				color: #333;
+			}
+			body {
+				background-color: #f3f3f3;
+			}
+			a, a:link, a:active, a:visited {
+				color: #333;
+				text-decoration: underline;
+			}
+			a:hover {
+				color: #000;
+			}
+
+
+			#wrapper {
+				background-color: #fff;
+				width: 700px;
+				padding: 50px;
+				margin: 0 auto;
+				border: 1px solid #ccc;
+				box-shadow: 0 0 5px #ccc;
+			}
+			.example {
+				width: 700px;
+				overflow: hidden;
+			}
+			.example > div {
+				border: 1px solid #ccc;
+				padding: 20px;
+				margin: 0 0 0 20px;
+				float: left;
+			}
+			.example > div:first-child {
+				margin-left: 0;
+			}
+			.example-2 > div {
+				width: 290px;
+			}
+			.example-3 > div {
+				width: 170px;
+			}
+			.example div div {
+				background-color: #ccc;
+				padding: 20px;
+				margin: 0 0 20px 0;
+			}
+			.example span {
+				border: 1px solid #ccc;
+				display: inline-block;
+				padding: 20px;
+				margin: 0 0 20px 0;
+			}
+
+
+			#justify > div {
+				height: 500px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<br />
+		<br />
+		<div id="wrapper">
+			<div id="intro">
+				<h1>jQuery.grrrid</h1>
+				<p>A jQuery plugin that's absolutely grrreat for all grid-related layouts.<br />
+					Demo's and documentation: <a href="http://grrrid.frebsite.nl" target="_blank">grrrid.frebsite.nl</a></p>
+			</div>
+			<br />
+			<h3>Equalize</h3>
+			<p>Making three DIVs the same height (regardless of what their actual height, padding, border or margin is).</p>
+			<div id="equalize" class="example example-3">
+				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non felis ac urna egestas fermentum. Donec gravida fermentum ornare.</div>
+				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non felis ac urna egestas fermentum. Donec gravida fermentum ornare. Aliquam tempus erat sit amet arcu interdum et consectetur massa dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>				
+			</div>
+			<br />
+			<h3>Justify</h3>
+			<p>Making some DIVs fill the fixed innerHeight of their parent (regardless of what their actual height, padding, border or margin is).</p>
+			<div id="justify" class="example example-3">
+				<div>
+					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non felis ac urna egestas fermentum.</div>
+				</div>
+				<div>
+					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+					<div>Lorem ipsum dolor sit amet.</div>
+					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+				</div>
+				<div>
+					<div>Lorem ipsum dolor sit amet, consectetur adipiscing.</div>
+					<div>Lorem ipsum dolor sit amet.</div>
+					<div>Lorem ipsum dolor sit amet, consectetur.</div>
+					<div>Lorem ipsum dolor sit amet.</div>
+				</div>
+			</div>
+			<br />
+			<h3>Grid</h3>
+			<p>Making some SPANs resize to a 50x10 pixel grid (regardless of what their actual width, height, padding, border or margin is.)</p>
+			<div id="grid" class="example">
+				<span>Lorem ipsum dolor sit amet.</span><br />
+				<span>Consectetur adipiscing elit.</span><br />
+				<span>Donec non felis ac urna.</span>
+			</div>
+		</div>
+		<br />
+		<br />
+	<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

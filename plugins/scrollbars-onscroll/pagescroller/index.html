@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>PageScroller: A Simple Page Scrolling Plugin</title>
+	<link rel="stylesheet" href="./stylesheets/style.css" type="text/css" media="all" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800' rel='stylesheet' type='text/css'>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+	<script type="text/javascript" src="./javascripts/pagescroller.min.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		// instantiate page scroller plugin
+		
+		var navLabel = new Array('Introduction', 'How It Works', "What's Included?", 'Documentation', 'Download Plugin');
+		
+		$('#main').pageScroller({ navigation: navLabel });
+		
+		/*	AVAILABLE OPTIONS:
+		 *	currentSection 				starting position
+		 *	sectionClass				class of each section
+		 *	navigationClass 			navigation element class
+		 *	scrollOffset				offset target area from top of section
+		 *	animationSpeed	 			change duration of animation in miliseconds
+		 *	animationBefore 		 	callback: assign a function before animation
+		 *	animationComplete 	 		callback: assign a function after animation
+		 *	onChange					callback: assign a function for when section changes
+		*/		
+		
+		// assigns "next" API function to button
+		
+		$('.next').click(function(e){
+			e.preventDefault();
+			pageScroller.next();
+		});
+		
+		//assigns "prev" API function to button	
+			
+		$('.prev').click(function(e){
+			e.preventDefault();
+			pageScroller.prev();
+		});
+		
+		$('.jumpTo').click(function(e){
+			e.preventDefault();
+			pageScroller.goTo(4);
+		});
+					
+	});
+		
+	</script>
+	
+</head>
+
+<body>
+	
+	<div id="controls" class="light">
+		<a href="#" class="prev"><img src="./images/icon_arrow-up_light.png" alt="" width="28" height="31" /></a>
+		<a href="#" class="next"><img src="./images/icon_arrow-down_light.png" alt="" width="28" height="31" /></a>
+	</div>
+	
+	<div id="wrapper">
+		<div id="main">
+			<div class="section"><h1>Section 1</h1></div>
+			<div class="section"><h1>Section 2 - <a href="#" class="jumpTo">Jump To 4</a></h1></div>
+			<div class="section"><h1>Section 3</h1></div>
+			<div class="section"><h1>Section 4</h1></div>
+			<div class="section"><h1>Section 5</h1></div>
+		</div><!-- [END] #main -->
+	</div><!-- [END] #wrapper -->
+
+	
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body><!-- [END] body -->
+</html><!-- [END] html -->

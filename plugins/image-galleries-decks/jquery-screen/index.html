@@ -1,0 +1,454 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    -->
+
+    <title>jQuery.screen - A jQuery plugin for managing web layers.</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    <link href='jquery.screen.css' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="normalize.css" />
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+    <script type="text/javascript" src="depends.js"></script>
+    <script type="text/javascript" src="jquery.screen.js"></script>
+    
+
+
+    <!--
+      Source code prettifier.
+    -->
+    <link rel="stylesheet" href="http://static.hckr.org/google-code-prettify/prettify.css" />
+    <script type="text/javascript" src="http://static.hckr.org/google-code-prettify/prettify.js"></script>
+    
+    <style type="text/css">
+      body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background: #333;
+        /* http://subtlepatterns.com/?p=934 */
+        background-image: url('denim.png');
+      }
+      code, pre {
+        background: #eee;
+      }
+      pre.prettyprint {
+        max-height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-size: 12pt;
+        border: none;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        margin-top: 0.2em;
+        margin-bottom: 0.6em;
+      }
+      p {
+        margin-top: 0.6em;
+        margin-bottom: 0.6em;
+      }
+      footer {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        margin-left: -324px;
+        height: 20px;
+        line-height: 20px;
+        overflow: visible;
+      }
+
+      /*
+        Background transitions on specific slides.
+      */
+      body.on-features .screen-container {
+        background: rgba(0, 179, 255, 0.1);
+      }
+      body.on-html .screen-container {
+        background: rgba(255, 0, 202, 0.1);
+      }
+      body.on-code .screen-container {
+        background: rgba(255, 34, 0, 0.1);
+      }
+      body.on-howto .screen-container {
+        background: rgba(250, 255, 0, 0.1);
+      }
+
+      /*
+        Slide
+      */
+      .slide {
+        font-size: 18pt;
+        color: #ddd;
+        width: 90%;
+        height: 90%;
+        overflow: visible;
+      }
+      
+      .slide a, .slide a:link, .slide a:visited {
+        color: #FFB000;
+        text-decoration: none;
+      }
+
+      .slide small {
+        color: #999;
+        font-style: italic;
+      }
+
+      .slide a:hover {
+        color: #FFC700;
+        text-decoration: underline;
+      }
+
+      .slide b {
+        color: #fff;
+        text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+      }
+
+      .slide h1 {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 35pt;
+        color: #fff;
+        text-shadow: 0px 3px 3px rgba(0, 0, 0, 1);
+      }
+
+      .slide .slide-pager {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 80px;
+        margin: 0 auto;
+        bottom: 0px;
+      }
+
+      .slide .slide-pager li {
+        width: 40px;
+        height: 30px;
+        float: left;
+      }
+
+      .slide .slide-pager li a,
+      .slide .slide-pager li a:link,
+      .slide .slide-pager li a:hover,
+      .slide .slide-pager li a:active,
+      .slide .slide-pager li a:visited {
+        text-decoration: none;
+      }
+
+      .slide p.author {
+        text-align: right;
+      }
+      
+      /*
+        Other elements
+      */
+      .check {
+        color: #71BE24;
+      }
+      .hidden {
+        display: none;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- 
+      THIS CODE IS NOT NECESSARY FOR jQuery.screen
+    -->
+
+    <div id="fb-root"></div>
+
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=387422937956377";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script> 
+     
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    
+
+    <script type="text/javascript">
+    /* <![CDATA[ */
+        (function() {
+            var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+            t.parentNode.insertBefore(s, t);
+        })();
+    /* ]]> */</script>
+    
+    <script type="text/javascript">
+      $(document).ready(prettyPrint);
+    </script>
+
+    <!--
+      END OF NOT USEFUL CODE
+    -->
+
+    <!--
+      We want to keep our .screen-container hidden in order to prevent it from appearing before the DOM is ready.
+    -->
+    <div id="screens" class="screen-container hidden">
+  
+      <!--
+        This is a slide, it requires an ID.
+      -->
+
+      <section id="main">
+        <!--
+          This is the slide's body, this portion will be centered horizontally and vertically.
+        -->
+        <div class="slide">
+          <h1>What is jQuery.screen?</h1>
+          <p>
+            A jQuery plugin that manages page <b>layers</b>: what goes first, what goes next and the transition between one and other.
+          </p>
+          <p>
+            The goal of this plugin is to provide a way to make <b>fluid web applications</b> that do not require loading new pages.
+          </p>
+          <p>
+            <!--
+              The link below will jump to the #features slide.
+            -->
+            Want to know more? <b>press</b> <a class="rarr" href="#features">&rarr;</a>, <b>slide your finger</b> to the left or <b>jump</b> to:
+          </p>
+          <ul>
+            <!--
+              These links will jump to other slides directly using a custom transition.
+            -->
+            <li><a href="#features" data-transition="slide-left">features</a></li>
+            <li><a href="#howto" data-transition="slide-top">how to use</a></li>
+            <li><a href="#support" data-transition="slide-bottom">support</a></li>
+          </ul>
+          <p>
+            Press <a href="#">&uarr;</a> or <a href="#">&darr;</a> to <b>come back</b> to this layer, anytime.
+          </p>
+        </div>
+      </section>
+      
+      <section id="features">
+        <div class="slide">
+          <h1>Features</h1>
+          <p>
+            <ul>
+              <li><span class="check">&check;</span> Expands layers to <b>fullscreen</b> and hides the scrollbar.</li>
+              <li><span class="check">&check;</span> You can jump between <b>any two slides</b> using a transition.</li>
+              <li><span class="check">&check;</span> Each layer can has its own <b>event space</b>, there are also global listeners for mousewheel, arrow keys and touch events.</li>
+              <li><span class="check">&check;</span> Nice <b>transitions</b> are included.</li>
+              <li><span class="check">&check;</span> It plays well with the <b>iPhone</b> (try to slide to the left).</li>
+              <li><span class="check">&check;</span> <b>Nothing</b> else, just keeping it simple.</li>
+            </ul>
+          </p>
+          <ul class="slide-pager">
+            <!--
+              #back will return to the previous visited slide (if any).
+              Use #prev if you want it to go to the previous slide according to the DOM (top-down).
+            -->
+            <li class="prev"><a href="#back">&larr;</a></li>
+            <!--
+              #next will jump to the next slide according to the DOM (top-down).
+            -->
+            <li class="next"><a href="#next">&rarr;</a></li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="howto">
+        <div class="slide">
+          <h1>How to use?</h1>
+          <p>
+            Include <a href="http://code.jquery.com/jquery-1.7.2.min.js" target="_blank"><tt>jQuery</tt></a>,
+            <a href="http://ricostacruz.com/jquery.transit/jquery.transit.js" target="_blank"><tt>jQuery.transit</tt></a>,
+            <a href="https://raw.github.com/brandonaaron/jquery-mousewheel/a06ef4e1a127795606642c55e22d4f2945edc061/jquery.mousewheel.js" target="_blank"><tt>jQuery.mousewheel</tt></a> and
+            <a href="https://raw.github.com/mattbryson/TouchSwipe-Jquery-Plugin/master/jquery.touchSwipe-1.2.5.js" target="_blank"><tt>jQuery.touchSwipe</tt></a>
+            before loading
+            <a href="https://github.com/xiam/jquery-screen/raw/master/jquery.screen.js" target="_blank"><tt>jQuery.screen</tt></a>.
+          </p>
+
+<pre class="prettyprint"><code>&lt;script src="/local/js/jquery.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="/local/js/jquery.transit.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="/local/js/jquery.mousewheel.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="/local/js/jquery.touchSwipe.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="/local/js/jquery.screen.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+          <p>
+            If you are using <a href="http://jsfoo.org" target="_blank"><tt>jQuery.foo</tt></a> you can forget about dependencies and just pull it like this:
+
+<pre class="prettyprint"><code>&lt;script type="text/javascript"&gt;
+  $.foo.pull('screen');
+&lt;/script&gt;
+</code></pre>
+
+          </p>
+          <ul class="slide-pager">
+            <!--
+              #back will return to the previous visited slide (if any).
+              Use #prev if you want it to go to the previous slide according to the DOM (top-down).
+            -->
+            <li class="prev"><a href="#back">&larr;</a></li>
+            <!--
+              #next will jump to the next slide according to the DOM (top-down).
+            -->
+            <li class="next"><a href="#next">&rarr;</a></li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="html">
+        <div class="slide">
+          <h1>Base structure</h1>
+
+          <p>
+            Here is an example the basic HTML structure of a layer, you can use as many layers as you need.
+          </p>
+
+<pre class="prettyprint"><code>&lt;section id="skeleton"&gt;
+  &lt;div class="slide"&gt;
+    &lt;h1&gt;Optional layer title&lt;/h1&gt;
+    &lt;p&gt;
+      This is the basic skeleton of a layer.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+          <ul class="slide-pager">
+            <!--
+              #back will return to the previous visited slide (if any).
+              Use #prev if you want it to go to the previous slide according to the DOM (top-down).
+            -->
+            <li class="prev"><a href="#back">&larr;</a></li>
+            <!--
+              #next will jump to the next slide according to the DOM (top-down).
+            -->
+            <li class="next"><a href="#next">&rarr;</a></li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="code">
+        <div class="slide">
+          <h1>Basic $.screen usage</h1>
+
+          <p>
+            Use this code as starting point, you can also try to see the source code of this page.
+          </p>
+
+<pre class="prettyprint"><code>$(document).ready(
+  function() {
+    // This must be enough for a simple slideshow.
+    $('section').screen();
+
+    // Custom actions, for advanced scripting needs.
+    $('#first-layer').screen('bind', {
+      'click': {
+        '.next a': $('#second-layer')
+      }
+    });
+  }
+);</code></pre>
+
+          <ul class="slide-pager">
+            <!--
+              #back will return to the previous visited slide (if any).
+              Use #prev if you want it to go to the previous slide according to the DOM (top-down).
+            -->
+            <li class="prev"><a href="#back">&larr;</a></li>
+            <!--
+              #next will jump to the next slide according to the DOM (top-down).
+            -->
+            <li class="next"><a href="#next">&rarr;</a></li>
+          </ul>
+        </div>
+      </section>
+     
+      <section id="support">
+        <div class="slide">
+          <h1>Need support?</h1>
+          <p>
+            I'm currently unable to offer <i>free &amp; quick</i> support for <tt>jQuery.screen</tt>, however, you can always reach me in
+            <a href="mailto:xiam@menteslibres.org">xiam@menteslibres.org</a> for any quick question :-).
+          </p>
+          <p>
+            Thanks for passing by, if you like my work feel free to buy me a beer anytime!
+          </p>
+          <p class="author">
+            - <a href="http://xiam.menteslibres.org" target="_blank">Jos?? Carlos</a>.
+          </p>
+          <p style="text-align: center">
+            <small>(press &uarr; or &darr; to <a href="#main">start again</a>)</small>
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <script type="text/javascript">
+      $(document).ready(
+
+        // Wait for the DOM to be ready.
+        function() {
+
+          // The DOM is ready now, we can unhide the slides.
+          $('#screens').removeClass('hidden');
+
+          // Setup
+          $('#screens section').screen({
+            // Default transition
+            'transition': 'slide-left'
+          });
+
+          // Global listeners.
+          $('#screens section').screen('listen', {
+            
+            // Going back on history when scrolling up or pressing left arrow.
+            'leftarrow':  function(ev) { $.screen.back(); },
+            'scrollup':   function(ev) { $.screen.back(); },
+            
+            // Going to the next slide (according to the DOM) when scrolling down or pressing right arrow.
+            'rightarrow': function(ev) { $.screen.next(); },
+            'scrolldown': function(ev) { $.screen.next(); },
+
+            // Start again when pressing up or down arrows.
+            'uparrow': function(ev) {
+              // Is this the active slide?
+              if ($('#main').is(':visible') == false) {
+                // This is not the active slide.
+                $('#main').screen('select', 'slide-top');
+              };
+            },
+            'downarrow': function(ev) {
+              // Is this the active slide?
+              if ($('#main').is(':visible') == false) {
+                // This is not the active slide.
+                $('#main').screen('select', 'slide-bottom');
+              };
+            }
+          });
+
+        }
+      );
+    </script>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+
+</body>
+</html>

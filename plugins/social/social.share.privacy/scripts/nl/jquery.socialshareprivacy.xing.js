@@ -1,0 +1,1 @@
+(function($,undefined){$.extend($.fn.socialSharePrivacy.settings.services.xing,{txt_info:"Ter verduidelijking: De XING knop wordt hiermee geactiveerd. Hiermee wordt data naar XING verzonden – Klik voor meer informatie op <em>i</em>.",txt_off:"niet verbonden met XING",txt_on:"verbonden met XING"});})(jQuery);

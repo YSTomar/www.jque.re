@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pie Menu (like Path Menu) using jquery and CSS3 by Nikesh Hayaran</title>
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/piemenu.css">
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+		<script src="js/jquery.menu.js"></script>
+		<script src="js/jquery-ui-1.8.20.custom.min.js"></script>
+	</head>
+	<body>
+		<div class='content'>
+			<h2>Pie Menu (like Path menu ) using jquery and CSS3 </h2>
+			
+			<div class='demo-container'>
+				<div class='input-form'>
+					
+					<form class="form-horizontal">
+					  <fieldset>
+						
+						<div class="control-group">
+						  <label class="control-label" for="s_angle">Start Angle</label>
+						  <div class="controls">
+							<div class='input-append'>
+								<input type="text" class="input-small" id='s_angle' required  placeholder="Enter a Angle"  pattern="[0-9]*" value='0'>
+								<span class="add-on">deg</span>
+							</div>
+						  </div>
+						</div>
+						
+						<div class="control-group">
+						  <label class="control-label" for="diff_angle">Displacement Angle</label>
+						  <div class="controls">
+							<div class='input-append'>
+								<input type="text" class="input-small" id='diff_angle' required  placeholder="Enter a Angle"  pattern="[0-9]*" value='90'>
+								<span class="add-on">deg</span>
+							</div>
+						  </div>
+						</div>
+						
+						<div class="control-group">
+						  <label class="control-label" for="radius">Radius Of Circle</label>
+						  <div class="controls">
+							<div class='input-append'>
+								<input type="text" class="input-small" id='radius' required  placeholder="Enter a Radius"  pattern="[0-9]*" value='100'>
+								<span class="add-on">deg</span>
+							</div>
+						  </div>
+						</div>
+						<div class="control-group">
+							<div class="controls">
+								<div class="btn" class='btn btn-small ' id='submit_button'><i class="icon-refresh"></i> Refresh</a></div>
+							 </div>
+						</div>
+					  </fieldset>
+					</form>
+				</div>
+				
+				<div class='demo'>
+					<p id='info'>Updated..</p>
+					<div id='outer_container' class="outer_container" >
+						<a class="menu_button" href="#" title="Toggle"><span>Menu Toggle</span></a>
+						<ul class="menu_option">
+						  <li><a href="#"><span>Item</span></a></li>
+						  <li><a href="#"><span>Item</span></a></li>
+						  <li><a href="#"><span>Item</span></a></li>
+						  <li><a href="#"><span>Item</span></a></li>
+						  <li><a href="#"><span>Item</span></a></li>
+						</ul>
+					</div>				
+				</div>
+				<div class='drag'>* Draggable Element</div>
+				<div class='clearfix'></div>
+			</div>
+			<h5>* Please read README.md file for explanation.</h5>
+		</div>
+		<script>
+		function PieMenuInit(){		
+			$('#outer_container').PieMenu({
+				'starting_angel':$('#s_angle').val(),
+				'angel_difference' : $('#diff_angle').val(),
+				'radius':$('#radius').val(),
+			});			
+		}
+		$(function() {          
+			$("#submit_button").click(function() {reset(); }); 
+			$( "#outer_container" ).draggable();
+			PieMenuInit();
+			
+		});
+		function reset(){
+			if($(".menu_button").hasClass('btn-rotate'))
+			$(".menu_button").trigger('click');
+			
+			$("#info").fadeIn("slow").fadeOut("slow");
+			PieMenuInit();
+		}
+		</script>
+
+	<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

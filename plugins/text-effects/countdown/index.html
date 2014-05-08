@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>jQuery Countdown Plugin</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+    <script src="jquery.countdown.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('#counter').countdown({
+          image: 'digits.png',
+          startTime: '01:12:12:00'
+        });
+
+        $('#counter_2').countdown({
+          image: 'digits.png',
+          startTime: '00:10',
+          timerEnd: function(){ alert('end!'); },
+          format: 'mm:ss'
+        });
+      });
+    </script>
+    <style type="text/css">
+      br { clear: both; }
+      .cntSeparator {
+        font-size: 54px;
+        margin: 10px 7px;
+        color: #000;
+      }
+      .desc { margin: 7px 3px; }
+      .desc div {
+        float: left;
+        font-family: Arial;
+        width: 70px;
+        margin-right: 65px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #000;
+      }
+    </style>
+  </head>
+<body>
+  <div id="counter"></div>
+  <div class="desc">
+    <div>Days</div>
+    <div>Hours</div>
+    <div>Minutes</div>
+    <div>Seconds</div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <div id="counter_2"></div>
+  <div class="desc">
+    <div>Minutes</div>
+    <div>Seconds</div>
+  </div>
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

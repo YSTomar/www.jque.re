@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<head> 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.8.3.min.js"><\/script>')</script>
+
+<script> 
+$(document).ready(function()
+{
+
+   $('.block').click
+   (
+		function()
+		{
+			var id= $(this).attr('id');
+			var data_id= $(".data").html();
+			var panel= $('.panel');
+			var panel_width=$('.panel').css('left');		
+			var pixels = parseInt(panel_width,0);
+
+			//close the element if it was already selected
+			if($(this).hasClass("menu-item-selected"))
+			{
+				//remove css class
+				$(this).removeClass("menu-item-selected");
+				
+				//close the item
+				panel.animate({left: 0});
+			}
+			//open it up if not selected or changing element
+			else
+			{
+			
+				//remove all selected tags
+				$('.block').removeClass("menu-item-selected");
+				
+				//add it to the current one
+				$(this).addClass("menu-item-selected");
+				
+				//if opened, close open and open it up again
+				if(pixels > 0)
+				{
+					panel.animate({left: 0},function()
+					{
+						//empty data
+						$('.data').html('');
+					})
+					.animate({left: panel.outerWidth() },
+						function()
+						{
+							$('.data').html(id);		
+						}
+					);
+				}
+				//open/close	panel
+				else
+				{
+					panel.animate({left: pixels == 0 ? +panel.outerWidth() : 0},
+					function()
+					{
+						$('.data').html(id);		
+					}
+					);
+				}
+			}
+			return false;												
+		}
+	);
+  
+	$('.close').click
+	(
+		function() 
+		{
+			var panel= $('.panel');
+			panel.animate({left: parseInt(panel.css('left'),0) == 0 ? +panel.outerWidth() : 0});
+			return false;
+		}
+	);  
+});
+ 
+</script> 
+<style> 
+	body{
+		font-family:sans-serif;
+		padding:0;
+		margin:0;
+	}
+	h4{
+		padding:5px;
+	}
+	a{ 
+		color:#333 
+	}
+	a:hover{
+		color:#cc0000
+	}
+	#container
+	{
+		width:100%;
+		
+		overflow:auto;
+		
+	}
+	.right
+	{
+		
+		float:right;
+		width:100%;
+		padding-left:250px;
+	}
+	.left
+	{
+		float:left;
+		
+		width:200px;
+		height:100%;
+		position:fixed;
+		left:0;
+		border-right:solid 1px #999999;
+		background-color:red;
+		box-shadow:0px 0px 10px rgba(0, 0, 0, 0.7);
+	}
+	.menu-item
+	{
+		position:relative;
+		
+		padding:15px;
+		
+	}
+	.menu-item:hover
+	{
+		background-color:#ffc72e;
+		cursor:pointer;
+	}
+	.menu-item-selected
+	{
+		background-color:black;
+		color:white;
+	}
+	
+	#panel-frame
+	{
+		width:200px;
+		position:fixed;
+		height:100%;
+	}
+	.panel
+	{
+		background-color:#f2f2f2;
+		position:relative;
+		width:199px;
+		height:100%;
+		box-shadow:0px 0px 10px rgba(0, 0, 0, 0.7);
+		left:0;	 
+	}
+	.data
+	{
+		height:100%;
+	}
+	.head
+	{
+		
+		padding:10px;
+		text-align:right;
+	}
+	#logo
+	{
+		width:700px;margin:0 auto;
+		text-align:left;
+	}
+	.content-container
+	{
+		margin-left:210px; 
+	}
+</style> 
+</head> 
+<body> 
+	<div id="container"> 
+		<div class="right"> 
+			<div class="content-container">
+			
+			<h2>Slide in panels</h2>
+				<ul>
+					<li>Click on a menu option to get a panel slide in.</li>
+					<li>Future update: Clicking on 6 when opened, when clicking it again, should close the slider and not show it again.</li>
+				</ul>
+				
+			<h2>Filler text</h2>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, en im. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Duis leo.Sed fringilla mauris sit amet nibh.Donec sodales sagittis magna.Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. 				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, en im. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Duis leo.Sed fringilla mauris sit amet nibh.Donec sodales sagittis magna.Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. 				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, en im. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Duis leo.Sed fringilla mauris sit amet nibh.Donec sodales sagittis magna.Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. 				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, en im. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Duis leo.Sed fringilla mauris sit amet nibh.Donec sodales sagittis magna.Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. 				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, en im. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Duis leo.Sed fringilla mauris sit amet nibh.Donec sodales sagittis magna.Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. 				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, en im. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Duis leo.Sed fringilla mauris sit amet nibh.Donec sodales sagittis magna.Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+			</div>
+		</div> 
+		
+		<div id="panel-frame"> 
+			<div class="panel"> 
+				<div class="head"><a href="#" class="close">Close</a> 
+			</div> 
+			
+			<!-- Content to load in slide-in menu	-->
+			<div class="data" style="padding:20px"></div> 
+				
+			</div> 
+		</div> 
+ 
+
+		<div class="left"> 
+			<div class="menu-item" >Start</div> 
+			<div class="menu-item block" id="2">2 <span style="float:right;">&rarr;</span> </div> 
+			<div class="menu-item block" id="3">3 <span style="float:right;">&rarr;</span> </div> 
+			<div class="menu-item block" id="4">4 <span style="float:right;">&rarr;</span> </div> 
+			<div class="menu-item block" id="5">5 <span style="float:right;">&rarr;</span> </div> 
+			<div class="menu-item block" id="6">6 <span style="float:right;">&rarr;</span> </div> 
+			<div class="menu-item block" id="7">7 <span style="float:right;">&rarr;</span> </div> 
+			<div class="menu-item" >End</div> 
+		</div> 
+	</div> 
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body> 
+</html> 

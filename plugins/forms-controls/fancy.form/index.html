@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+	<title>Fancy form fields</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="author" content="Philip Beel" />
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+</head>
+<body>
+	<div id="intro">
+		<h1>Fancy form interface</h1>
+		<p>Try out the fancy select option alternative using only HTML CSS and jQuery. Designed to fallback if no javascript is found. The interface design elements are compliments of <a title="zhanna" href="http://forrst.com/posts/Business_ui_kit-4UM">zhanna</a> why not <a href="http://wp.me/peWrk-F7" title="return to blgo post">return to blog post</a></p>
+	</div>
+	<div class="example">
+		<form action="#" method="get" >
+			<div><input type="hidden" value="Mr" name="option" /></div>
+			<h3>Title</h3>
+				<p class="input"><a href="#" class="trigger hidden" title="">&raquo;</a></p>
+				<ul id="title" class="select hidden">
+					<li><a class="option selected" href="#" title="Mr">Mr</a></li>
+					<li><a class="option" href="#" title="Mrs">Mrs</a></li>
+					<li><a class="option" href="#" title="Miss">Miss</a></li>
+					<li><a class="option" href="#" title="Ms">Ms</a></li>
+					<li><a class="option" href="#" title="Sir">Sir</a></li>
+				</ul>
+			<noscript>
+				<p>
+					<select name="title" id="titles">
+						<option value="Mr" selected="selected" >Mr</option>
+						<option value="Mrs" >Mrs</option>
+						<option value="Miss">Miss</option>
+						<option value="Ms" >Ms</option>
+						<option value="Sir" >Sir</option>
+					</select>
+				</p>		
+			</noscript>
+			<h3>Name</h3>
+			<div class="clear">
+				<input type="text" value="" class="text tip" name="firstName" title="First name" />
+				<input type="text" value="" class="text tip" name="surName" title="Surname" />
+			</div>
+			<p><input type="submit" value="Submit" class="orange" /></p>		
+		</form>
+	</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+	<script type="text/javascript" src="jquery.tipsy.js"></script>
+	<script type="text/javascript" src="sort.js"></script>
+	
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>scrollNav.js</title>
+<meta nam='description' content='A jQuery plugin to build a sticky navigation of a articleâ€™s sections with highlighting while scrolling.'>
+<meta name='keywords' content='sticky nav, scrolling nav, navigation, james wilson, jimmynotjim, JS, javascript'>
+<meta name="viewport" content="initial-scale=1">
+<link rel='stylesheet' href='assets/css/style.css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+
+
+</head>
+<body>
+	<header class="page-header" role="banner">
+		<h1 class="page-title"><span>scrollNav.js</span></h1>
+		<h2 class="page-byline">A jQuery plugin for building a scrolling side nav</h2>
+	</header>
+
+	<div class="main" role="main">
+		<article class="post-article">
+			<ul class="all-yours">
+				<li class="your-item">
+					<a href="https://github.com/jimmynotjim/scrollNav/archive/master.zip" class="grab-it">Grab the Source</a>
+				</li>
+				<li class="your-item">
+					<a href="https://github.com/jimmynotjim/scrollNav" class="fork-it">Fork the Repo</a>
+				</li>
+			</ul>
+			<p class="intro">scrollNav is a light jQuery plugin that grabs your page's existing content, divides it up into logical sections and builds a customizable scrolling sidebar navigation. Scroll this page and watch it follow along w/ you.</p>
+
+			<h2>Features</h2>
+			<ul class="features-list">
+				<li class="feature simple">
+					<h3>Simple to setup</h3>
+					<p>A single file import and function in your footer and you're on your way.</p>
+				</li>
+				<li class="feature customize">
+					<h3>Fully Customizable</h3>
+					<p>All the styling is up to you and the few bits controled by the plugin are editable</p>
+				</li>
+				<li class="feature size">
+					<h3>Tiny Size</h3>
+					<p>Damn right it's fast! At 1.8kb min'd, scrollNav is pretty unintrusive.</p>
+				</li>
+			</ul>
+
+			<h2>Usage</h2>
+
+			<h3>Import</h3>
+
+			<p>Start by importing the script to your page, the best location is in the footer, but no matter what, make sure it follows your jquery file.</p>
+
+			<p><pre>&lt;script src=&quot;jquery.scrollNav.min.js&quot;&gt;&lt;/script&gt;</pre></p>
+
+			<h3>Build your page</h3>
+
+			<p>Include a class or id hook on the element you want to apply the plugin to and include an <code>&lt;h3&gt;</code> for section headings you want to inlcude in the navigation.</p>
+
+<p><pre>
+&lt;div class=&quot;main&quot;&gt;
+    &lt;article class=&quot;post-article&quot;&gt;
+        &lt;h1 class=&quot;post-heading&quot;&gt;This is the main heading for the article&lt;/h1&gt;
+        &lt;h2 class=&quot;post-sub-headling&quot;&gt;This is a sub-heading for the article&lt;/h2&gt;
+        &lt;p&gt;Yada yada yada...&lt;/p&gt;
+        &lt;h3&gt;This is a section heading&lt;/h3&gt;
+        &lt;p&gt;More yada yada...&lt;/p&gt;
+        &lt;h3&gt;Another section heading&lt;/h3&gt;
+        &lt;p&gt;More more yada...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/div&gt;
+</pre></p>
+
+			<h3>Initialise</h3>
+
+			<p>Now initialise the plugin with your hook for the article</p>
+
+			<p><pre>$('.post-article').scrollNav();</pre></p>
+
+			<p>and the plugin scans the article, grabs all the <code>&lt;h3&gt;</code>s, adds them to the navigation list and inserts the list before the article. It&#8217;s that easy&#8230;well almost.</p>
+
+			<h3>Styling</h3>
+
+			<p>To keep the plugin simple there are no styles added to the navigation, that&#8217;s all up to you. The nav structure looks like this and includes class names in <a href="https://twitter.com/csswizardry" rel="no-follow">@csswizardry&#8217;s</a> <a href="http://inuitcss.com/" rel="no-follow">inuit.css</a> framework style:</p>
+
+<p><pre>
+&lt;nav class=&quot;scroll-nav&quot;&gt;
+    &lt;span class=&quot;scroll-nav-heading&quot;&gt;
+    &lt;ol class=&quot;scroll-nav-list&quot;&gt;
+        &lt;li class=&quot;scroll-nav-item&quot;&gt;
+            &lt;a class=&quot;scroll-nav-link&quot;&gt;
+</pre></p>
+
+			<p>There are also loaded and loading hooks added to the body element (similar to how Typekit handles font loading) to allow for css transitions or any other changes in css you&#8217;d need.</p>
+
+			<p><pre>&lt;body class=&quot;sn-loading&quot;&gt;</pre></p>
+
+			<p>turns into</p>
+
+			<p><pre>&lt;body class=&quot;sn-active&quot;&gt;</pre></p>
+
+			<h2>Options</h2>
+
+			<p>There are a few customizable options in scrollNav using key : value pairs. Here are the defaults.</p>
+
+<p><pre>
+$('.post-article').scrollNav({
+    sections: 'h3',
+    titleText: 'Scroll To',
+    fixedMargin: 40,
+    animated: true
+});
+</pre></p>
+
+			<h3>Sections</h3>
+
+			<p>As mentioned, the script automatically searches for <code>&lt;h3&gt;</code>s within the target article. If your page structure differs, feel free to target another element, like a <code>&lt;h2&gt;</code> or <code>&lt;h4&gt;</code> or even a class, like <code>.scroll-headline</code>.</p>
+
+			<h3>Title Text</h3>
+
+			<p>scrollNav&#8217;s default title text is &#8216;Jump To&#8217;, but feel free to change it to whatever works for you, like &#8216;Article Sections&#8217; or &#8216;Page Navigation&#8217;</p>
+
+			<h3>Fixed Margin</h3>
+
+			<p>This is the <code>top</code> dimension you set for the <code>.scroll-nav.fixed</code> class, which is applied as the user scrolls down the page and is removed as they scroll above the article. You definitely want to set this if you don&#8217;t use the default 40px, otherwise the nav will jump around as the user scrolls past the top of the article.</p>
+
+			<h3>Animated Scrolling</h3>
+
+			<p>The plugin animates the page scroll when clicking on a nav link by default. Set this to <code>false</code> if you do not wish to animate the scroll.</p>
+
+			<h2>Errors</h2>
+
+			<p>The plugin will refuse to build and log an error message if it doesn&#8217;t find your desired container or any sections within the container. If the nav doesn&#8217;t show up on load, check your browser&#8217;s console.</p>
+
+			<h2>Issues</h2>
+
+			<p>There are a few known issues, including poor location updating when scrolling on touch devices. If you find any others please submit them to the <a href="https://github.com/jimmynotjim/scrollNav/issues" rel="no-follow">issue tracker</a>.</p>
+
+			<h2>License</h2>
+
+			<p>scrollNav is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="no-follow">CC Attribution-ShareAlike license</a>. This means you can recreate, edit or share the plugin as long as you maintain the same open licensing.</p>
+
+			<h2>Authors</h2>
+
+			<p class="author-name">Written by James Wilson (@jimmynotjim) <a href="http://jimmynotjim.com" class="author-link home"></a><a href="http://github.com/jimmynotjim" class="author-link github"></a><a href="http://twitter.com/jimmynotjim" class="author-link twitter"></a><a href="http://dribbble.com/jimmynotjim" class="author-link dribbble"></a></p>
+
+			<p class="author-name">With a bit of guidance from Eric Clemmons (@ericclemmons) <a href="http://github.com/ericclemmons" class="author-link github"></a><a href="http://twitter.com/ericclemmons" class="author-link twitter"></a></p>
+
+			<h2>Colophon</h2>
+			<p>The scrollNav logo is set in Alfa Slab One by <a href="http://jmsole.cl/">JM Sol&#233;</a>. Body text and headlines are set in Open Slab by <a href="http://www.ascendercorp.com/about/steve-matteson/" rel="no-follow">Steve Matteson</a>. Both are delivered using <a href="http://www.google.com/webfonts" rel="no-follow">Google Web Fonts</a>. Icons are Entypo by <a href="http://www.danielbruce.se/" rel="no-follow">Daniel Buce</a> and were packaged using <a href="http://fontello.com" rel="no-follow">Fontello</a>.</p>
+			<p>This demo is hosted and powered by <a href="http://github.com" rel="no-follow">GitHub</a> through <a href="http://pages.github.com" rel="no-follow">GitHub Pages</a>, built using <a href="http://www.sublimetext.com/2" rel="no-follow">Sublime Text 2</a>, <a href="http://incident57.com/codekit/ rel="no-follow"">Codekit</a>, and <a href="http://anvilformac.com/" rel="no-follow">Anvil</a> utilizing standard html5, jQuery and SCSS with the <a href="http://responsablecss.com/" rel="no-follow">ResponsableCSS</a> framework.</p>
+			
+<p>
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</p>
+			
+		</article>
+	</div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+	<script src="jquery.scrollNav.min.js"></script>
+	<script>
+		$('.post-article').scrollNav({
+			sections: 'h2',
+			titleText: 'Sections',
+			fixedMargin: 60
+		});
+		var $item = $('.scroll-nav-item');
+		$.each($item, function(){
+			$text = $(this).find('a').html().toLowerCase();
+			$(this).addClass($text);
+		});
+	</script>
+</body>
+</html>

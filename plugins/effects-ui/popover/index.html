@@ -1,0 +1,260 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Popover jQuery Plugin</title>
+
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="vendor/prettify.css" type="text/css" rel="stylesheet" />
+    <link href="vendor/jquery.jscrollpane.css" type="text/css" rel="stylesheet" />
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/popover.less" rel="stylesheet/less" type="text/css" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="Icon-96x96.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="Icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" href="Icon-36x36.png">
+    <link rel="shortcut icon" href="Icon-36x36.png">
+    <meta http-equiv="cleartype" content="on">
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400' rel='stylesheet' type='text/css'>
+</head>
+<body onload="prettyPrint()">
+<div class="container-fluid">
+<div class="row-fluid">
+<div id="content" class="span12">
+<!-- Template Start -->
+<h2 id="components-popover">
+    Popover
+    <small>popover.js</small>
+</h2>
+<div class="row-fluid">
+                    <span class="span3 columns">
+                        <p>To use the Popover, first include the required javascript and css files.</p>
+                        <p>Next, create the popover with either a jQuery plugin call,
+                            or by creating a classic javascript object:</p>
+                    </span>
+
+                    <span class="span9 columns">
+                        <h4>The jQuery plugin</h4>
+                        <p><pre class="prettyprint">
+    var menu1 = {
+        id: "menu1", title: "Hello World",
+        contents: [
+            {name: "Item 1"},
+            {name: "Item 2"},
+            {name: "Item 3"}]
+        });
+    $("#menu1").optionsPopover(menu1);</pre></p>
+
+                        <h4>Creating a javascript object</h4>
+                        <p><pre class="prettyprint">
+    var p = new OptionsPopover("#menu1");
+    p.addMenu(menu1);</pre></p>
+                    </span>
+</div>
+<p>
+    <span class="label label-info">Note:</span> The id <code>#menu1</code> is also the name linked to the first menu for
+    that button. To access the starting menus from other buttons, just set the menu item's id to the starting menu's id.
+</p>
+
+<h3>Example</h3>
+<p><a id="button1" class="btn">Show Popover!</a>
+    <a id="button2" class="btn">Show Another Popover!</a></p>
+<h4>Html</h4>
+                    <pre class="prettyprint lang-html">
+    &lt;button id="menu1"&gt;Show Popover!&lt;/button&gt;
+    &lt;button id="menu2"&gt;Show Another Popover!&lt;/button&gt;</pre>
+<h4>Javascript</h4>
+                    <pre class="prettyprint lang-js">
+    $("#menu1").optionsPopover({
+        id: "menu1",
+        title: "Hello World!",
+        contents: [
+            {"name": "Menu Item 1", url: "m1"},
+            {"name": "Menu Item 2", id: "m2"},
+            {"name": "Link to second button's menu...", id: "menu2"}
+        ]
+    });
+    $("#menu2").optionsPopover({
+        id:"menu2",
+        title: "Hello Again, World!",
+        contents: [
+                {"name": "Another Menu Item 1", url: "am1"},
+                {"name": "Another Menu Item 2", url: "am2"},
+                {"name": "Link to first button's menu...", id: "menu1"}
+            ]
+        }
+    );</pre>
+<h3>Events</h3>
+<p>The following are jQuery custom events fired at different times within the popover:</p>
+<p><table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th style="width: 150px;">Event</th>
+        <th>Description</th>
+        <th>Objects Passed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>popover.created</td>
+        <td>This event is fired at the end of the createPopover function.</td>
+        <td class="muted">None</td>
+    </tr>
+    <tr>
+        <td>popover.resize</td>
+        <td>This event is fired when the window is resized (redundant event, will be removed in future release).</td>
+        <td class="muted">None</td>
+    </tr>
+    <tr>
+        <td>popover.setContent</td>
+        <td>This event is fired at the end of the setContent function, showing the contents have been modified.</td>
+        <td class="muted">None</td>
+    </tr>
+    <tr>
+        <td>popover.visible</td>
+        <td>This event is fired at the end of the toggleVisible function and fires when the popover is visible to the user. (Currently does not wait css transitions to complete).</td>
+        <td class="muted">None</td>
+    </tr>
+    <tr>
+        <td>popover.menuClicked</td>
+        <td>This event is fired when a menu item in the popover has been clicked.</td>
+        <td class="muted">None</td>
+    </tr>
+    </tbody>
+</table></p>
+
+<h3>Popover w/ jScrollPane Plugin</h3>
+<p>
+    The popover can be easily integrated with the jScrollPane jQuery plugin. This adds mobile functionality
+    to scrolling divs and adds more customizability to the look and feel of the popover.
+</p>
+<p>
+<h4>Javascript</h4>
+                    <pre class="prettyprint lang-js">
+    //To initialise, use the code below:
+    $(document).on("popover.created", function () {
+        $("#popoverContentWrapper").jScrollPane({
+            horizontalGutter: 0,
+            verticalGutter: 0,
+            'showArrows': false
+        });
+    });
+
+    $(document).on('popover.setContent popover.visible popover.resize', function (e) {
+        $("#popoverContentWrapper").data('jsp').reinitialise();
+    });</pre>
+    
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+
+</p>
+<!--form class="form-vertical">
+    <fieldset>
+        <legend>Create Menu</legend>
+        <div class="control-group">
+            <label class="control-label" for="input01">Title</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input01">
+                <p class="help-block">Title will appear at the top of the popover.</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input02">ID</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input02">
+                <p class="help-block">Insert id here.</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input03">Menu Entry</label>
+            <div class="controls">
+                <textarea class="input-xlarge" id="input03" rows="4"></textarea>
+                <p class="help-block">Write the menu block in json.</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Create Menu</button>
+            </div>
+        </div>
+    </fieldset>
+</form-->
+
+<!-- Template End -->
+</div>
+</div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+<script src="vendor/less.min.js"></script>
+<script src="vendor/jquery.jScrollPane.js"></script>
+<script src="vendor/jquery.mousewheel.js"></script>
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js"></script>
+<script src="vendor/prettify.js"></script>
+<script src="js/popover.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#button1").optionsPopover({
+            id: "button1",
+            title: "Hello World!",
+            contents: [
+                {"name": "About", url: "./index.html"},
+                {"name": "Components", url: "./components.html"},
+                {"name": "Link to second button's menu...", id: "button2"}
+            ]
+        });
+        $("#button2").optionsPopover({
+                    id:"button2",
+                    title: "Hello Again, World!",
+                    contents: [
+                        {"name": "Facebook", url: "http://www.facebook.com"},
+                        {"name": "Google", url: "http://www.google.com"},
+                        {"name": "Link to first button's menu...", id: "button1"}
+                    ]
+                }
+        );
+
+        $(document).on("popover.created", function () {
+            $("#popoverContentWrapper").jScrollPane({
+                horizontalGutter: 0,
+                verticalGutter: 0,
+                'showArrows': false
+            });
+        });
+
+        $(document).on('popover.setContent popover.updatePositions popover.visible popover.resize', function (e) {
+            $("#popoverContentWrapper").data('jsp').reinitialise();
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="imagetoolbar" content="no" />
+<title>TabSelect jQuery Plugin</title>
+
+<link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+
+<link href="prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="prettify.js"></script>
+
+<link rel="stylesheet" type="text/css" href="global.css" />
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+<script type="text/javascript" src="jquery.tabselect-0.2.js"></script>
+
+<style type="text/css">
+<!--
+
+div.demo span span {
+	font-weight: normal;
+	letter-spacing: 1px;
+	text-decoration: none;
+	padding: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-bottom: 1px;
+	margin-right: 6px;
+	
+	cursor: hand;
+	cursor: pointer;
+	
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .2em;
+	-moz-border-radius: .2em;
+	border-radius: .2em;
+	-webkit-box-shadow: 0 1px 2px rgba(160,160,160,1);
+	-moz-box-shadow: 0 1px 2px rgba(160,160,160,1);
+	box-shadow: 0 1px 2px rgba(160,160,160,1);
+}
+
+div.demo span.active {
+	background: #99cc33;
+	color: #fff;
+	border: 1px #66aa00 solid;
+}
+div.demo span.active:hover {
+	background: #66aa00;
+	color: #fff;
+	border: 1px #338800 solid;
+}
+
+div.demo span.inactive {
+	background: #ddd;
+	color: #888;
+	border: 1px #bbb solid;
+}
+div.demo span.inactive:hover {
+	background: #bbb;
+	color: #fff;
+	border: 1px #888 solid;
+}
+
+-->
+</style>
+
+<script type="text/javascript">
+	
+var languages = ["de","fr","en","es","it"];
+
+var cars = ["Audi","Fiat","Ford","Peugeot","Ferrari"];
+
+$(document).ready(function(){
+	
+	prettyPrint(); // Google Code Prettify
+
+	$('#langtabs').tabSelect({
+		tabElements: languages,
+		selectedTabs: [ 'de', 'en' ]
+	});
+
+	$('#cartabs1').tabSelect({
+		tabElements: cars,
+		selectedTabs: [ ]
+	});
+
+	$('#cartabs2').tabSelect({
+		tabElements: cars,
+		selectedTabs: 'all'
+	});
+
+	$('#cartabs3').tabSelect({
+		tabElements: cars,
+		formElement: '#myinput'
+	});
+
+	$('#cartabs4').tabSelect({
+		tabElements: cars,
+		formElement: '#myselect'
+	});
+
+	$('#cartabs5').tabSelect({
+		tabElements: cars,
+		formElement: '#myhiddeninput',
+		onChange: function(selection){
+			console.log($('#myhiddeninput').val());
+		}
+	});
+
+	$('#cartabs6').tabSelect({
+		tabElements: cars,
+		selectedTabs: [ 'Fiat', 'Ford' ]
+	});
+
+});
+	
+</script>
+
+</head>
+<body>
+  <div id="pluginnav">
+	<div>
+	<a href="index.php" class="overview">jQuery Plugins by Fredi Bach:</a>  
+	<a href="inputnotes.php">InputNotes</a>, 
+	<a href="autoanchors.php">AutoAnchors</a>, 
+	<a href="randomclass.php">RandomClass</a>, 
+	<a href="removeoverflow.php">RemoveOverflow</a>,
+	<a href="aparthide.php">aPartHide</a>,
+	<a href="tabselect.php">TabSelect</a>,
+	<a href="defaultstagger.php">DefaultsTagger</a>,
+	<a href="selectswitcher.php">SelectSwitcher</a>,
+	<a href="livingfade.php">LivingFade</a>, 
+	<a href="slideinreplace.php">SlideInReplace</a>,
+	<a href="waveanimate.php">WaveAnimate</a>
+	</div>
+</div>  <div id="container">
+    <h1>TabSelect jQuery Plugin</h1>
+    
+    <p>
+		A plugin to select one or more array or form entries visually, for example to filter a list or replace a multiselect form element.
+	</p>
+    <p class="contentnav">
+      <a href="#demo">Demo</a>
+      <a href="#usage">Usage</a>
+      <a href="#styling">Styling</a>
+      <a href="#download">Download</a>
+      <a href="#compatibility">Compatibility</a>
+      <a href="#changelog">Changelog</a>
+    </p>
+    
+    <h2 id="demo">Demo</h2>
+
+	<p>
+		In this first demo you can see the basic usage of the plugin. You have an array of possible values and you define the initial selection. 
+		If you click on one of the options, the state toggles:
+	</p>
+
+	<div class="demo">
+		<span id="langtabs"></span>
+	</div>
+
+	<p>
+		In the next demo we use a different array with car manufacturers. You can use the plugin as often as you want and everytime with different settings. 
+		In this case we initialize the plugin without anything selected:
+	</p>
+
+	<div class="demo">
+		<span id="cartabs1"></span>
+	</div>
+	
+	<p>
+		You can of course start with everything selected, it's up to you:
+	</p>
+	
+	<div class="demo">
+		<span id="cartabs2"></span>
+	</div>
+	
+	<p>
+		In all above examples, we've defined the selection in the initialization of the plugin. Another way to do it is by using
+		a text input as the source for the selection:
+	</p>
+	
+	<div class="demo">
+		<input type="text" id="myinput" name="myinput" value="Audi,Ford" size=30> 
+		<span id="cartabs3"></span>
+	</div>
+	
+	<p>
+		If you toggle an option, the text changes automatically, in other words, you can use that text field in a form to submit the selection. In such a case 
+		you would of course hide the text field first. Multi selects are fine as well, if you don't want comma separated returns:
+	</p>
+	
+	<div class="demo">
+		<select id="myselect" name="myselect" MULTIPLE SIZE=5> 
+			<option value="Audi" selected>Audi</option> 
+			<option value="Fiat">Fiat</option> 
+			<option value="Ford">Ford</option> 
+			<option value="Peugeot">Peugeot</option> 
+			<option value="Ferrari" selected>Ferrari</option> 
+		</select> 
+		<span id="cartabs4"></span>
+	</div>
+	
+	<p>
+		Here's one where the textfield is hidden and this example has an additional onChange callback that outputs the selection in your 
+		firebug console:
+	</p>
+	
+	<div class="demo">
+		<input type="hidden" id="myhiddeninput" name="myhiddeninput" value="Audi,Ford"> 
+		<span id="cartabs5"></span>
+	</div>
+	
+	<p>
+		Additionally the plugin supports slecting all or selecting no options as demonstrated in this demo:
+	</p>
+	
+	<div class="demo">
+		<span id="cartabs6"></span> 
+		 &nbsp; 
+		<a href="javascript:void(null);" onclick="$('#cartabs6').data('tabSelect').selectAll();">select all</a> 
+		 &nbsp; 
+		<a href="javascript:void(null);" onclick="$('#cartabs6').data('tabSelect').deselectAll();">select none</a>
+	</div>
+	
+	<h2 id="usage">Usage</h2>
+    
+    <p>This is how we called the plugin for the first demo (the one with the languages):</p>
+
+<pre class="prettyprint lang-js">
+var languages = ["de","fr","en","es","it"];
+
+$('#langtabs').tabSelect({
+  tabElements: languages,
+  selectedTabs: [ 'de', 'en' ]
+});
+</pre>
+	
+	<p>This is how we made the first car example, note the empty selection:</p>
+	
+<pre class="prettyprint lang-js">
+var cars = ["Audi","Fiat","Ford","Peugeot","Ferrari"];
+
+$('#cartabs1').tabSelect({
+  tabElements: cars,
+  selectedTabs: [ ]
+});
+</pre>
+	
+	<p>This is how you select all:</p>
+
+<pre class="prettyprint lang-js">
+$('#cartabs2').tabSelect({
+  tabElements: cars,
+  selectedTabs: 'all'
+});
+</pre>
+
+	<p>Check the source of this page for the rest of the demos. They are pretty straight forward.</p>
+	
+    <h2 id="styling">Styling</h2>
+    
+    <p>
+		You're completely free to style your elements. Default setting for the tabs is a span element, but you can change that in the settings 
+		(check the plugin source, the default settings are right at the top). Here's the styling I used for the demos:
+	</p>
+
+<pre class="prettyprint lang-js">
+div.demo span span {
+	font-weight: normal;
+	letter-spacing: 1px;
+	text-decoration: none;
+	padding: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-bottom: 1px;
+	margin-right: 6px;
+	
+	cursor: hand;
+	cursor: pointer;
+	
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .2em;
+	-moz-border-radius: .2em;
+	border-radius: .2em;
+	-webkit-box-shadow: 0 1px 2px rgba(160,160,160,1);
+	-moz-box-shadow: 0 1px 2px rgba(160,160,160,1);
+	box-shadow: 0 1px 2px rgba(160,160,160,1);
+}
+
+div.demo span.active {
+	background: #99cc33;
+	color: #fff;
+	border: 1px #66aa00 solid;
+}
+div.demo span.active:hover {
+	background: #66aa00;
+	color: #fff;
+	border: 1px #338800 solid;
+}
+
+div.demo span.inactive {
+	background: #ddd;
+	color: #888;
+	border: 1px #bbb solid;
+}
+div.demo span.inactive:hover {
+	background: #bbb;
+	color: #fff;
+	border: 1px #888 solid;
+}
+</pre>
+
+	<h2 id="download">Download</h2>
+    
+    <p>Current version: <a href="js/jquery.tabselect-0.2.js">jquery.tabselect-0.2.js</a> (3.9k not minified)</p>
+    
+    <h2 id="compatibility">Compatibility</h2>
+    
+    <p>
+      Tested in:
+      <ul>
+        <li>Internet Explorer 6 and 7</li>
+        <li>Firefox 3.5+</li>
+        <li>Safari 4+</li>
+        <li>Google Chrome</li>
+        <li>Opera 9.6</li>
+      </ul>
+      With:
+      <ul>
+        <li>jQuery 1.5</li>
+		<li>jQuery 1.4</li>
+        <li>jQuery 1.3.2</li>
+      </ul>
+      <p>There really is nothing complicated in there, so expect the plugin to work in older browsers as well.</p>
+    </p>
+    
+    <h2 id="changelog">Changelog</h2>
+    
+    <p>
+      <ul>
+        <li>0.2: First official release</li>
+      </ul>
+    </p>
+    
+    <div id="footer">Copyright (c) 2011 Fredi Bach - <a href="http://fredibach.ch" target="_blank">fredibach.ch</a></div>
+    
+  </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15334778-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

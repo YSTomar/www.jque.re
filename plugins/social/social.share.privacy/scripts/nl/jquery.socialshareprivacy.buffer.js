@@ -1,0 +1,1 @@
+(function($,undefined){$.extend($.fn.socialSharePrivacy.settings.services.buffer,{txt_info:"Ter verduidelijking: De Buffer knop wordt hiermee geactiveerd. Hiermee wordt data naar Buffer verzonden – Klik voor meer informatie op <em>i</em>.",txt_off:"niet verbonden met Buffer",txt_on:"verbonden met Buffer"});})(jQuery);

@@ -1,0 +1,145 @@
+﻿<!doctype html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Zebra_Dialog examples</title>
+
+        <link rel="stylesheet" href="public/css/reset.css" type="text/css">
+        <link rel="stylesheet" href="public/css/zebra_dialog.css" type="text/css">
+        <link rel="stylesheet" href="public/css/style.css" type="text/css">
+        <link rel="stylesheet" href="libraries/highlight/public/css/ir_black.css" type="text/css">
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="libraries/highlight/public/javascript/highlight.js"></script>
+        <script type="text/javascript" src="public/javascript/zebra_dialog.js"></script>
+        <script type="text/javascript" src="public/javascript/functions.js"></script>
+
+        <script type="text/javascript">
+        hljs.initHighlightingOnLoad();
+        </script>
+
+    </head>
+
+    <body>
+
+        <div class="main-wrapper">
+
+            <h3>Zebra_Dialog Demos</h3>
+
+            <strong>1.</strong> Default dialog box, no custom settings. Click <a href="javascript:void(0)" id="example1">here</a> to open.
+
+            <pre><code class="javascript">$.Zebra_Dialog('&lt;strong&gt;Zebra_Dialog&lt;/strong&gt;, a small, compact and highly configurable dialog box plugin for jQuery');</code></pre>
+
+            <p>&nbsp;</p>
+
+            <strong>2.</strong> The five dialog box types, with titles: <a href="javascript:void(0)" id="example2_1">error</a>, <a href="javascript:void(0)" id="example2_2">warning</a>, <a href="javascript:void(0)" id="example2_3">question</a>, <a href="javascript:void(0)" id="example2_4">information</a> and <a href="javascript:void(0)" id="example2_5">confirmation</a>.
+
+<pre><code class="javascript">// this example is for the "error" box only
+// for the other types the "type" property changes to "warning", "question", "information" and "confirmation"
+// and the text for the "title" property also changes
+$.Zebra_Dialog('&lt;strong&gt;Zebra_Dialog&lt;/strong&gt;, a small, compact and highly configurable dialog box plugin for jQuery', {
+    'type':     'error',
+    'title':    'Error'
+});</code></pre>
+
+            <p>&nbsp;</p>
+
+            <strong>3.</strong> Custom buttons and the callback function. Click <a href="javascript:void(0)" id="example3">here</a> to open.<br>
+            <em>Note that the onClose event is executed *after* the dialog box is closed! see the next example for executing functions *before* the closing of the dialog box</em>
+
+<pre><code class="javascript">$.Zebra_Dialog('&lt;strong&gt;Zebra_Dialog&lt;/strong&gt;, a small, compact and highly configurable dialog box plugin for jQuery', {
+    'type':     'question',
+    'title':    'Custom buttons',
+    'buttons':  ['Yes', 'No', 'Help'],
+    'onClose':  function(caption) {
+        alert((caption != '' ? '"' + caption + '"' : 'nothing') + ' was clicked');
+    }
+});</code></pre>
+
+            <p>&nbsp;</p>
+
+            <strong>3.1</strong> Custom buttons with attached callback functions. Click <a href="javascript:void(0)" id="example31">here</a> to open.<br>
+            <em>Note that the callback functions attached to custom buttons are executed *before* the dialog box is closed and as soon as a button is clicked! see the previous example for executing functions *after* the closing of the dialog box</em>
+
+<pre><code class="javascript">$.Zebra_Dialog('&lt;strong&gt;Zebra_Dialog&lt;/strong&gt;, a small, compact and highly configurable dialog box plugin for jQuery', {
+    'type':     'question',
+    'title':    'Custom buttons',
+    'buttons':  [
+                    {caption: 'Yes', callback: function() { alert('"Yes" was clicked')}},
+                    {caption: 'No', callback: function() { alert('"No" was clicked')}},
+                    {caption: 'Cancel', callback: function() { alert('"Cancel" was clicked')}}
+                ]
+});</code></pre>
+
+            <p>&nbsp;</p>
+
+            <strong>4.</strong> Position the dialog box in the top-right corner. Click <a href="javascript:void(0)" id="example4">here</a> to open.
+
+<pre><code class="javascript">$.Zebra_Dialog('&lt;strong&gt;Zebra_Dialog&lt;/strong&gt;, a small, compact and highly configurable dialog box plugin for jQuery', {
+    'title':    'Custom positioning',
+    'position': ['right - 20', 'top + 20']
+});</code></pre>
+
+            <p>&nbsp;</p>
+
+            <strong>5.</strong> Use as a notification widget - no buttons and close automatically after 2 seconds.
+            <br>
+            <em>Note how the plugin needs to be instantiated with the "new" keyword or only the last opened box will close!</em><br>
+            Click <a href="javascript:void(0)" id="example5">here</a> to open.
+
+<pre><code class="javascript">new $.Zebra_Dialog('&lt;strong&gt;Zebra_Dialog&lt;/strong&gt;, a small, compact and highly configurable dialog box plugin for jQuery', {
+    'buttons':  false,
+    'modal': false,
+    'position': ['right - 20', 'top + 20'],
+    'auto_close': 2000
+});</code></pre>
+
+            <p>&nbsp;</p>
+
+            <strong>6.</strong> Customizing the appearance - make the title bar have a dark-blue background and show a custom icon!
+
+            <br><br>The CSS is
+
+<pre><code class="css">/* Notice how we're targting the dialog box's title bar through the custom class */
+.myclass .ZebraDialog_Title { background: #330066 }
+.myclass .ZebraDialog_Body { background-image: url('coffee_48.png') }</code></pre>
+
+            Click <a href="javascript:void(0)" id="example6">here</a> to open.<br>
+
+<pre><code class="javascript">new $.Zebra_Dialog('Buy me a coffee if you like this plugin!', {
+    'custom_class':  'myclass',
+    'title': 'Customizing the appearance'
+});</code></pre>
+
+            <p>&nbsp;</p>
+
+        </div>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+
+</html>

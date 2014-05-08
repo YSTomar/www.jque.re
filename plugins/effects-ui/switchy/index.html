@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <link href="switchy.css" rel="stylesheet" />
+    <link href="demos/bootstrap.min.css" rel="stylesheet" />
+    <link href="demos/application.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span1 offset4 female">
+          <img src='demos/female.png' class='gender' gender='female' />
+        </div>
+        <div class="span2">
+          <select id='switch-me'>
+            <option value='female'>female</option>
+            <option value='' selected="selected"></option>
+            <option value='male'>male</option>
+          </select>
+        </div>
+        <div class="span1">
+          <img src='demos/male.png' class='gender' gender='male' />
+        </div>
+      </div>
+      <div class='row'>
+        <div class='span12' id="console">
+        </div>
+      </div>
+    </div>
+<!--     <table>
+      <tr>
+        <td width='10%'>
+          <img src='demos/female.png' class='gender' gender='female' />
+        </td>
+        <td width='80%'>
+          <select id='switch-me'>
+            <option value='female'>female</option>
+            <option value='' selected="selected"></option>
+            <option value='male'>male</option>
+          </select>
+        </td>
+        <td width='10%'>
+          <img src='demos/male.png' class='gender' gender='male' />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" id="console">
+        <td>
+      </tr>
+    </table> -->
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+    <script type="text/javascript" src="demos/jquery.animate-color.js"></script>
+    <script type="text/javascript" src="demos/jquery.event.drag.js"></script>
+    <script type="text/javascript" src="switchy.js"></script>
+    <script type="text/javascript" src="demos/application.js"></script>
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+  </body>
+</html>

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Add Clear jQuery Plugin Demo</title>
+	<meta name="author" content="Stephen Korecky">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+	<script type="text/javascript" src="addclear.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	  $(document).ready(function(){
+	    $("input").addClear();
+	  });
+	</script>
+	<style type="text/css" media="screen">
+	
+	body {
+	  font:normal 12px/1.5 "Helvetica Neue", Helvetica, sans-serif;
+	}
+	
+	 #wrapper {
+	   margin:100px auto 0;
+	   width:300px;
+	 }
+	 
+	 #wrapper h1 {
+	   font-size:18px;
+	 }
+	 
+	 #wrapper #search {
+	   background:#EEE;
+ 	   -moz-border-radius: 5px;
+ 	   -webkit-border-radius: 5px;
+ 	   font-weight:bold;
+ 	   padding:10px;
+ 	 }
+ 	 
+	 #wrapper #search label {
+	   font-weight:bold;
+	   margin:0 5px;
+	 }
+	 
+	 #wrapper #search input {
+	   width:200px;
+	 }
+	 
+	 #wrapper #search span.note {
+	   font-size:10px;
+	   font-weight:normal;
+	 }
+	</style>
+</head>
+<body>
+  <div id="wrapper">
+    <h1>Add Clear jQuery Plugin</h1>
+    <p id="search">
+      <label for="search_input">Search</label>
+      <input type="text" name="search" value="" id="search_input">
+      <span class="note">When you type something in this box, the clear button will appear.</span>
+    </p>
+    <p><a href="http://github.com/skorecky/Add-Clear">Github Project Page</a> | <a href="http://twitter.com/skorecky">@skorecky</a></p>
+  </div>
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

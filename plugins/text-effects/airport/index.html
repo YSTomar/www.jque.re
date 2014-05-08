@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Airport - Jquery plugin demo</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<meta name="keywords" content="xhtml, css, javascript, template" />
+		<meta name="description" content="xhtml, css and javascript template" />
+		<meta name="author" content="Jan Jarfalk" />
+		<meta name="contact" content="jan.jarfalk@unwrongest.com" />
+		<meta name="copyright" content="Jan Jarfalk" />
+	</head>
+	<style>
+		body, html { padding: 0; margin: 0; }
+		body { font: bold 1.618em Helvetica; padding: 1em;}
+		#stuff span:first-child { text-transform: uppercase; }
+	</style>
+	<body>
+		<p>I like <span id="stuff"></span></p>
+		<p><a href="http://www.unwrongest.com/projects/airport/" target="_blank">&laquo; Back to project page</a></p>
+
+
+
+
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+		<script src="jquery.airport.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// <![CDATA[	
+			$(document).ready(function(){				
+				$('#stuff').airport(['berlin','odessa','melbourne','moscow']);
+			});	
+			// ]]>
+		</script>
+		
+		
+		
+	<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

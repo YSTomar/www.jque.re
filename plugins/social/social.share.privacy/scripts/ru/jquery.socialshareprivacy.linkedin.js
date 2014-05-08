@@ -1,0 +1,1 @@
+jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.linkedin,{txt_info:"Два клика для большей конфедициальности: Кнопка LinkedIn активируется если клините по ней мышкой. Активация кнопки отправляет и хранит данные на серверах LinkedIn &ndash; для подробной информации нажмите <em>i</em>.",txt_off:"Не соединяться с LinkedIn",txt_on:"Соединиться с LinkedIn"});

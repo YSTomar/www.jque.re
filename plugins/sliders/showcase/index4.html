@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Awkward Showcase - Demo #4</title>
+<link rel="stylesheet" href="css/style.css" />
+
+
+
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+<script type="text/javascript" src="jquery.aw-showcase.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function()
+{
+	$("#showcase").awShowcase(
+	{
+		content_width:			700,
+		content_height:			470,
+		hundred_percent:		false,
+		auto:					false,
+		interval:				3000,
+		continuous:				false,
+		loading:				true,
+		tooltip_width:			200,
+		tooltip_icon_width:		32,
+		tooltip_icon_height:	32,
+		tooltip_offsetx:		18,
+		tooltip_offsety:		0,
+		arrows:					true,
+		buttons:				true,
+		btn_numbers:			false,
+		keybord_keys:			true,
+		mousetrace:				false,
+		pauseonover:			true,
+		transition:				'fade', /* hslide/vslide/fade */
+		transition_speed:		500,
+		transition_delay:		300,
+		show_caption:			'onhover', /* onload/onhover/show */
+		thumbnails:				true,
+		thumbnails_position:	'outside-last', /* outside-last/outside-first/inside-last/inside-first */
+		thumbnails_direction:	'horizontal', /* vertical/horizontal */
+		thumbnails_slidex:		0, /* 0 = auto / 1 = slide one thumbnail / 2 = slide two thumbnails / etc. */
+		dynamic_height:			true,
+		speed_change:			false,
+		viewline:				false
+	});
+});
+
+</script>
+</head>
+<body>
+
+<div class="menu"><a href="index.html">Demo #1</a> (Normal) | <a href="index2.html">Demo #2</a> (Vertical thumnbails) | <a href="index3.html">Demo #3</a> (Horizontal thumbnails) | <a href="index4.html" class="active">Demo #4</a> (Dynamic height) | <a href="index5.html">Demo #5</a> (Hundred percent) | <a href="index6.html">Demo #6</a> (Viewline)</div>
+<div id="error"></div>
+<div style="width: 700px; margin: auto;">
+
+	<!-- This is the button used to switch between One Page and Slideshow. -->
+	<p><a id="awOnePageButton" href="#"><span class="view-page">View As One Page</span><span class="view-slide">View As Slideshow</span></a></p>
+	
+	<div id="showcase" class="showcase">
+		<!-- Each child div in #showcase represents a slide -->
+		<div class="showcase-slide">
+			<div class="showcase-content">
+				<img src="images/05.jpg" alt="05" />
+			</div>
+			<div class="showcase-thumbnail">
+				<img src="images/05.jpg" alt="05" width="140px" />
+				<!-- The div below with the class .showcase-thumbnail-cover is used for the thumbnails active state. -->
+				<div class="showcase-thumbnail-cover"></div>
+			</div>
+		</div>
+		<!-- Each child div in #showcase represents a slide -->
+		<div class="showcase-slide">
+			<!-- Put the slide content in a div with the class .showcase-content. -->
+			<div class="showcase-content">
+				<img src="images/01.jpg" alt="01" />
+			</div>
+			<!-- Put the thumbnail content in a div with the class .showcase-thumbnail -->
+			<div class="showcase-thumbnail">
+				<img src="images/01.jpg" alt="01" width="140px" />
+				<div class="showcase-thumbnail-cover"></div>
+			</div>
+			<!-- Put the caption content in a div with the class .showcase-caption -->
+			<div class="showcase-caption">
+				<h2>Be creative. Get Noticed!</h2>
+			</div>
+		</div>
+		<!-- Each child div in #showcase represents a slide -->
+		<div class="showcase-slide">
+			<div class="showcase-content">
+				<img src="images/04.jpg" alt="04" />
+			</div>
+			<div class="showcase-thumbnail">
+				<img src="images/04.jpg" alt="04" width="140px" />
+				<div class="showcase-thumbnail-cover"></div>
+			</div>
+		</div>
+		<!-- Each child div in #showcase represents a slide -->
+		<div class="showcase-slide">
+			<div class="showcase-content">
+				<img src="images/03.jpg" alt="03" />
+			</div>
+			<div class="showcase-thumbnail">
+				<img src="images/03.jpg" alt="01" width="140px" />
+				<div class="showcase-thumbnail-cover"></div>
+			</div>
+		</div>
+		<!-- Each child div in #showcase represents a slide -->
+		<div class="showcase-slide">
+			<div class="showcase-content">
+				<img src="images/02.jpg" alt="02" />
+			</div>
+			<div class="showcase-thumbnail">
+				<img src="images/02.jpg" alt="01" width="140px" />
+				<div class="showcase-thumbnail-cover"></div>
+			</div>
+			<!-- Put the tooltips in a div with the class .showcase-tooltips. -->
+			<div class="showcase-tooltips">
+				<!-- Each anchor in .showcase-tooltips represents a tooltip. The coords attribute represents the position of the tooltip. -->
+				<a href="http://www.awkward.se" coords="634,130">
+					<!-- The content of the anchor-tag is displayed in the tooltip. -->
+					This is a tooltip that displays the anchor html in a nice way.
+				</a>
+				<a href="http://www.awkward.se" coords="200,440">
+					This is a tooltip that displays the anchor html in a nice way.
+				</a>
+				<a href="http://www.awkward.se" coords="600,440">
+					This is a tooltip that displays the anchor html in a nice way.
+				</a>
+				<a href="http://www.awkward.se" coords="356, 172">
+					<!-- You can add multiple elements to the anchor-tag which are display in the tooltip. -->
+					<img src="images/glasses.png" />
+					<span style="display: block; font-weight: bold; padding: 3px 0 3px 0; text-align: center;">
+						White Glasses: 500$
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<div style="text-align: center; margin-top: 50px;">
+	<a href="http://www.awkwardgroup.com/sandbox/awkward-showcase-a-jquery-plugin">
+		Click here to download and learn more about this jQuery plugin.
+	</a>
+</div>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

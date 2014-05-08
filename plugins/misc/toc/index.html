@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html><html><head><title>TOC | jQuery Table of Contents Plugin</title><link href="http://fonts.googleapis.com/css?family=Voces" rel="stylesheet" type="text/css"><link rel="stylesheet" href="common.css"/>
+
+</head><body><div id="toc"></div><a href="http://github.com/jgallen23/toc"><img style="position: absolute; top: 0; right: 0; border: 0;" src="ribbon.png" alt="Fork me on GitHub"></a><div id="wrapper"><h1>TOC</h1>
+<p>TOC is a jQuery plugin that will automatically generate a table of contents for your page.  You can see an example of it on the left side of the page.
+
+</p>
+<h2>Features</h2>
+<ul>
+<li>Completely customizable</li>
+<li>Click to smooth scroll to that spot on the page</li>
+<li>Automatically highlight the current section</li>
+<li>Extremely lightweight (744 bytes gzipped)</li>
+<li>Can have multiple on a page</li>
+</ul>
+<h2>Download</h2>
+<ul>
+<li><a href="https://raw.github.com/jgallen23/toc/master/dist/jquery.toc.min.js">Production</a></li>
+<li><a href="https://raw.github.com/jgallen23/toc/master/dist/jquery.toc.js">Development</a></li>
+<li><a href="http://github.com/jgallen23/toc">Source</a></li>
+</ul>
+<h2>Usage</h2>
+<pre><code>$(<span class="string">'#toc'</span>).toc();</code></pre>
+<h3>Options</h3>
+<p>Defaults shown below
+
+</p>
+<pre><code>$(<span class="string">'#toc'</span>).toc({
+    <span class="string">'selectors'</span>: <span class="string">'h1,h2,h3'</span>, <span class="comment">//elements to use as headings</span>
+    <span class="string">'container'</span>: <span class="string">'body'</span>, <span class="comment">//element to find all selectors in</span>
+    <span class="string">'smoothScrolling'</span>: <span class="literal">true</span>, <span class="comment">//enable or disable smooth scrolling on click</span>
+    <span class="string">'prefix'</span>: <span class="string">'toc'</span>, <span class="comment">//prefix for anchor tags and class names</span>
+    <span class="string">'onHighlight'</span>: <span class="keyword">function</span>(el) {}, <span class="comment">//called when a new section is highlighted </span>
+    <span class="string">'highlightOnScroll'</span>: <span class="literal">true</span>, <span class="comment">//add class to heading that is currently in focus</span>
+    <span class="string">'highlightOffset'</span>: <span class="number">100</span>, <span class="comment">//offset to trigger the next headline</span>
+    <span class="string">'anchorName'</span>: <span class="keyword">function</span>(i, heading, prefix) { <span class="comment">//custom function for anchor name</span>
+        <span class="keyword">return</span> prefix+i;
+    },
+    <span class="string">'headerText'</span>: <span class="keyword">function</span>(i, heading, $heading) { <span class="comment">//custom function building the header-item text</span>
+        <span class="keyword">return</span> $heading.text();
+    },
+<span class="string">'itemClass'</span>: <span class="keyword">function</span>(i, heading, $heading, prefix) { <span class="comment">// custom function for item class</span>
+  <span class="keyword">return</span> $heading[<span class="number">0</span>].tagName.toLowerCase();
+}
+});</code></pre>
+<h2>Example CSS</h2>
+<pre><code><span class="id">#toc</span> <span class="rules">{
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>px</span>;</span>
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>px</span>;</span>
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span>;</span>
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> fixed</span>;</span>
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#333</span></span>;</span>
+    <span class="rule"><span class="attribute">box-shadow</span>:<span class="value"> inset -<span class="number">5</span>px <span class="number">0</span> <span class="number">5</span>px <span class="number">0</span>px <span class="hexcolor">#000</span></span>;</span>
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">150</span>px</span>;</span>
+    <span class="rule"><span class="attribute">padding-top</span>:<span class="value"> <span class="number">20</span>px</span>;</span>
+    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#fff</span></span>;</span>
+<span class="rule">}</span></span>
+
+<span class="id">#toc</span> <span class="tag">ul</span> <span class="rules">{
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span>;</span>
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span>;</span>
+    <span class="rule"><span class="attribute">list-style</span>:<span class="value"> none</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="id">#toc</span> <span class="tag">li</span> <span class="rules">{
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">5</span>px <span class="number">10</span>px</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="id">#toc</span> <span class="tag">a</span> <span class="rules">{
+    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#fff</span></span>;</span>
+    <span class="rule"><span class="attribute">text-decoration</span>:<span class="value"> none</span>;</span>
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="id">#toc</span> <span class="class">.toc-h2</span> <span class="rules">{
+    <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">10</span>px</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="id">#toc</span> <span class="class">.toc-h3</span> <span class="rules">{
+    <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">20</span>px</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="id">#toc</span> <span class="class">.toc-active</span> <span class="rules">{
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#336699</span></span>;</span>
+    <span class="rule"><span class="attribute">box-shadow</span>:<span class="value"> inset -<span class="number">5</span>px <span class="number">0</span>px <span class="number">10</span>px -<span class="number">5</span>px <span class="hexcolor">#000</span></span>;</span>
+<span class="rule">}</span></span></code></pre>
+<h2>History</h2>
+<p><a href="https://raw.github.com/jgallen23/toc/master/History.md">View</a>
+
+</p>
+<h2>Future</h2>
+<ul>
+<li>Figure out how to handle headlines on bottom of page</li>
+<li>Zepto.js support (should work, need to verify)</li>
+<li>Ender support</li>
+</ul>
+<h2>Contributors</h2>
+<ul>
+<li>Greg Allen (<a href="http://twitter.com/jgaui">@jgaui</a>) <a href="http://jga.me">jga.me</a></li>
+</ul>
+</div><script src="common.js"></script><script>var ghInfo = $('<div/>').hubInfo({ 
+  user: 'jgallen23',
+  repo: 'toc'
+}).on('render', function() {
+  $('<a href="https://twitter.com/share" class="twitter-share-button" data-via="JGAui">Tweet</a>').insertAfter('.repo-forks');
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+});
+$('h2:eq(0)').before(ghInfo);</script><script>$('#toc').toc();</script>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+
+</body></html>

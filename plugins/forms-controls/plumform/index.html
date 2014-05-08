@@ -1,0 +1,230 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>plum.Form.js</title>
+<style>
+html, body { margin:0; padding:0; }
+body { background:#4e2136; font:normal 12px/16px Helvetica, Arial, sans-serif; }
+h1 { font:normal 48px/48px Ubuntu, Helvetica, Arial, sans-serif; letter-spacing:-2px; margin:0 0 10px; text-align:center; }
+h2 { color:#888; font:normal 13px/13px Ubuntu, Helvetica, Arial, sans-serif; margin:0 0 20px; text-align:center; }
+h3 { font:normal 15px/15px Ubuntu, Helvetica, Arial, sans-serif; }
+p { color:#555; margin:16px 0; }
+
+form { border-left:1px solid #a26b85; border-right:1px solid #a26b85; margin:auto; padding:0 1px; width:700px; }
+form > div { background:#fff; padding:30px; }
+td { padding:10px; vertical-align:top; }
+td:first-child { width:60%; }
+td:first-child td:first-child { width:50%; }
+</style>
+<link rel="stylesheet" href="css/default.css">
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+</head>
+<body>
+
+<form action="index.html" method="post" enctype="multipart/form-data">
+<div>
+<h1>plum.Form</h1>
+
+<h2>A jQuery plugin to create forms perfectly in-sync with your site</h2>
+<table>
+<tr>
+	<td>
+		<input value="Text field">
+		<input type="password" value="Password field">
+		<textarea cols="50" rows="7">Text area</textarea>
+	</td>
+	<td>
+
+		<h3>The basics</h3>
+		<p>
+			plum.Form creates wrappers for each form element on a page. The
+			wrappers are created dynamically, so you can easily add plum.Form to
+			various designs without needing to change any markup.
+		</p>
+		<p>
+			Having wrappers allows more intriguing designs, like adding double
+			borders.
+		</p>
+	</td>
+</tr>
+<tr>
+
+	<td>
+		<table>
+		<tr>
+			<td>
+				<label><input class="check-all group-group-1[]" type="checkbox"> <strong>Select all in "group 1"</strong></label><br>
+				<label><input type="checkbox" name="group-1[]" value="group-1-box-1" disabled> Group 1, box 1, disabled</label><br>
+				<label><input type="checkbox" name="group-1[]" value="group-1-box-2"> Group 1, box 2</label><br>
+
+				<label><input type="checkbox" name="group-0" value="group-0-box-3"> Non-grouped box</label><br>
+				<label><input type="checkbox" name="group-1[]" value="group-1-box-4"> Group 1, box 4</label><br>
+				<label><input type="checkbox" name="group-1[]" value="group-1-box-5" checked> Group 1, box 5, checked</label>
+			</td>
+			<td>
+				<label><input class="check-all group-group-1[]" type="checkbox"> <strong>Select all in "group 1"</strong></label><br>
+
+				<label><input type="checkbox" name="group-2[]" value="group-2-box-1"> Group 2, box 1</label><br>
+				<label><input type="checkbox" name="group-2[]" value="group-2-box-2" disabled checked> Group 2, box 2, disabled, checked</label><br>
+				<label><input type="checkbox" name="group-2[]" value="group-2-box-3"> Group 2, box 3</label><br>
+				<label><input class="check-all group-group-2[]" type="checkbox"> <strong>Select all in "group 2"</strong></label>
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+				<label><input type="radio" name="group-3" value="group-3-box-1"> Group 3, box 1</label><br>
+				<label><input type="radio" name="group-3" value="group-3-box-2"> Group 3, box 2</label><br>
+				<label><input type="radio" name="group-3" value="group-3-box-3"> Group 3, box 3</label><br>
+
+				<label><input type="radio" name="group-3" value="group-3-box-4" disabled checked> Group 3, box 4, disabled, checked</label>
+			</td>
+			<td>
+				<label><input type="radio" name="group-4" value="group-4-box-1"> Group 4, box 1</label><br>
+				<label><input type="radio" name="group-4" value="group-4-box-2" disabled> Group 4, box 2, disabled</label><br>
+				<label><input type="radio" name="group-4" value="group-4-box-3" checked> Group 4, box 3, checked</label><br>
+
+				<label><input type="radio" name="group-4" value="group-4-box-4"> Group 4, box 4</label>
+			</td>
+		</tr>
+		</table>
+	</td>
+	<td>
+		<h3>Checkboxes and radio buttons</h3>
+
+		<p>
+			Checkboxes support "check all" groups. The only extra markup needed
+			to create a "check all" button is to write the code for the button
+			itself. Check all boxes can be placed anywhere on the page; they aren't
+			limited to a certain container.
+		</p>
+		<p>
+			"Check all" boxes also support a "mixed" status, typically a filled
+			box. plum.Form recognizes groups automatically, so if you load a page
+			with only a few boxes in a group checked, the "check all" boxes will
+			be given a mixed status.
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<input type="file" name="file[]">
+
+	</td>
+	<td>
+		<h3>File uploads</h3>
+		<p>
+			What's a form without a nice file upload? By default, plum.Form
+			creates a button that allows users to upload multiple files. You can
+			further customize it to limit the number of files to upload at once,
+			the file type, and give each file a maximum size.
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+
+		<select name="select-multiple[]" multiple>
+			<option value="option-1">Multiple, option 1</option>
+			<option value="option-2" selected>Multiple, option 2, selected</option>
+			<option value="option-3">Multiple, option 3</option>
+			<option value="option-4">Multiple, option 4</option>
+		</select>
+		<select name="select-single-1">
+
+			<option value="option-1">Option 1</option>
+			<option value="option-2" disabled>Option 2, disabled</option>
+			<optgroup label="Group 1">
+				<option value="group-1-option-1">Group 1, option 1</option>
+				<option value="group-1-option-2">Group 1, option 2</option>
+				<option value="group-1-option-3">Group 1, option 3</option>
+
+			</option>
+			<optgroup label="Group 2">
+				<option value="group-2-option-1">Group 2, option 1</option>
+				<option value="group-2-option-2">Group 2, option 2</option>
+				<option value="group-2-option-3">Group 2, option 3</option>
+			</option>
+		</select>
+
+		<select name="select-single-2" style="width:300px" disabled>
+			<option value="fixed-width">Disabled menu, fixed width</option>
+		</select>
+		<select name="select-single-3" style="width:300px">
+			<option value="fixed-width-long">Fixed width with a bunch of options</option>
+			<option value="option-1">Option 1</option>
+			<option value="option-2">Option 2</option>
+
+			<option value="option-3">Option 3</option>
+			<option value="option-4">Option 4</option>
+			<option value="option-5">Option 5</option>
+			<option value="option-6">Option 6</option>
+			<option value="option-7">Option 7</option>
+			<option value="option-8">Option 8</option>
+
+			<option value="option-9">Option 9</option>
+			<option value="option-10">Option 10</option>
+			<option value="option-11">Option 11</option>
+			<option value="option-12">Option 12</option>
+			<option value="option-13">Option 13</option>
+			<option value="option-14">Option 14</option>
+
+			<option value="option-15">Option 15</option>
+			<option value="option-16">Option 16</option>
+			<option value="option-17">Option 17</option>
+			<option value="option-18">Option 18</option>
+			<option value="option-19">Option 19</option>
+			<option value="option-20">Option 20</option>
+
+		</select>
+	</td>
+	<td>
+		<h3>Single- and multiple-select menus</h3>
+		<p>
+			plum.Form keeps the same functionality as a traditional select menu,
+			including navigating through the options with arrow keys, typing the
+			name of the option, and using the shift key to select multiple items.
+		</p>
+		<p>
+			If a menu is near the end of a page and contains too many items to
+			display without making the page longer, it slides above the top of
+			the menu. The number of visible items in a menu can be adjusted with
+			the simple addition of a "size" attribute.
+		</p>
+
+	</td>
+</tr>
+<tr>
+	<td>
+		<input type="submit">
+	</td>
+	<td></td>
+</tr>
+</table>
+</div>
+</form>
+
+<script src="js/jquery.plum.form.js"></script>
+<script>
+$('form').plum('form', {
+	maxSize:(1024 * 1024)
+});
+</script>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+
+
+</body>
+</html>

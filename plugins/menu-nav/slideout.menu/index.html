@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"> 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.8.3.min.js"><\/script>')</script>
+
+<script> 
+$(document).ready(function()
+{
+	function loadContent()
+	{
+		
+	}
+
+   $('.block').click
+   (
+		function()
+		{
+			var id= $(this).attr('id');
+			var data_id= $(".data").html();
+			var panel= $('.panel');
+			var panel_width=$('.panel').css('top');		
+			var pixels = parseInt(panel_width,0);
+			
+			
+			//close the element if it was already selected
+			if($(this).hasClass("menu-item-selected"))
+			{
+				//remove css class
+				$(this).removeClass("menu-item-selected");
+				
+				//close the item
+				panel.animate({top: 0});
+			}
+			//open it up if not selected or changing element
+			else
+			{
+				//remove all selected tags
+				$('.block').removeClass("menu-item-selected");
+				
+				//add it to the current one
+				$(this).addClass("menu-item-selected");
+				
+				//if opened, close open and open it up again
+				if(pixels > 0)
+				{
+					panel.animate({top: 0},function()
+					{
+						//empty data
+						$('.data').html('');
+					})
+					.animate({top: panel.outerHeight() },
+						function()
+						{
+							//AJAX CALL OR COPY ELEMENT TO .data using loadContent(toElement,fromWhere); 
+							// toElement -> CSS selector, fromWhere, CSSSelector
+							
+							$('.data').html(id);		
+						}
+					);
+				}
+				//open/close	panel
+				else
+				{
+					panel.animate({top: pixels == 0 ? +panel.outerHeight() : 0},
+					function()
+					{
+							//AJAX CALL OR COPY ELEMENT TO .data using loadContent(toElement,fromWhere); 
+							// toElement -> CSS selector, fromWhere, CSSSelector	
+							$('.data').html(id);	
+					}
+					);
+				}
+				
+			}
+			
+			return false;												
+		}
+	);
+  
+	$('.close').click
+	(
+		function() 
+		{
+			var panel= $('.panel');
+			panel.animate({top: parseInt(panel.css('top'),0) == 0 ? +panel.outerHeight() : 0});
+			return false;
+		}
+	);  
+});
+ 
+</script> 
+<style> 
+	body{
+		font-family:sans-serif;
+		padding:0;
+		margin:0;
+	}
+	h4{
+		padding:5px;
+	}
+	a{ 
+		color:#333 
+	}
+	a:hover{
+		color:#cc0000
+	}
+	#container
+	{
+		width:100%;
+		
+		overflow:auto;
+		
+	}
+	.right
+	{
+		
+		float:right;
+		width:100%;
+		padding-left:250px;
+	}
+	.top
+	{
+		float:left;
+		
+		width:100%;
+		height:50px;
+		position:fixed;
+		top:0;
+		
+		background-color:red;
+		box-shadow:0px 0px 10px rgba(0, 0, 0, 0.7);
+	}
+	.menu-item
+	{
+		position:relative;
+		float:left;
+		
+		padding: 10px 15px 0 15px;
+		height:40px;
+		
+	}
+	.menu-item:hover
+	{
+		background-color:#ffc72e;
+		cursor:pointer;
+	}
+	.menu-item-selected
+	{
+		background-color:black;
+		color:white;
+	}
+		
+	#panel-frame
+	{
+		width:100%;
+		position:fixed;
+		height:50px;
+	}
+	.panel
+	{
+		background-color:#f2f2f2;
+		position:relative;
+		width:100%;
+		height:50px;
+		box-shadow:0px 0px 10px rgba(0, 0, 0, 0.7);
+		top:0px;	 
+	}
+	.data
+	{
+		margin:0;
+		padding:0;
+	}
+	.head
+	{
+		
+		padding:10px;
+		text-align:right;
+	}
+	#logo
+	{
+		width:700px;margin:0 auto;
+		text-align:left;
+	}
+	.close{position:relative;float:right; padding-top:30px; padding-right:20px;}
+	.content-container
+	{
+		margin:60px 40px;	
+	}
+	
+</style> 
+</head> 
+<body> 
+	<div id="container"> 
+		<div class="right"> 
+			<div class="content-container">
+			
+			<h2>Slide in panels</h2>
+				<ul>
+					<li>Click on a menu option to get a panel slide in.</li>
+					<li>Future update: Clicking on 6 when opened, when clicking it again, should close the slider and not show it again.</li>
+				</ul>
+				
+			<h2>Filler text</h2>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean 
+commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et
+ magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+ ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat 
+massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
+ eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, 
+justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. 
+Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend 
+tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, 
+en im. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. 
+Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean 
+imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
+ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus 
+eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing 
+sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, 
+hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec 
+vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit 
+amet orci eget eros faucibus tincidunt.Duis leo.Sed fringilla mauris sit
+ amet nibh.Donec sodales sagittis magna.Sed consequat, leo eget bibendum
+ sodales, augue velit cursus nunc. 				Lorem ipsum dolor sit amet, 
+consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean 
+massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
+nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque 
+eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede 
+justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, 
+rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu 
+pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum 
+semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, 
+porttitor eu, consequat vitae, eleifend ac, en im. Aliquam lorem ante, 
+dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut 
+metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies 
+nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. 
+Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem 
+quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
+nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec 
+odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis 
+faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus 
+tincidunt.Duis leo.Sed fringilla mauris sit amet nibh.Donec sodales 
+sagittis magna.Sed consequat, leo eget bibendum sodales, augue velit 
+cursus nunc. 				Lorem ipsum dolor sit amet, consectetuer adipiscing 
+elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+ penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
+Nulla consequat massa quis enim. Donec pede justo, fringilla vel, 
+aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet 
+a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. 
+Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean 
+vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat 
+vitae, eleifend ac, en im. Aliquam lorem ante, dapibus in, viverra quis,
+ feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. 
+Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. 
+Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. 
+Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper 
+libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit 
+vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante 
+tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. 
+Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Duis 
+leo.Sed fringilla mauris sit amet nibh.Donec sodales sagittis magna.Sed 
+consequat, leo eget bibendum sodales, augue velit cursus nunc. 				Lorem
+ ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo 
+ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis 
+dis parturient montes, nascetur ridiculus mus. Donec quam felis, 
+ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+ quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate 
+eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, 
+justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. 
+Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend 
+tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, 
+en im. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. 
+Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean 
+imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
+ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus 
+eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing 
+sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, 
+hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec 
+vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit 
+amet orci eget eros faucibus tincidunt.Duis leo.Sed fringilla mauris sit
+ amet nibh.Donec sodales sagittis magna.Sed consequat, leo eget bibendum
+ sodales, augue velit cursus nunc. 				Lorem ipsum dolor sit amet, 
+consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean 
+massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
+nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque 
+eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede 
+justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, 
+rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu 
+pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum 
+semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, 
+porttitor eu, consequat vitae, eleifend ac, en im. Aliquam lorem ante, 
+dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut 
+metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies 
+nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. 
+Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem 
+quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
+nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec 
+odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis 
+faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus 
+tincidunt.Duis leo.Sed fringilla mauris sit amet nibh.Donec sodales 
+sagittis magna.Sed consequat, leo eget bibendum sodales, augue velit 
+cursus nunc. 				Lorem ipsum dolor sit amet, consectetuer adipiscing 
+elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+ penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
+Nulla consequat massa quis enim. Donec pede justo, fringilla vel, 
+aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet 
+a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. 
+Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean 
+vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat 
+vitae, eleifend ac, en im. Aliquam lorem ante, dapibus in, viverra quis,
+ feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. 
+Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. 
+Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. 
+Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper 
+libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit 
+vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante 
+tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. 
+Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Duis 
+leo.Sed fringilla mauris sit amet nibh.Donec sodales sagittis magna.Sed 
+consequat, leo eget bibendum sodales, augue velit cursus nunc.
+			</div>
+		</div> 
+		
+		<div id="panel-frame"> 
+			<div style="top: 50px;" class="panel"> 
+				<a href="#" class="close">Close</a> 
+			
+			
+				<!-- Content to load in slide-in menu	-->
+				<div class="data">3</div> 
+				
+			</div> 
+		</div> 
+ 
+
+		<div class="top"> 
+			<div class="menu-item">Posts</div> 			
+			<div class="menu-item block" id="2">Notices &#8595;</div> 
+			<div class="menu-item block menu-item-selected" id="3">Comments &#8595;</div> 
+			<div class="menu-item block" id="4">Pages &#8595;</div> 
+			<div class="menu-item block" id="5">Section &#8595;</div> 
+			<div class="menu-item block" id="6">Menu &#8595;</div> 
+			<div class="menu-item block" id="7">Configuration &#8595;</div> 
+			
+			<div class="menu-item" style="float:right;">Exit</div> 
+			<div class="menu-item" style="float:right;"><input style="width: 150px;" type="text"></div> 
+		</div> 
+	</div> 
+ 
+ <!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body></html>

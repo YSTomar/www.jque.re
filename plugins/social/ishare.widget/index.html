@@ -1,0 +1,51 @@
+﻿<link rel="stylesheet" type="text/css" href="share.css" />
+
+<style>
+
+.share {
+width: 70px;
+height: 23px;
+background: url(share.png) 0px -23px no-repeat;
+cursor:pointer;
+cursor:hand;
+position:absolute;
+top: 200px;
+left: 200px;
+}
+</style>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+<script src="jquery.ishare.js"></script>
+
+
+<div class="share" onmouseover="this.style.backgroundPosition = '0px 0px';" onmouseout="this.style.backgroundPosition = '0px -23px';"></div> 
+
+ <script>
+
+  
+
+  $(document).ready(function(){
+		$('.share').ishare({
+activation: 'click',
+      iconsDir: 'icons/',
+      fbLikebox: false,
+      tweets: false,
+      title: '&#9829; Share The Love &#9829;'
+
+    });
+
+  
+})
+    
+  </script>
+  
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+

@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery ContentHover Plugin - Backslash</title>
+<meta name="google-site-verification" content="4cYX4YvWPcVA_6M02vEZ6_9dDowOiInYRRl51qc-z3Y">
+
+<link href="demo.css?de5e071" rel="stylesheet" type="text/css" />
+<link href="shCoreDefault.css" rel="stylesheet" type="text/css" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+<script src="shCore.js"></script>
+<script src="shBrushJScript.js"></script>
+<script src="shBrushPlain.js"></script>
+<script src="shBrushXml.js"></script>
+<script src="shBrushCss.js"></script>
+<script>SyntaxHighlighter.all();</script>
+
+<script src="jquery.contenthover.js"></script>
+<script>
+$(function(){
+
+	$('#d1').contenthover({
+		overlay_background:'#000',
+		overlay_opacity:0.8
+	});
+
+	$('#d2').contenthover({
+		effect:'slide',
+		slide_speed:300,
+		overlay_background:'#000',
+		overlay_opacity:0.8
+	});
+
+	$('#d3').contenthover({
+		overlay_width:270,
+		overlay_height:180,
+		effect:'slide',
+		slide_direction:'right',
+		overlay_x_position:'right',
+		overlay_y_position:'center',
+		overlay_background:'#000',
+		overlay_opacity:0.8
+	});
+		
+	$('#d4').contenthover({
+		overlay_background:'#333'
+	});
+
+	$('#d5').contenthover({
+		hover_class:'mybackground'
+	});
+	
+	var counter=0;
+	$('#d6').contenthover({
+		overlay_background:'#000',
+		overlay_opacity:0.8,
+		effect:'slide',
+		slide_speed:500,
+		slide_direction:'left',
+		onshow:function(){
+			counter++;
+			$('<div>'+counter+'. Hover element shown</div>').prependTo($('#d6_log'));
+		},
+		onhide:function(){
+			counter++;
+			$('<div>'+counter+'. Hover element hidden</div>').prependTo($('#d6_log'));
+		}
+	});
+
+});
+</script>
+<style>
+.demos_wrapper { padding-top:20px; }
+.demo_wrapper {padding-bottom:30px;  margin:0 0 15px 0; border-bottom:1px solid #ddd; }
+.demo_wrapper h4 { padding-top:0; }
+.demo { width:330px; float:left; }
+.demo_description { margin-left:330px; }
+.back_up { padding:15px 0 0 0; font-size:12px; }
+
+.contenthover { padding:20px 20px 10px 20px; }
+.contenthover, .contenthover h3, contenthover a { color:#fff; }
+.contenthover h3, .contenthover p { margin:0 0 10px 0; line-height:1.4em; padding:0; }
+.contenthover a.mybutton { display:block; float:left; padding:5px 10px; background:#3c9632; color:#fff; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+.contenthover a.mybutton:hover { background:#34742d }
+
+.mybackground { background:url(transparent_bg.png); }
+</style>
+
+</head>
+<body>
+<div id="wrapper">
+
+<section id="main">
+
+	<div id="content">
+		<div class="post">
+		
+			<h1>jQuery ContentHover Plugin</h1>
+			
+			<p style="font-size:16px">A jQuery plugin that shows hidden content on top of an element when the mouse hovers over it.</p>
+	
+			
+			<h2>Documentation</h2>
+			<p>A complete <strong><a href="http://www.backslash.gr/content/blog/webdevelopment/9-contenthover-jquery-plugin" title="jQuery ContentHover Plugin Documentation">options reference</a></strong> is available on the <strong><a href="http://www.backslash.gr/content/blog/webdevelopment/9-contenthover-jquery-plugin" title="jQuery ContentHover Plugin Documentation">blog post</a></strong>, along with comments and updates.</p>
+		
+			<h2>Demos</h2>
+			
+			<p>All demos use pretty much the same html markup, and css:</p>
+			<h4>HTML</h4>
+<pre class="brush:html">
+&lt;img id="d1" src="1.jpg" width="300" height="240" /&gt;
+&lt;div class="contenthover"&gt;
+	&lt;h3&gt;Lorem ipsum dolor&lt;/h3&gt;
+	&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum pulvinar ante quis augue lobortis volutpat. &lt;/p&gt;
+	&lt;p&gt;&lt;a href="#" class="mybutton"&gt;Lorem ipsum&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</pre>	
+			
+			<h4>CSS</h4>
+<pre class="brush:css">
+.contenthover { padding:20px 20px 10px 20px; }
+.contenthover, .contenthover h3, contenthover a { color:#fff; }
+.contenthover h3, .contenthover p { margin:0 0 10px 0; line-height:1.4em; padding:0; }
+.contenthover a.mybutton { display:block; float:left; padding:5px 10px; background:#3c9632; color:#fff; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+.contenthover a.mybutton:hover { background:#34742d }
+</pre>			
+			
+			<h2 id="demoselect">Select demo</h2>
+			<ol>
+				<li><a href="#demo1">Simple fade</a></li>
+				<li><a href="#demo2">Slide effect with different speed</a></li>
+				<li><a href="#demo3">Slide from different direction and a smaller overlay</a></li>
+				<li><a href="#demo4">Hovering on a div instead of an image</a></li>
+				<li><a href="#demo5">Using a transparent png for better opacity effect</a></li>
+				<li><a href="#demo6">Using callbacks</a></li>
+			</ol>
+			
+		</div>
+		
+		<div class="demos_wrapper clearfix">
+		
+			
+			<div class="demo_wrapper clearfix">
+				<h3 id="demo1">1. Simple fade</h3>
+				<div class="demo">
+					
+					<img id="d1" src="1.jpg" width="300" height="240" />
+					<div class="contenthover">
+						<h3>Lorem ipsum dolor</h3>
+						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum pulvinar ante quis augue lobortis volutpat. </p>
+						<p><a href="#" class="mybutton">Lorem ipsum</a></p>
+					</div>
+					
+					<p class="back_up"><a href="#demoselect">Back to demo select</a></p>
+					
+				</div>
+				
+				<div class="demo_description post">
+					<p>Use the default effect (fade), add a background color and opacity.</p>
+					<h4>jQuery</h4>
+<pre class="brush:js">
+$('#d1').contenthover({
+	overlay_background:'#000',
+	overlay_opacity:0.8
+});
+</pre>
+				
+				</div>
+			</div><!-- .demo_wrapper -->
+			
+			
+			<div class="demo_wrapper clearfix">
+				<h3 id="demo2">2. Slide effect with different speed</h3>
+				<div class="demo">
+					
+					<img id="d2" src="2.jpg" width="300" height="240" />
+					<div class="contenthover">
+						<h3>Lorem ipsum dolor</h3>
+						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum pulvinar ante quis augue lobortis volutpat. </p>
+						<p><a href="#" class="mybutton">Lorem ipsum</a></p>
+					</div>
+					
+					<p class="back_up"><a href="#demoselect">Back to demo select</a></p>
+					
+				</div>
+				
+				<div class="demo_description post">
+					<p>Using the <em>slide</em> effect, add setting the animation speed to 300 miliseconds.</p>
+					<h4>jQuery</h4>
+<pre class="brush:js">
+$('#d2').contenthover({
+	effect:'slide',
+	slide_speed:300,
+	overlay_background:'#000',
+	overlay_opacity:0.8
+});
+</pre>	
+				</div>
+			</div><!-- .demo_wrapper -->
+			
+			
+			<div class="demo_wrapper clearfix">
+				<h3 id="demo3">3. Advanced slide</h3>
+				<div class="demo">
+					
+					<img id="d3" src="1.jpg" width="300" height="240" />
+					<div class="contenthover">
+						<h3>Lorem ipsum dolor</h3>
+						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+						<p><a href="#" class="mybutton">Lorem ipsum</a></p>
+					</div>
+					
+					<p class="back_up"><a href="#demoselect">Back to demo select</a></p>
+					
+				</div>
+				
+				<div class="demo_description post">
+					<p>Using the slide effect from different direction and a smaller overlay.</p>
+					<h4>jQuery</h4>
+<pre class="brush:js">
+$('#d3').contenthover({
+	overlay_width:270,
+	overlay_height:180,
+	effect:'slide',
+	slide_direction:'right',
+	overlay_x_position:'right',
+	overlay_y_position:'center',
+	overlay_background:'#000',
+	overlay_opacity:0.8
+});
+</pre>	
+				
+				</div>
+			</div><!-- .demo_wrapper -->
+			
+			
+			<div class="demo_wrapper clearfix">
+				<h3 id="demo4">4. Hovering on a div instead of an image</h3>
+				<div class="demo">
+					
+					<div id="d4" style="width:300px; height:240px; background:#eee; ">
+						<div style="padding:20px;">
+							<p><img src="3.jpg" /></p>
+							<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+						</div>
+					</div>
+					<div class="contenthover">
+						<h3>Lorem ipsum dolor</h3>
+						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+						<p><a href="#" class="mybutton">Lorem ipsum</a></p>
+					</div>
+					
+					<p class="back_up"><a href="#demoselect">Back to demo select</a></p>
+					
+				</div>
+				
+				<div class="demo_description post">
+					<p>The plugin can be used on any html element. In this example it is a <em>&lt;div&gt;</em> element with a couple paragraphs and and image in it.</p>
+					<h4>HTML</h4>
+<pre class="brush:js">
+&lt;div id="d4" style="width:300px; height:240px; background:#eee; "&gt;
+	&lt;div style="padding:20px;"&gt;
+		&lt;p&gt;&lt;img src="3.jpg" /&gt;&lt;/p&gt;
+		&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="contenthover"&gt;
+	&lt;h3&gt;Lorem ipsum dolor&lt;/h3&gt;
+	&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. &lt;/p&gt;
+	&lt;p&gt;&lt;a href="#" class="mybutton"&gt;Lorem ipsum&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</pre>	
+					<h4>jQuery</h4>
+<pre class="brush:js">
+$('#d4').contenthover({
+	overlay_background:'#333'
+});
+</pre>	
+				
+				</div>
+			</div><!-- .demo_wrapper -->
+			
+			
+			<div class="demo_wrapper clearfix">
+				<h3 id="demo5">5. Using a transparent png for a better opacity effect</h3>
+				<div class="demo">
+					
+					<img id="d5" src="1.jpg" width="300" height="240" />
+					<div class="contenthover">
+						<h3>Lorem ipsum dolor</h3>
+						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+						<p><a href="#" class="mybutton">Lorem ipsum</a></p>
+					</div>
+					
+					<p class="back_up"><a href="#demoselect">Back to demo select</a></p>
+					
+				</div>
+				
+				<div class="demo_description post">
+					<p>A transparent png could be used instead of the <em>background_opacity</em> option to avoid having the same opacity on the child elements of the overlay. Another option, but less supported by browsers, would be <a href="http://24ways.org/2009/working-with-rgba-colour" target="_blank">rgba color</a>.</p>
+					<h4>jQuery</h4>
+<pre class="brush:js">
+$('#d4').contenthover({
+	hover_class:'mybackground'
+});
+</pre>	
+<h4>Extra CSS</h4>
+<pre class="brush:css">
+.mybackground { background:url(transparent_bg.png); }
+</pre>	
+<p style="padding-top:5px;"><img src="transparent_bg.png" style="float:left; margin:-5px 15px 0 0" /> &lsaquo; the .png image </p>
+				
+				</div>
+			</div><!-- .demo_wrapper -->
+			
+			
+			
+			<div class="demo_wrapper clearfix">
+				<h3 id="demo6">6. Using callbacks</h3>
+				<div class="demo">
+					
+					<img id="d6" src="2.jpg" width="300" height="240" />
+					<div class="contenthover">
+						<h3>Lorem ipsum dolor</h3>
+						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+						<p><a href="#" class="mybutton">Lorem ipsum</a></p>
+					</div>
+					
+					<p class="back_up"><a href="#demoselect">Back to demo select</a></p>
+					
+				</div>
+				
+				<div class="demo_description post">
+					<h4>Log</h4>
+					<pre id="d6_log" style="height:60px; overflow:auto;"></pre>	
+	
+					<h4>jQuery</h4>
+<pre class="brush:js">
+$('#d6').contenthover({
+	overlay_background:'#000',
+	overlay_opacity:0.8,
+	effect:'slide',
+	slide_speed:500,
+	slide_direction:'left',
+	onshow:function(){
+		$('&lt;div&gt;Hover element shown&lt;/div&gt;').appendTo($('#d6_log'));
+	},
+	onhide:function(){
+		$('&lt;div&gt;Hover element hidden&lt;/div&gt;').appendTo($('#d6_log'));
+	}
+});
+</pre>	
+		
+				</div>
+			</div><!-- .demo_wrapper -->
+			
+			
+		</div><!-- .demos_wrapper -->
+	
+	</div>
+	
+</section><!-- #main -->
+
+<footer>
+<p></p>
+</footer>
+</div><!-- #wrapper -->
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

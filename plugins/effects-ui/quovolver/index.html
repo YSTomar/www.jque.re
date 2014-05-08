@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Quovolver / Demo : A Simple jQuery Plugin for Revolving Quotes</title>
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="style.css">
+			
+	<link rel="shortcut icon" href="http://sandbox.sebnitu.com/jquery/quovolver/images/favicon.ico">
+	
+
+
+
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+	<script type="text/javascript" src="jquery.quovolver.js"></script>
+	
+	<!-- JavaScript Test Zone -->
+	<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$('blockquote').quovolver();
+		
+	});
+	</script>
+	
+</head>
+<body>
+
+<div id="wrapper">
+	
+	<div id="header">
+		<h1><a href="http://sandbox.sebnitu.com/jquery/quovolver">Quovolver / Demo</a></h1>
+		<h2>A Simple jQuery Plugin for Revolving Quotes</h2>
+	</div><!-- #header -->
+	
+	<div id="article">
+	
+		<div id="description">
+			<p>This demo illustrates how the Quovolver plugin works. All you have to do is call the quovolver function on the desired group of elements to enable this effect.</p> 
+			<p>Although the plugin was designed for quotes and testimonials, it can be used on any group of items to rotate them one after the other.</p>
+			<p>The function can be passed two options, the speed of the animation and the duration they are displayed before being switched (defaults are 500 and 6000)</p>
+		</div><!-- end #description -->
+		
+		<code>$('#quotes-1 blockquote').quovolver();</code>
+		
+		<blockquote>
+			<p>Ut eu consectetur nisi. Praesent facilisis diam nec sapien gravida non mattis justo imperdiet. Vestibulum nisl urna, euismod sit amet congue at, bibendum non risus.</p>
+			<cite>&ndash; Quote Author (Quote #1)</cite>
+		</blockquote>
+	
+		<blockquote>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu eros velit, non blandit ipsum. Donec pretium, nibh vitae tristique tempor, enim sem condimentum lacus, vel mattis mauris risus id justo. Nullam tincidunt, augue sit amet euismod condimentum, orci elit dignissim odio, a viverra augue enim in lectus. Ut tempor commodo venenatis. Pellentesque pretium, ipsum nec bibendum facilisis, erat justo consequat tortor, iaculis suscipit eros est quis urna. Nunc gravida ornare nibh interdum sagittis.</p>
+			<cite>&ndash; Quote Author (Quote #2)</cite>
+		</blockquote>
+	
+		<blockquote>
+			<p>Donec rutrum convallis viverra. Suspendisse vehicula, risus sit amet luctus pharetra, quam ante condimentum metus, porttitor vulputate magna felis quis dui.</p>
+			<cite>&ndash; Quote Author (Quote #3)</cite>
+		</blockquote>
+	
+		<blockquote>
+			<p>Suspendisse ipsum urna, pellentesque eget sagittis eget, porta eget ligula. Mauris id posuere nisl. Aliquam sit amet urna lorem. Donec et odio et velit ornare dapibus a sit amet odio. Praesent ornare cursus ante quis fringilla. Vivamus id egestas sapien. Nullam mollis elit eros, ac euismod neque. Nam placerat dictum congue.</p>
+			<cite>&ndash; Quote Author (Quote #4)</cite>
+		</blockquote>
+	
+		<blockquote>
+			<p>Nulla facilisi. Mauris vel mattis risus. Ut nec luctus tortor. In interdum pulvinar quam non pharetra. Proin sed diam in lorem varius tempor. Vestibulum porta, diam quis mollis rutrum, dolor lectus interdum leo, malesuada convallis purus tortor sed turpis.</p>
+			<cite>&ndash; Quote Author (Quote #5)</cite>
+		</blockquote>
+	
+		<blockquote>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu eros velit, non blandit ipsum. Donec pretium, nibh vitae tristique tempor, enim sem condimentum lacus, vel mattis mauris risus id justo. Nullam tincidunt, augue sit amet euismod condimentum, orci elit dignissim odio, a viverra augue enim in lectus. Ut tempor commodo venenatis.</p>
+			<cite>&ndash; Quote Author (Quote #6)</cite>
+		</blockquote>
+		
+	</div><!-- #article -->
+	
+	
+	<div id="footer">
+		<p>Copyright &copy; 2009 <a href="http://www.sebnitu.com">Sebastian Nitu</a>. All rights reserved.</p>
+	</div><!-- #footer -->
+	
+</div><!-- #wrapper -->
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

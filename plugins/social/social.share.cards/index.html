@@ -1,0 +1,56 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv=Content-type>
+<title>jQuery Social Cards Plugin</title>
+<meta content="A fresh look created for content sharing: Social Cards" name=description />
+<meta content="social media, share, social widgets, script" name=keywords />
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+<link rel=stylesheet type="text/css" href="styles.socialcards.css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.8.3.min.js"><\/script>')</script>
+
+<script type="text/javascript" src="jquery.socialcards.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('#share-button').socialCards({
+				pinterestPinImage: 'http://www.webarti.com/images/socialcards-pin.png'
+			}).click(function(){
+                _gaq.push(['_trackEvent', 'Scripts', 'share button clicked', 'Social Cards']);
+            });
+            $('#suggestion-link').click(function(){
+                _gaq.push(['_trackEvent', 'Scripts', 'suggestion link clicked', 'Social Cards']);
+            });
+        });
+    </script>
+</head>
+<body>
+<div class=wrapper>
+<div class=notes style="text-align:justify;">
+Social Cards are a fresh look created for content sharing.
+Currently there are six cards including Facebook, Twitter,
+Google Plus, Pinterest, LinkedIn and copy to clipboard
+widget. The best part is that the scripts are loaded after
+button click, so you don't need to worry about the performance
+bottleneck of social widgets. One more thing, you can easily
+localize Social Cards. Convinced? Probably yes,
+<a href="http://codecanyon.net/item/social-cards-jquery-plugin/1635084?ref=webarti">then download your copy here</a>
+</div>
+<div id=share-button class=share-button>Share with Social Cards</div>
+<div class=notes>
+Do you want to create beautiful web buttons like this? Take a look at
+<a href="http://webarti.com/best-CSS3-button-maker/" id=suggestion-link target=_blank>Button X</a>
+</div>
+</div>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+</body>
+</html>

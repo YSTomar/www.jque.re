@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>jQuery uLightBox plugin</title>
+        <meta name="description" content="The jQuery uLightBox is a jQuery plugin written by Marius Stanciu - Sergiu for Userdot, a quick, simple, and easy plugin to use for all of your lightbox needs. It is highly customizable, and very intuitive to use." />
+        <meta name="keywords" content="jquery, lightbox, ulightbox, userdot" />
+        <link rel="stylesheet" media="screen" href="css/documentation.css" />
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/jquery.ulightbox.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/jquery.ulightbox.css" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <div class="container_6 clearfix">
+                    <h1 class="grid_6"><a href="">jQuery uLightBox plugin</a> <span class="supersmall">by <a href="http://www.userdot.net">UserDot</a></span></h1>
+                </div>
+            </header>
+            <section>
+                <div class="container_6 clearfix">
+                    <section class="main-section grid_6">
+                        <div class="main-content">
+                            <header>
+                                <h2>Documentation</h2>
+                            </header>
+                            <section class="clearfix">
+                                <div>
+                                    <img class="fr" alt="Logo" src="images/logo.png" />
+                                    <h3>Overview</h3>
+                                    <hr />
+                                    <p>The jQuery uLightBox is a <a href="http://www.jquery.com">jQuery</a> plugin written by Marius Stanciu - Sergiu for <a href="http://www.userdot.net">Userdot</a>, a quick, simple, and easy plugin to use for all of your lightbox needs. It is highly customizable, and very intuitive to use.</p>
+                                    <h3>Download</h3>
+                                    <hr />
+                                    <p>You can download the <a href="http://www.userdot.net/files/jquery/jquery.ulightbox/jquery.ulightbox-1.0.0.zip">last version of the plugin</a>, or <a href="http://www.userdot.net/files/jquery/jquery.ulightbox/">browse the archive</a> for older versions.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <div class="container_6 clearfix">
+                    <section class="main-section grid_6">
+                        <div class="main-content">
+                            <header>
+                                <h2>Usage</h2>
+                            </header>
+                            <section class="clearfix">
+                                <div>
+                                    <p>First you need to include the jQuery library, since uCompare is a plugin. You can download it from the <a href="http://www.jquery.com">jQuery website</a> or link it directly from the Google CDN. Also, if you want draggable windows, you'll need jQuery UI.</p>
+                                    <code>
+                                        &lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"&gt;&lt;/script&gt;
+                                    </code>
+                                    <p>Secondly, you need to include the jQuery uLightBox javascript and the css file into your page. You can do it by adding the code below to your page.</p>
+                                    <code>
+                                        &lt;script type="text/javascript" src="js/jquery.ulightbox.js"&gt;&lt;/script&gt;<br />
+                                        &lt;link rel="stylesheet" type="text/css" href="css/jquery.ulightbox.css" /&gt;
+                                    </code>
+                                    <p>Last, you trigger the uLightBox function on the element you just created. In this case, we trigger the function on the element with the id <em>alert</em>.</p>
+                                    <code>
+                                        &lt;script type="text/javascript"&gt;<br />
+                                        $(document).ready(function() {<br />
+                                        &nbsp;&nbsp;&nbsp;uLightBox.init({<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;override:true,<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background: 'white',<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;centerOnResize: true,<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fade: true<br />
+                                        &nbsp;&nbsp;&nbsp;});<br /><br />
+                                        &nbsp;&nbsp;&nbsp;$('#alert').click(function() {<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Hello');<br />
+                                        &nbsp;&nbsp;&nbsp;});<br />
+                                        });<br />
+                                        &lt;/script&gt;
+                                    </code>
+                                    <h3>Options</h3>
+                                    <hr />
+                                    <p>The attributes below are called upon the initialization of the lightbox.</p>
+                                    <p><mark>override</mark> - If set to true, calling alert(text) will fire uLightBox with your text inside. Can be true/false.</p>
+                                    <p><mark>background</mark> - Can be used to specify the background shade. Can be 'white', 'black', or 'none'.</p>
+                                    <p><mark>centerOnResize</mark> - Used to specify wether or not the lightbox should stay centered on window resize. Can be true/false.</p>
+                                    <p><mark>fade</mark> - Used to specify wether or not the lightbox's background should fade in or appear instantly. Can be true/false.</p>
+                                    <p>The attributes below are called per-lightbox.</p>
+                                    <p><mark>text</mark> - Used to set the message displayed in the content pane.</p>
+                                    <p><mark>width</mark> - Used to dictate uLightBox's width. Set to adhere as a CSS String, e.g. "300px", "55%", etc.</p>
+                                    <p><mark>title</mark> - Used to dictate uLightBox's Title. Set to whatever you please.</p>
+                                    <p><mark>leftButtons</mark> - Used to add buttons on the left side of the lightbox. Adhere to the following structure: leftButtons: ['Close']</p>
+                                    <p><mark>rightButtons</mark> - Used to add buttons on the right side of the lightbox. Adhere to the following structure: rightButtons: ['Login', 'Register']</p>
+                                    <p><mark>opened</mark> - Callback function for when the lightbox has fully opened. Perfect for loading data via ajax to the content pane (#lbContent)</p>
+                                    <p><mark>onClick</mark> - Callback function for when the a button is clicked. If a button was titled "Enter", the parameter of this function will be "Enter". Used with switch/if else statements, one can add any functionality they want to each button.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <div class="container_6 clearfix">
+                    <section class="main-section grid_6">
+                        <div class="main-content">
+                            <header>
+                                <h2>Demo</h2>
+                            </header>
+                            <section class="clearfix">
+                                <div>
+                                    <input id="alert" type="button" class="flat bgFix" value="alert('Hello!')" />
+                                    <input id="ajax" type="button" class="flat bgFix" value="Ajax Content" />
+                                    <input id="buttons" type="button" class="flat bgFix" value="Buttons" />
+                                    <input id="small" type="button" class="flat bgFix" value="Small" />
+                                    <input id="draggable" type="button" class="flat bgFix" value="Draggable" />
+                                    <br />
+                                    <br />
+                                    <input id="wbgf" type="button" class="flat bgFix" value="White Fading Background" />
+                                    <input id="bbgf" type="button" class="flat bgFix" value="Black Fading Background" />
+                                    <br />
+                                    <input id="bbg" type="button" class="flat bgFix" value="Black (or white!) Background" />
+                                    <input id="nobg" type="button" class="flat bgFix" value="No Background" />
+                                    <br />
+                                    <input id="center" type="button" class="flat bgFix" value="Centered on Resize" />
+                                    <script type="text/javascript">
+                                        $(document).ready(function()
+                                        {
+                                            uLightBox.init({
+                                                override:true,
+                                                background: 'white',
+                                                centerOnResize: true,
+                                                fade: true
+                                            });	
+                                            $('#alert').click(function() {
+                                                alert('Hello');
+                                            });	
+                                            $('#ajax').click(function() {
+                                                uLightBox.alert({
+                                                    width: '400px',
+                                                    title: 'Ajax Content',
+                                                    rightButtons: ['OK'],
+                                                    leftButtons: ['Close'],
+                                                    opened: function() {
+                                                        $('<span />').load('demo.html').appendTo('#lbContent');
+                                                    },
+                                                    onClick: function(button) {
+                                                        console.log(button);
+                                                    }
+                                                });
+                                            });	
+                                            $('#buttons').click(function() {
+                                                uLightBox.alert({
+                                                    width: '400px',
+                                                    title: 'Button Callbacks',
+                                                    rightButtons: ['No', 'Yes'],
+                                                    leftButtons: ['Close'],
+                                                    opened: function() {
+                                                        $('<span />').html("rightButtons: ['No', 'Yes'],<br />leftButtons: ['Close']<br />").appendTo('#lbContent');
+                                                    },
+                                                    onClick: function(button) {
+                                                        if (button != 'Close') {
+                                                            $('#uLightBox #lbContent').append('<br />Clicked '+button);
+                                                        }
+                                                        console.log(button);
+                                                    }
+                                                });
+                                            });	
+                                            $('#small').click(function() {
+                                                uLightBox.alert({
+                                                    width: '200px',
+                                                    title: '200px',
+                                                    rightButtons: ['OK'],
+                                                    opened: function() {
+                                                        $('<span />').html("I am Small. <br />width: '200px',").appendTo('#lbContent');
+                                                    },
+                                                    onClick: function(button) {
+                                                        console.log(button);
+                                                    }
+                                                });
+                                            });
+                                            $('#draggable').click(function() {
+                                                uLightBox.alert({
+                                                    width: '400px',
+                                                    title: 'Drag Me Up Here!',
+                                                    rightButtons: ['Cool!'],
+                                                    opened: function(){
+                                                        $('<span />').html("If jQuery UI is loaded, all windows will become draggable automagically!").appendTo('#lbContent');
+                                                    },
+                                                    onClick: function(button) {
+                                                        console.log(button);
+                                                        if (button == 'Cool!') {
+                                                            uLightBox.clear();
+                                                        }
+                                                    }
+                                                });
+                                            });
+                                            $('#wbgf').click(function() {
+                                                uLightBox.destroy();
+                                                uLightBox.init({
+                                                    override:true,
+                                                    background: 'white',
+                                                    centerOnResize: false,
+                                                    fade: true
+                                                });
+                                                alert("Hello World");
+                                            });	
+                                            $('#bbgf').click(function() {
+                                                uLightBox.destroy();
+                                                uLightBox.init({
+                                                    override:true,
+                                                    background: 'black',
+                                                    centerOnResize: false,
+                                                    fade: true
+                                                });
+                                                alert("Hello World");
+                                            });	
+                                            $('#bbg').click(function() {
+                                                uLightBox.destroy();
+                                                uLightBox.init({
+                                                    override:true,
+                                                    background: ((Math.ceil(Math.random()*2))==2) ? 'white' : 'black',
+                                                    centerOnResize: false,
+                                                    fade: false
+                                                });
+                                                alert("My background doesn't have to fade in, it can be distracting at times.");
+                                            });	
+                                            $('#nobg').click(function() {
+                                                uLightBox.destroy();
+                                                uLightBox.init({
+                                                    override:true,
+                                                    background: 'none',
+                                                    centerOnResize: true,
+                                                    fade:false
+                                                });
+                                                alert("I have no background");
+                                            });	
+                                            $('#center').click(function() {
+                                                uLightBox.destroy();
+                                                uLightBox.init({
+                                                    override:true,
+                                                    background:'white',
+                                                    centerOnResize: true,
+                                                    fade: false
+                                                });
+                                                alert("Resize the window when I am open! I stay centered on resize.");
+                                            });	
+                                        });
+                                    </script>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                
+              <div class="container_6 clearfix">
+                    <section class="main-section grid_6">
+                        <div class="main-content">
+                            <header>
+                            </header>
+                            <section class="clearfix">
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Visit Ad Packs">via Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                
+            </section>
+        </div>
+        <a id="toTop" href="#" style="display: inline;"><span id="toTopHover" style="opacity: 1;"></span>To Top</a>
+
+</body>
+</html>

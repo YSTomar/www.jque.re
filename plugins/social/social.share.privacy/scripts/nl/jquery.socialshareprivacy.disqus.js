@@ -1,0 +1,1 @@
+(function($,undefined){$.extend($.fn.socialSharePrivacy.settings.services.disqus,{txt_info:"Ter verduidelijking: De Disqus knop wordt hiermee geactiveerd. Hiermee wordt data naar Disqus verzonden – Klik voor meer informatie op <em>i</em>.",txt_off:"niet verbonden met Disqus",txt_on:"verbonden met Disqus"});})(jQuery);

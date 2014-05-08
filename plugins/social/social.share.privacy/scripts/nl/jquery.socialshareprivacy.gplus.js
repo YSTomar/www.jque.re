@@ -1,0 +1,1 @@
+(function($,undefined){$.extend($.fn.socialSharePrivacy.settings.services.gplus,{txt_info:"Ter verduidelijking: De Google+ knop wordt hiermee geactiveerd. Hiermee wordt data naar Google+ verzonden – Klik voor meer informatie op <em>i</em>.",txt_off:"niet verbonden met Google+",txt_on:"verbonden met Google+"});})(jQuery);

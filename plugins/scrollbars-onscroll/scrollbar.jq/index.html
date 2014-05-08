@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Custom Scroller :: Examples</title>
+<link rel="stylesheet" href="customScroller.css" type="text/css">
+
+
+
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+<script type="text/javascript" src="jquery.customScroller-1.2.js"></script>
+<script type="text/javascript" src="jquery.mousewheel.js"></script>
+<script type="text/javascript" src="jquery.wresize.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#test-1").customScroller();
+});
+</script>
+<style>
+.code {
+	border: 1px solid #CC0000;
+	background: #FFFFCC;
+	padding: 10px;
+	width: 40%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+#test-1 {
+	width: 350px;
+	height: 300px;
+	border: 1px solid #527fa2;
+}
+</style>
+</head>
+<body>
+<h3>Simple Example</h3>
+<p>Below a simple frame. Width and height are fix and speed is set as attribute.</p>
+<a href="#ancora" target="test-1">This is an anchor</a> | <a href="#ancora2" target="test-1">This is an other anchor</a>
+<div id="test-1" speed="4">
+  <p><a name="ancora3"></a><a href="#ancora2" target="test-1">This is an internal anchor</a></p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis   nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu   fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in   culpa qui officia deserunt mollit anim id est laborum.</p>
+  <form id="form1" name="form1" method="post" action="" style="margin: 0px; padding: 0px;">
+    <input type="text" name="textfield" id="textfield" />
+    <br />
+    <textarea name="textarea" id="textarea" style="width: 380px; height: 50px; margin: 0px; padding: 0px;"></textarea>
+    <br />
+    <input type="submit" name="button" id="button" value="Invia" />
+  </form>
+  <p><a href="http://www.google.it/#pippo" target="_blank">Google</a></p>
+  <p><a name="ancora"></a><strong>Lorem</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis   nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu   fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in   culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis   nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu   fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in   culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p><a name="ancora2"></a><strong>Lorem</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis   nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu   fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in   culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p><a href="#ancora3" target="test-1">Top</a></p>
+</div>
+<p><strong>Code</strong>: </p>
+<p class="code">&lt;link rel=&quot;stylesheet&quot; href=&quot;<strong>../css/customScroller.css</strong>&quot; type=&quot;text/css&quot;&gt;</p>
+<p class="code">&lt;style&gt;<br />
+  #test-1 {<br />
+  <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 350px;</strong><br />
+  <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 300px;</strong><br />
+  <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>border: 1px solid #527fa2;<br />
+  }<br />
+  &lt;/style&gt;<br />
+</p>
+<p class="code">&lt;script src=&quot;<strong>../js/jquery-1.3.2.min.js</strong>&quot;&gt;&lt;/script&gt;<br />
+  &lt;script type=&quot;text/javascript&quot; src=&quot;<strong>../js/jquery.customScroller.js</strong>&quot;&gt;&lt;/script&gt;<br />
+  &lt;script type=&quot;text/javascript&quot; src=&quot;<strong>../js/jquery.mousewheel.js</strong>&quot;&gt;&lt;/script&gt;<br />
+  &lt;script type=&quot;text/javascript&quot; src=&quot;<strong>../js/jquery.wresize.js</strong>&quot;&gt;&lt;/script&gt;</p>
+<p class="code">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+  <strong>$(function(){<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(&quot;#test-1&quot;).customScroller();<br />
+  });</strong><br />
+  &lt;/script&gt;</p>
+<p class="code">&lt;div <strong>id=&quot;test-1&quot;</strong> <strong>speed=&quot;4&quot;</strong>&gt;<br />
+  &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;<br />
+  &lt;/div&gt;<br />
+</p>
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

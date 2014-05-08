@@ -1,0 +1,659 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Heapbox</title>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<meta name="author" content="Filip Bartos (filip@bartos.me)" />
+	<meta name="robots" content="index, follow" />
+	<meta name="description" content="Heapbox" />
+	<meta name="keywords" content="heapbox, html, jquery, javascript, js, plugin, selectbox" />
+  <link id="heapbox" rel="stylesheet" href="themes/dark/css/dark.css" type="text/css" media="screen" />
+
+	<script type="text/javascript" src="sh_main.min.js"></script>
+	<script type="text/javascript" src="sh_javascript.min.js"></script>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.9.1.min.js"><\/script>')</script>
+	<script type="text/javascript" src="jquery.heapbox-0.9.2.js"></script>
+	<script type="text/javascript" src="ui.js"></script>
+	<link rel="stylesheet" href="sh_style.css" type="text/css" media="screen" />
+
+	<style type="text/css">
+
+	@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext);				
+	body{font-family: 'Open Sans', sans-serif;font-style: normal;font-size: 18px;background:#fff;}
+	img{border: none;}
+	*{margin:0;padding:0;}
+	h1{font-weight:300;font-style:italic;font-size:150%;display:inline-block;}	
+	h2{font-weight:bold;font-style:italic;font-size:140%;display:block;border-bottom:1px solid #cccccc;line-height:120px;}	
+	h3{font-size:110%;margin-top:40px;margin-bottom:20px;}
+	a{color:#000;}
+
+	#container{width:800px;margin:0 auto 60px auto;}
+	#container #header{width:800px;margin-top:20px;height:50px;line-height:50px;}
+	#container #header img{margin-top:10px;}
+	#container #header ul li{list-style-type:none;display:inline;margin-right:20px;}
+	#container #header ul li a{text-decoration:none;}
+	#container #header ul{float:right;}
+	#container #promo{width:660px;height:60px;padding:70px 100px 70px 40px;margin-top:20px;}
+		#container #header form{float:right;display: inline-block;margin-right: 15px;margin-top: 5px;}
+	#container #promo p{font-weight:300;font-style:italic;width:350px;float:left;}
+	#container #promo p span.small-text{font-size: 80%;}
+
+	#container #content table{width:800px;border:1px solid #000;border-collapse: collapse;text-align: left;margin-top:30px;}
+	#container #content table tr *{padding:10px 10px;}
+	#container #content table tr td{border:1px solid #000;}
+	#container #content table tr th{line-height: 40px;padding: 10px;}
+
+	#container #content{width:800px;}
+	#container #content p{margin-top:20px;font-size:100%;}
+	.downloadSection{display:block;padding-left:120px;padding-bottom:20px;margin-top:20px;}
+	.downloadSection span{margin:0px 30px;}
+	a.downloadLink{height:25px;background:#0f76be;padding:30px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin-top:20px;}
+	a.downloadLink:hover{background:#0b5f99;}
+	pre{border:1px solid #ddd;padding:0;margin:0;padding:20px 50px;margin-top:20px;overflow-x:hidden;overflow-x: scroll;}
+	.promo-select{float:right;padding-top:10px;width:280px;height:50px;}
+	.heapBox .holder{width:250px;}
+	.heapBox div.heap{width:275px;}
+	#eventLog{background:#dddddd;font-size:80%;height:160px;width:460px;float:right;border:1px solid #aaaaaa;padding:5px 20px;overflow-y:hidden;overflow: scroll;}
+	#eventLog span{margin:0px;padding:0px;width:360px;color:#888888;display:block;}
+	#eventLog .init{color:#999999}
+	span.small{color:#666666;font-size:90%;}
+	.clear{clear:both;}
+	#content ul li{list-style-type: none;}
+	#container #content .author-info{font-size:90%;color:#aaa;text-align: center;margin:50px 0px 20px 0px;}
+	#footer{background:#eee;border-top:1px solid #ccc;padding-bottom:20px;margin-top:50px;line-height:50px;text-indent:20px;}
+	</style>
+
+</head>
+<body onload="sh_highlightDocument();">
+
+
+<div id="container">
+
+	<div id="header">
+	<a href="#about-page" class="about-menu-item" title="HeapBox"><img src="gfx/heapbox_logo.jpg" alt="HeapBox"/></a>
+
+	<ul>
+	  <li><a href="#installation" class="installation-menu-item" title="Installation">Quick install</a></li>
+	  <li><a href="#examples" class="examples-menu-item" title="Examples">Examples</a></li>
+	  <li><a href="#docs" class="docs-menu-item" title="Documentation">Documentation</a></li>	  
+	  <li><a href="#changelog" class="changelog-menu-item" title="Changelog">Changelog</a></li>
+	</ul>
+
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="KW8U27MCSVG7C">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+	</div>
+
+	<div id="promo">
+
+	<p>jQuery <strong>&lt;select&gt; <span class="small-text">(not only)</span> replacement</strong>.<br/>Fully <strong>keyboard accessible</strong>. With <strong>events</strong>, <strong>callbacks</strong>, <strong>themes</strong> and more. (1000+ downloads)</p>
+
+	<div class="promo-select">
+	<select class="style-select" tabindex="1">
+	  <option value="dark">Ready to use themes</option>
+	   <option value="asbestos">Asbestos</option>
+	   <option value="belize_hole">Belize hole</option>
+	   <option value="dark">Dark</option>
+	   <option value="green_sea">Green sea</option>
+	   <option value="midnight_blue">Midnight blue</option>   
+	   <option value="nephritis">Nephritis</option>
+	   <option value="orange">Orange</option>
+	   <option value="pomegranate">Pomegranate</option>
+	   <option value="pumpkin">Pumpkin</option>
+	   <option value="wisteria">Wisteria</option>
+	</select>
+	</div>
+
+	</div>
+
+	<div id="content">
+	  <div class="author-info">
+
+	  <p>Follow me: <a href="http://www.twitter.com/filipbartos" title="@filipbartos">@filipbartos</a> or say hello at <strong>filip(at)bartos(dot)me</strong></p>
+
+	  </div>
+
+	  <div id="about-page">
+	  <h2 id="download">Download</h2>
+	     <div class="downloadSection">
+		<a class="downloadLink" href="http://www.bartos.me/heapbox/download.php">Download 0.9.3 (.zip)</a>
+		<span>or</span>
+		<a class="downloadLink" href="http://www.github.com/FilipBartos">Fork me on GitHub</a>
+	     </div>
+
+	  <h2 id="download">What is HeapBox</h2>
+	  <h3>jQuery HTML selectbox replacement written in JavaScript, well done</h3>
+	  <p>As a webdesigner/webdeveloper you know how hard it is to deal with native HTML forms look or functionality. Heapbox doesn't know how to deal with textboxes, checkboxes etc but when it comes to selectboxes, it's kick-ass.</p>
+	  
+	  <p>
+	  
+    <script src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+    </p>
+
+	  <h3>Not only selectbox replacement (from version 0.9.1)</h3>
+	  <p>Heapbox can be used also without select element. Just init it with div, paragraph etc.</p>
+
+ 	  <h3>Power of jQuery</h3>
+	  <p>Heapbox is powered by jQuery. Library that changed the way that millions of people write JavaScript.</p>
+
+	  <h3>GET/POST requests</h3>
+	  <p>HeapBox keeps mappings to source selectboxes. It means you can use HeapBox and your POST/GET form requests together. Your forms will also work with javascript turned off but of course without HeapBox functionality. Let's try it. </p>
+
+ 	  <h3>Events and callbacks</h3>
+	  <p>Yes, HeapBox knows events and callbacks. For more information see examples.</p>
+
+	  <h3>Design</h3>
+	  <p>Heapbox has very easy to learn HTML structure. It's really easy and fast to create brand new theme. Heapbox has also built-in themes. Flat themes are powered with colors by <a href="http://flatuicolors.com" title="Flat UI Colors">http://www.flatuicolors.com</a>.</p>
+
+	  <h3>Also HeapBox has things to learn...</h3>
+	  <p>Sure HeapBox still doesn't know anything but you can already look forward to new versions. See <a href="#changelog"  class="changelog-menu-item" title="changelog">changelog</a>.</p>
+	</div>
+
+	  <div id="installation-page">
+	  <h2 id="installation">Installation</h2>
+
+	  <p>Include the jquery and heapbox in your head:</p>
+	  <pre class="sh_javascript">
+&lt;script src="js/jquery.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="js/heapbox.js" type="text/javascript"&gt;&lt;/script&gt;</pre>
+
+	 <p>Include one chosen heapbox theme style:</p>
+
+<pre class="sh_javascript">
+&lt;link rel="stylesheet" href="themes/dark/css/dark.css" type="text/css" media="screen" /&gt;</pre>
+
+	 <p>Create selectbox:</p>
+
+<pre class="sh_javascript">
+&lt;select id="mySelect"&gt;
+    &lt;option value="value1">Value 1&lt;/option&gt;
+    &lt;option value="value2">Value 2&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+
+	 <p>Init heapbox:</p>
+
+<pre class="sh_javascript">
+$("#mySelect").heapbox();
+</pre>
+</div>
+
+<div id="documentation-page">
+<h2 id="docs">Documentation</h2>
+
+<h3>Settings</h3>
+<table>
+<tr>
+	<th>Settings name</th>
+	<th>Description</th>
+</tr>
+<tr>
+	<td><strong>tabindex</strong><br/> (default = undefined)</td>
+	<td>Tabindex value.</td>
+</tr>
+<tr>
+	<td><strong>insert</strong><br/> (default = before)</td>
+	<td>Where to insert heapbox.(available: before, after, inside)</td>
+</tr>
+<tr>
+	<td><strong>emptyMessage</strong><br/> (default = 'Empty')</td>
+	<td>Message shown when source selectbox is empty.</td>
+</tr>
+<tr>
+	<td><strong>heapsize</strong><br/> (default = undefined)</td>
+	<td>Max height of heapbox.</td>
+</tr>
+<tr>
+	<td><strong>effect{type}</strong><br/>  (default = 'slide')</td>
+	<td>Effect used to show/hide list of options. (available: fade,slide,standard)</td>
+</tr>
+<tr>
+	<td><strong>effect{speed}</strong><br/>  (default = 'slow')</td>
+	<td>Speed of effect used to show/hide list of options. (available: slow, fast)</td>
+</tr>
+
+</table>	
+
+<h3>Events</h3>
+<table>
+<tr>
+	<th>Event name</th>
+	<th>Description</th>
+</tr>
+<tr>
+	<td>openStart()</td>
+	<td>Event is triggered when heapbox opening started.</td>
+</tr>
+<tr>
+	<td>openComplete()</td>
+	<td>Event is triggered when heapbox opening is complete.</td>
+</tr>
+<tr>
+	<td>closeStart()</td>
+	<td>Event is triggered when heapbox closing started.</td>
+</tr>
+<tr>
+	<td>closeComplete()</td>
+	<td>Event is triggered when heapbox closing is complete.</td>
+</tr>
+<tr>
+	<td>onChange(value)</td>
+	<td>Event is triggered when user select value in heapbox.</td>
+</tr>
+</table>	
+</div>
+	  <div id="examples-page">
+	  <h2 id="examples">Examples</h2>
+
+	  <h3>Basic</h3>
+
+	  <p>Basic heapbox without any configuration.</p>
+	  <pre class="sh_javascript">
+$("#mySelect1").heapbox();</pre>
+
+	  <p>Result:</p>
+	  <br/>
+	  <select id="mySelect1" tabindex="2">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux">Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+
+  	<h3>Basic non-select heapbox</h3>
+
+	  <p>Basic non-select heapbox.</p>
+	  <pre class="sh_javascript">
+$("#myDivElement").heapbox({'insert':'inside'});
+json = '[{"value":"value_1","text":"value 1"},{"value":"value_2","text":"value 2"}]';
+$("#myDivElement").heapbox("set",json);</pre>
+
+	  <p>Result:</p>
+	  <br/>
+	  <div id="myDivElement"></div>
+
+	  <h3>Insertion</h3>
+
+	  <p>Heapbox can be inserted before, after or inside defined element. If defined element is select, only before or after option can be used.</p>
+
+	  <pre class="sh_javascript">
+$("#mySelect10").heapbox({'insert':'after'});
+</pre>  
+
+	  <p>Result:</p>
+	  <br/>
+
+	  <select id="mySelect10" tabindex="3">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux">Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+
+	  <h3>Selected attribute</h3>
+
+	  <p>Heapbox till version 0.9.1 supports selected attribute. Let's say you have three values in your select mac, linux and windows. Linux option has selected attribute.</p>
+
+	  <p>Result:</p>
+	  <br/>
+
+	  <select id="mySelect11" tabindex="4">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux" selected>Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+
+	  <h3>Tabindex attribute</h3>
+
+	  <p>Heapbox knows how to take tabindex from source element if it's defined. Tabindex can be also set manually. Manually defined tabindex has higher priority.  </p>
+
+	  <p>Example</p>
+	  <pre class="sh_javascript">
+$("#mySelect11").heapbox({'tabindex':'11'});
+</pre>  
+
+	  <h3>Events and callbacks</h3>
+
+	  <p>Example of available heapbox events and callbacks</p>
+
+	  <pre class="sh_javascript">$(".mySelect").heapbox({
+'onChange':function(){$("#eventLog").prepend("&lt;span&gt;Heapbox changed, value is: &lt;b&gt;"+value+"&lt;/b&gt;&lt;/span&gt;");},
+'openStart':function(){$("#eventLog").prepend("&lt;span&gt;Heapbox is opening&lt;/span&gt;");},
+'openComplete':function(){$("#eventLog").prepend("&lt;span&gt;Heapbox has been opened&lt;/span&gt;");},
+'closeStart':function(){$("#eventLog").prepend("&lt;span&gt;Heapbox is closing&lt;/span&gt;");},
+'closeComplete':function(){$("#eventLog").prepend("&lt;span&gt;Heapbox has been closed&lt;/span&gt;");},
+});</pre>
+	
+	  <p>Result:</p>
+	  <br/>
+
+	   <select id="mySelect2" tabindex="5">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux">Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+
+	   <div id="eventLog">
+	   	<span class="init">waiting for events...</span>
+	   	<div class="clear"></div>
+	   </div>
+<div class="clear"></div>
+	
+	  <h3>Themes</h3>
+
+	  <p>Everything about heapbox is fully customizable via CSS. Curently available "ready to use" themes are:</p>
+
+	  <br/>
+
+	<select class="style-select" tabindex="6">
+	  <option value="dark">Ready to use themes</option>
+	   <option value="asbestos">Asbestos</option>
+	   <option value="belize_hole">Belize hole</option>
+	   <option value="dark">Dark</option>
+	   <option value="green_sea">Green sea</option>
+	   <option value="midnight_blue">Midnight blue</option>   
+	   <option value="nephritis">Nephritis</option>
+	   <option value="orange">Orange</option>
+	   <option value="pomegranate">Pomegranate</option>
+	   <option value="pumpkin">Pumpkin</option>
+	   <option value="wisteria">Wisteria</option> 
+	</select>
+
+	  <h3>Long lists</h3>
+
+	  <p>Heapbox know how to deal with long lists:</p>
+
+	  <pre class="sh_javascript">$("#mySelect12").heapbox({"heapsize":"100px"});</pre>
+
+	  <br/>
+
+
+	<select class="mySelect12" tabindex="7">
+	  <option value="1">1</option>
+	  <option value="2">2</option>
+	  <option value="3">3</option>
+	  <option value="4">4</option>
+	  <option value="5">5</option>
+	  <option value="6">6</option>
+	  <option value="7">7</option>
+	  <option value="8">8</option>
+	  <option value="9">9</option>
+	  <option value="10">10</option>
+	</select>
+
+
+	  <h3>AJAX</h3>
+
+	  <p>Heapbox is AJAX friendly.</p>
+
+	  <pre class="sh_javascript">
+//init heapbox for #ajaxSelect and define onChange callback with ajax
+$("#ajaxSelect").heapbox({
+ 'onChange':function(value)
+ {
+  //hide heapbox
+  $("#ajaxSelect2").heapbox("hide");
+ 
+   if(value){
+   $.ajax({
+    type: "POST",
+    url: "ajax/ajax.php",
+    data: "type="+value,
+    success:function(data)
+    {
+     showAjaxSelect2(data);
+     $("#ajaxSelect2").heapbox("show");
+    }
+    });
+   }
+ }
+});
+
+//init heapbox for #ajaxSelect2
+$("#ajaxSelect2").heapbox({
+ 'onChange': function(value)
+ {
+  showMessage();
+ }
+});
+ 
+ //hide heapbox
+ $("#ajaxSelect2").heapbox("hide");
+
+//set data to heapbox for #ajaxSelect2
+function showAjaxSelect2(data)
+{
+   $("#ajaxSelect2").heapbox("set",data);
+}
+
+//show selected values
+function showMessage()
+{
+  foodType = $("#ajaxSelect option:selected").attr("value");
+  food = $("#ajaxSelect2 option:selected").attr("value");
+
+  alert("Cool, you are into "+foodType+", especially "+food+".");
+}
+	  </pre>
+
+	  <p>Result:</p>
+
+	  <br/>
+	   <select id="ajaxSelect" tabindex="8">
+	    <option>Select your favorite food</option>
+	    <option value="fruit">Fruit</option>
+	    <option value="vegetable">Vegetable</option>
+	   </select>
+
+	   <select id="ajaxSelect2" tabindex="9">
+	    <option value="default option">Select your favorite food</option>
+	   </select>
+
+
+	  <h3>Effects</h3>
+	  
+	  <p>Heapbox supports effects. Actually you can choose between slide, fade or no effect. Example of slow fade effect:</p>
+	 
+<pre class="sh_javascript">
+$("#mySelect3").heapbox({
+	'effect': {
+		'type': 'fade',
+		'speed': 'slow'
+	}
+});</pre>
+
+	  <p>Result:</p>
+	  <br/>
+
+	   <select id="mySelect3" tabindex="10">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux">Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+
+	   <h3>Setting data dynamically</h3>
+
+	   	<p>Data can be also set dynamically whenever you need.</p>
+
+<pre class="sh_javascript">
+$("#mySelect4").heapbox();
+json = '[{"value":"dynamic_value_1","text":"Dynamic value 1"},{"value":"dynamic_value_2","text":"Dynamic value 2"}]';
+$("#mySelect4").heapbox("set",json);</pre>
+<br/>
+
+	   <select id="mySelect4" tabindex="11">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux">Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+
+	   <h3>Manual heapbox update</h3>
+
+	   	<p>Okay, you have already own functions to update selectboxes. No problem. Just say when heapbox should update his data.</p>
+
+<pre class="sh_javascript">
+//init heapbox
+$("#mySelect5").heapbox();
+
+//add new option to source selectbox
+newOption = $('&lt;option/&gt;', {  
+	value: 'new_option_value',
+	text: 'New option'
+});
+$("#mySelect5").append(newOption);
+
+//update heapbox
+$("#mySelect5").heapbox("update");</pre>
+<br/>
+
+	   <select id="mySelect5" tabindex="12">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux">Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+
+	  <h3>Access selected data in JavaScript</h3>
+	   	<p>Selected data can be accessed in JavaScript via onChange callback</p>
+
+<pre class="sh_javascript">
+$("#mySelect5").heapbox({
+	'onChange':function(value){alert('Selected value: '+value)}
+});</pre>
+<p>Result:</p>
+<br/>
+	   <select id="mySelect6" tabindex="13">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux">Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+
+	  <h3>Disable and enable heapbox</h3>
+	  <p>You can also disable or enable heapbox whenever you want. Disabled heapbox has CSS classes "heapbox" and "disabled".</p>
+	  <p>Disable heapbox:</p>
+	
+	  <pre class="sh_javascript">
+$("#mySelect7").heapbox("disable");
+</pre>
+	   <p>Result:</p><br/>
+
+	   <select id="mySelect7" tabindex="14">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux">Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+	  
+	  <p>Enable heapbox:</p>
+
+<pre class="sh_javascript">
+$("#mySelect8").heapbox("enable");
+</pre>
+
+	  <p>Result:</p><br/>
+
+	   <select id="mySelect8" tabindex="15">
+	    <option value="default option">Select your OS</option>
+	    <option value="mac">MAC OS X</option>
+	    <option value="linux">Linux</option>
+	    <option value="windows">Microsoft Windows</option>
+	   </select>
+
+	  <h3>Empty heapbox</h3>
+	  <p>When source selectbox is empty emptyMessage option text is shown.</p>
+
+<pre class="sh_javascript">
+$("#mySelect9").heapbox({emptyMessage: 'It\'s empty'});
+</pre>
+
+	  <p>Result:</p><br/>
+
+	   <select id="mySelect9" tabindex="16">
+	   </select>
+	</div>
+
+	<div id="todo-page">
+	  <h2 id="todo">Todo</h2>
+	  <br/>
+	  <ul>
+	  	<li>Tabindex support</li>
+	  	<li>Selectbox attribute "disabled" support</li>
+	  	<li>Suboptions support</li>
+	  	<li>Optgroup support</li>
+	  	<li>Create twitter bootstrap theme</li>
+	  	<li>Fix for long lists of options (scrollbars etc)</li>
+	  	<li>Keyboard events</li>
+	  </ul>
+	</div>
+
+	<div id="changelog-page">
+	  <h2 id="changelog">Changelog</h2>
+	  <br/>
+
+	  <h3>v1.0.0 (not released yet)</h3>
+	  <ul>
+	  	<li>final release</li>
+	  </ul>
+
+	  <h3>v0.9.4 (not released yet)</h3>
+	  <ul>
+	  	<li>html options support</li>
+	  </ul>
+
+	  <h3>v0.9.3 (not released yet)</h3>
+	  <ul>
+	  	<li>improved keyboard support</li>
+	  	<li>support for long lists of options</li>
+	  	<li>option disabled attribute support</li>
+	  	<li>bug fixes</li>
+	  </ul>
+
+	  <h3>v0.9.2</h3>
+	  <ul>
+	  	<li>keyboard support - heapbox is fully keyboard accessible</li>
+	  	<li>tabindex support</li>
+	  	<li>fixed bug in onChange event</li>
+	  </ul>
+	  
+	  <h3>v0.9.1</h3>
+	  <ul>
+	  	<li>added selected attribute support</li>
+	  	<li>heapbox can be used also with non-select elements</li>
+	  	<li>new option "insert" added (before, after, inside values available)</li>
+		<li>fixed bug (enable vs disable heapbox)</li>
+	  </ul>
+	  <h3>v0.9.0</h3>
+	  <ul>
+	  	<li>Initial version</li>
+	  </ul>
+	</div>
+
+	  <div id="footer">
+
+	  <p>Heapbox is licensed under <a href="http://www.opensource.org/licenses/MIT" title="MIT">MIT</a>, copyright &copy; Filip Bartos.</p>
+	 </div>
+
+	</div>
+</div>
+<!--
+#####################################################################################
+{/no-adpack-misc}
+#####################################################################################
+-->
+
+</body>
+</html>

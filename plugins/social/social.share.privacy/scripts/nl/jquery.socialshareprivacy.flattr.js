@@ -1,0 +1,1 @@
+(function($,undefined){$.extend($.fn.socialSharePrivacy.settings.services.flattr,{txt_info:"Ter verduidelijking: De Flattr knop wordt hiermee geactiveerd. Hiermee wordt data naar Flattr verzonden – Klik voor meer informatie op <em>i</em>.",txt_off:"niet verbonden met Flattr",txt_on:"verbonden met Flattr"});})(jQuery);

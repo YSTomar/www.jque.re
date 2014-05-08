@@ -1,0 +1,187 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Fixed Floating Elements</title>
+<style>
+body {
+  color:#000;
+  font-family:"Helvetica Neue",helvetica,sans-serif;
+  line-height:1.4em;
+}
+
+#comments {
+  float:left;
+  width:450px;
+}
+
+#comment-wrapper {
+  position: relative;
+}
+
+#commentWrapper { /* required to avoid jumping */
+  left: 450px;
+  position: absolute;
+  margin-left: 35px;
+  width:280px;
+}
+
+#comment {
+  position: absolute;
+  top: 0;
+  margin-top: 20px;
+  border-top: 1px solid purple;
+  padding-top: 19px;
+}
+
+h2 {
+  font-family:georgia,serif;
+}
+
+#comments ol li {
+  border-top: 1px solid purple;
+}
+
+#comments ol li:first-child {
+  border-top: 0;
+}
+
+#comment.fixed {
+  position: fixed;
+  top: 0;
+}
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.8.3.min.js"><\/script>')</script>
+
+<script>
+$(function () {
+  
+  var msie6 = $.browser == 'msie' && $.browser.version < 7;
+  
+  if (!msie6) {
+    var top = $('#comment').offset().top - parseFloat($('#comment').css('margin-top').replace(/auto/, 0));
+    $(window).scroll(function (event) {
+      // what the y position of the scroll is
+      var y = $(this).scrollTop();
+      
+      // whether that's below the form
+      if (y >= top) {
+        // if so, ad the fixed class
+        $('#comment').addClass('fixed');
+      } else {
+        // otherwise remove it
+        $('#comment').removeClass('fixed');
+      }
+    });
+  }  
+});
+</script>
+</head>
+<body>
+  <h1>A blog, just like Simon's</h1>
+  <h2 class="band">9 comments</h2>
+  <div id="comment-wrapper">
+    <div id="comments">
+      <ol>
+        <li>
+          <div class="comment" id="c53607"> 
+            <p>dolore magna aliqua Ut enim, ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. </p>
+            <p>id est laborum Lorem ipsum, dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et. </p>
+          </div>
+        </li>
+        <li>
+          <div class="comment" id="c53618">
+
+            <p>sunt in culpa qui officia, deserunt mollit anim.</p>
+
+            <p>minim veniam quis nostrud exercitation, ullamco laboris nisi, ut aliquip ex ea commodo consequat Duis aute irure dolor in. reprehenderit in voluptate velit esse, cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident. </p>
+
+            <p>deserunt mollit anim id est, laborum Lorem ipsum, dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt. ut labore et dolore magna, aliqua Ut enim ad.</p>
+          </div>
+        </li>
+        <li>
+          <div class="comment" id="c53620">  
+            <p>qui officia,</p>
+
+            <p>eu fugiat nulla pariatur. Excepteur'sint occaecat cupidatat non proident sunt in culpa.</p>
+
+            <p>aliquip ex ea commodo consequat Duis. aute irure dolor in reprehenderit in voluptate? velit'esse cillum dolore.</p>
+
+            <p>exercitation ullamco laboris nisi ut!</p>
+
+          </div>
+        </li>
+        <li>
+          <div class="comment" id="c53627">
+            <p>officia deserunt - mollit anim'id est laborum Lorem'ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod, tempor incididunt ut labore et dolore' magna aliqua Ut enim ad minim veniam quis nostrud?</p>
+          </div>
+        </li>
+        <li>
+          <div class="comment" id="c53628">
+
+            <p>nisi ut aliquip ex ea...commodo consequat Duis aute irure dolor in reprehenderit...in voluptate velit, esse, cillum dolore eu fugiat nulla "pariatur Excepteur sint". occaecat cupidatat...non'proident sunt in culpa qui.</p>
+
+          </div>
+        </li>
+        <li>
+          <div class="comment" id="c53629">
+            <p>amet, consectetur adipisicing elit. sed do eiusmod tempor incididunt ut labore; et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+
+        <p>aute irure dolor in reprehenderit in voluptate velit esse (cillum dolore eu, fugiat nulla pariatur Excepteur) sint occaecat cupidatat'non proident sunt in culpa qui officia deserunt mollit (anim id est laborum Lorem ipsum dolor sit).</p>
+
+        <p>laboris nisi. ut'aliquip ex ea commodo consequat Duis. :)</p>
+
+          </div>
+        </li>
+        <li>
+          <div class="comment" id="c53630">
+
+            <p>id: est laborum Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor, incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco.</p>
+
+        <p>fugiat: nulla'pariatur Excepteur sint. occaecat cupidatat non proident sunt in culpa qui officia. deserunt mollit anim, id'est laborum Lorem ipsum dolor sit (amet consectetur adipisicing'elit sed do eiusmod) tempor incididunt ut labore et dolore magna aliqua Ut enim ad/minim veniam. quis'nostrud exercitation ullamco laboris nisi ut aliquip ex ea-commodo consequat/Duis aute irure dolor'in reprehenderit in voluptate velit esse, cillum dolore'eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt. in culpa qui officia deserunt mollit anim.</p>
+          </div>
+        </li>
+        <li>
+          <div class="comment" id="c53632">
+
+            <p>enim ad... minim veniam quis nostrud exercitation.  ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in, reprehenderit in voluptate velit esse cillum dolore eu.</p>
+
+          </div>
+        </li>
+        <li>
+          <div class="comment" id="c53633">
+
+            <p>magna aliqua, Ut tempor incididunt ut labore et dolore.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div id="commentWrapper">
+      <div id="comment">
+        <form>
+        <p class="formrow"><label for="yourname">Name:</label>
+          <input type="text" class="text" id="yourname" name="name" value=""></p>
+        <p class="formrow"><label for="yoururl">URL:</label>
+          <input type="text" class="text" id="yoururl" name="url"></p>
+        <p class="formrow"><textarea rows="10" cols="35" name="body"></textarea></p>
+        <p><input type="button" value="Preview comment"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+
+</body>
+</html>

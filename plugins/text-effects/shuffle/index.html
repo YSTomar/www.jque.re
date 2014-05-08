@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" /><title>ShuffleText Example - js do it</title>
+<meta name="Description" content="jsdo.it - share JavaScript, HTML5 and CSS - " />
+<meta name="Keywords"  content="JavaScript,HTML5,CSS" />
+
+<style type="text/css">body {font-family: 'Ropa Sans', cursive;}
+h1 {
+	font-size: 16px;
+	cursor: pointer;
+	color: #900;
+}
+p, li {
+	font-size: 12px;
+	cursor: pointer;
+	color: #333;
+}
+li:hover { color: #900; }
+ul{
+	list-style-position: inside;
+	padding: 0;
+	line-height: 2;
+}</style></head>
+<body>
+<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+<script src="shuffle.js"></script>
+
+<h1 id="text0">This is a ShuffleText.js Examle</h1>
+<div style="width:465px">
+    <ul style="float:left; width:230px;">
+	<li id="text1">2012/02/04 TOP PAGE UPDATE.</li>
+	<li id="text2">2012/02/03 ABOUT PAGE UPDATE.</li>
+	<li id="text3">2012/02/02 CONTACT PAGE UPDATE.</li>
+	<li id="text4">2012/01/30 NEWS PAGE UPDATE.</li>
+	<li id="text5">2012/01/25 INDEX PAGE UPDATE.</li>
+	<li id="text6">2012/01/20 NEWS PAGE UPDATE.</li>
+	<li id="text7">2012/01/16 ABOUT PAGE UPDATE.</li>
+	<li id="text8">2012/01/12 LAUNCHED.</li>
+    </ul>
+    <ul style="float:right; width:230px;">
+	<li id="text9">2012/02/04 TOP PAGE UPDATE.</li>
+	<li id="text10">2012/02/03 ABOUT PAGE UPDATE.</li>
+	<li id="text11">2012/02/02 CONTACT PAGE UPDATE.</li>
+	<li id="text12">2012/01/30 NEWS PAGE UPDATE.</li>
+	<li id="text13">2012/01/25 INDEX PAGE UPDATE.</li>
+	<li id="text14">2012/01/20 NEWS PAGE UPDATE.</li>
+	<li id="text15">2012/01/16 ABOUT PAGE UPDATE.</li>
+	<li id="text16">2012/01/12 LAUNCHED.</li>
+    </ul>
+    <br style="clear:both;">
+</div>
+<p id="text17">ShuffleText.js is under MIT Lisence.</p>
+<p id="copyright">&copy; copyright 2012, <a href="http://clockmaker.jp/">clockmaker.jp</a></p>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+<script type="text/javascript">
+var arr = [];
+for (var i = 0; i < 18; i++) {
+    arr[i] = new ShuffleText(document.getElementById("text" + i));
+}
+for (var i = 0; i < arr.length; i++) {
+    $("#text" + i)
+	.attr("data-index", i)
+	.hover(function () {
+		arr[$(this).attr("data-index")].start();
+	    },function () {
+		arr[$(this).attr("data-index")].start();
+	    });
+}
+</script>
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

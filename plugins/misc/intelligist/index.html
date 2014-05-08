@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Intelligist: a jQuery plugin that makes it easy to share and demo code in-page, using GitHub gists</title>
+	<link href="http://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet" type="text/css" />
+	<link href="http://srobbin.github.com/chosen/chosen.css" rel="stylesheet" type="text/css" />
+	<link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="content">
+        <hr />
+        
+        <h1>Intelligist</h1>
+        <p>
+            a jQuery plugin that makes it easy to share and demo code in-page, using GitHub gists<br />
+            <span style="font-size: 80%">by <a href="http://srobbin.com">Scott Robbin</a></span>
+        </p>
+        <p><a href="https://github.com/srobbin/jquery-intelligist/zipball/v1.0.1" class="btn btn-large btn-success download">Download Intelligist Now</a></p>
+        <p>
+            <a href="https://twitter.com/srobbin" class="twitter-follow-button" data-show-count="false">Follow @srobbin</a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="srobbin" data-count="none">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </p>
+        <hr />
+        
+        <p>Sharing code is an essential part of the Internet. It's how we learn.<br />The <a href="https://gist.github.com/">Gist service</a> that GitHub provides is an instrumental part of that sharing process,<br />making it easy to embed code into your website, and collaborate.</p>
+        <p>Intelligist is a convenient plugin for sharing GitHub gists on your website.<br />It allows you to share one or more gists, and even execute the code, which makes it ideal for demoing JavaScript and CSS in-page.</p>
+        <hr />
+        
+        <h2 id="demo-header">Demo</h2>
+        <p>Here it is. You'll notice that, for the most part, it looks like a normal gist, except for a drop-down menu.<br />Give it a try. See what happens.</p>
+        <div id="demo" class="snippet"></div>
+        <hr />
+        
+        <h2>How do I use it?</h2>
+        <div id="code" class="snippet">
+            <script src="https://gist.github.com/1974010.js?file=gistfile1.js"></script>
+        </div>
+        <hr />
+        
+        <h2>Where can I get it?</h2>
+        <p>
+            If you are interested in learning more about Intelligist, it's recommended that you view <a href="https://github.com/srobbin/jquery-intelligist" title="Intelligist on GitHub">the project on GitHub</a>.<br />
+            There, you will find the source code, and additional options that the script accepts.
+        </p>
+        <p><a href="https://github.com/srobbin/jquery-intelligist/zipball/v1.0.1" class="btn btn-large btn-success download">Download Intelligist Now</a></p>
+        <hr />
+        
+        <h2>Support</h2>
+        <p>Basic support is offered through <a href="https://github.com/srobbin/jquery-intelligist/issues">Github's issues tracker</a>. Many requests are resolved through the help of fellow Intelligist users and myself, however assistance is not guaranteed or timely.</p>
+        <p>If you are in need of immediate support, or would like customizations to the script, <a href="https://www.paypal.com/cgi-bin/webscr?business=srobbin@gmail.com&amp;cmd=_xclick&amp;currency_code=USD&amp;amount=17&amp;item_name=Intelligist%20Premium%20Support">Premium Support is available for $17</a>. Premium Support provides you with direct email access to me, and allows me to set time aside to help solve your problem quickly.</p>
+        <hr />
+        
+        <h2>Other jQuery Plugins</h2>
+        <p>If you like this plugin, feel free to check out some of the others I've built.</p>
+        <ul class="plugins">
+            <li>
+                <h3><a href="../backstretch/" title="jQuery Backstretch plugin">Backstretch</a></h3>
+                <p>
+                    Add a dynamically-resized background image<br />to any page. 
+                </p>
+            </li>
+            <li>
+                <h3><a href="../pageslide/" title="jQuery PageSlide plugin">PageSlide</a></h3>
+                <p>
+                    Slides a webpage over to reveal an additional interaction pane. 
+                </p>
+            </li>   
+        </ul>
+        
+        <div class="footer">
+            <hr />
+            &copy; 2012 Robbin & Co.
+            <span>This plugin is distributed under the <a href="https://github.com/srobbin/jquery-intelligist/blob/master/MIT-LICENSE.txt">MIT license</a></span>
+        </div>
+        
+        <a href="https://github.com/srobbin/jquery-intelligist"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/camo.github.com/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
+    </div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+    <script src="chosen.jquery.min.js"></script>
+    <script src="jquery.intelligist.min.js"></script>
+    <script src="jquery.shuffleLetters.js"></script>
+    <script>
+        /*
+         * If you're wondering, "Why didn't you just use Intelligist to execute this?" The answer is, I did.
+         * The first version of this page had a gist calling a gist calling a script. Good news: it works!
+         * That said, I don't think the page load delay is worth it. No need to showboat.
+         */
+        $("#demo").intelligist({
+            "1973984": "Welcome to Intelligist"
+          , "1973990": "Live CSS preview"
+          , "1979034": "Live JS preview"
+        }, { exec: true });
+    </script>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>

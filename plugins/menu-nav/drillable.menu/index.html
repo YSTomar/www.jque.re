@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>niceMenu (2 level menu) vs 1.0</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/text.css" />
+<link rel="stylesheet" href="css/960.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+
+<!-- Javascript -->
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+<!-- niceMenu includes -->
+<link rel="stylesheet" href="css/niceMenu.css" type="text/css">
+<script type="text/javascript" src="js/niceMenu.class.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	// niceMenu init. Send custom option
+	niceMenu.init({
+		element : "#niceMenu",
+		hideStep	: 199, // next step in size
+		duration	: 200, // animation speed in miliseconds. 1000 = 1 second
+		nextIcon	: 'images/niceMenu/menu_arraw.png', // url to next icon from menu
+		backBtn 	: 'a#niceMenu-backBtn', // back element menu
+		lastId 		: 0, // autoincrement in script
+		lastelm		: 0, // autoincrement in script
+		currentStep	: 0, // default 0. Autoincrement in script
+		running		: false // prevent duble click colision
+	});
+});
+</script>
+
+</head>
+<body>
+<div class="container_12">
+
+	<div id="headline" class="grid_12">
+		<h2>Drillable</h2>
+		<p><em>Nice menu system to drill down to secondary sub levels of topics</em></p>
+	</div>
+	<div class="clear"></div>
+	
+	<div class="grid_12">
+		<div class="boxItem grid_4">
+			<!-- niceMenu box -->
+			<div class="niceMenu">
+				<!-- niceMenu back button -->
+				<a href="#back" class="niceMenu-backBtn" id="niceMenu-backBtn"></a>
+				<div class="niceMenu-top"></div>
+				<div class="niceMenu-middle">
+					<div class="niceMenu-wrapper" id="niceMenu">
+						<ul>
+							<li>
+								<a href="#">Books</a>
+								<ul>
+									<li><a href="#">Arts & Photography</a></li>
+									<li><a href="#">Audiobooks</a></li>
+									<li><a href="#">Audible Audiobook Downloads</a></li>
+									<li><a href="#">Biographies & Memoirs</a></li>
+									<li><a href="#">Business & Investing</a></li>
+									<li><a href="#">Children's Books</a></li>
+									<li><a href="#">Christian Books</a></li>
+									<li><a href="#">Comics & Graphic Novels</a></li>
+									<li><a href="#">Computers & Internet</a></li>
+									<li><a href="#">Cooking, Food & Wine</a></li>
+									<li><a href="#">Crafts & Hobbies</a></li>
+									<li><a href="#">Entertainment</a></li>
+									<li><a href="#">Gay & Lesbian</a></li>
+									<li><a href="#">Health, Mind & Body</a></li>
+									<li><a href="#">History</a></li>
+									<li><a href="#">Literature & Fiction</a></li>
+									<li><a href="#">Mystery & Thrillers</a></li>
+									<li><a href="#">Nonfiction</a></li>
+									<li><a href="#">Outdoors & Nature</a></li>
+									<li><a href="#">Parenting & Families</a></li>
+									<li><a href="#">Puzzles & Games</a></li>
+									<li><a href="#">Reference</a></li>
+									<li><a href="#">Religion & Spirituality</a></li>
+									<li><a href="#">Teens</a></li>
+									<li><a href="#">Travel</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Movies, Music</a>
+								<ul>
+									<li><a href="#">Movies & TV</a></li>
+									<li><a href="#">Blu-ray</a></li>
+									<li><a href="#">Video On Demand</a></li>
+									<li><a href="#">Music</a></li>
+									<li><a href="#">MP3 Downloads</a></li>
+									<li><a href="#">Musical Instruments</a></li>
+									<li><a href="#">Video Games</a></li>
+									<li><a href="#">Game Downloads</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Digital Downloads</a>
+								<ul>
+									<li><a href="#">Kindle Store</a></li>
+									<li><a href="#">Audible Audiobooks</a></li>
+									<li><a href="#">Video On Demand</a></li>
+									<li><a href="#">MP3 Downloads</a></li>
+									<li><a href="#">Game Downloads</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Electronics</a>
+								<ul>
+									<li><a href="#">TV & Video</a></li>
+									<li><a href="#">Home Audio & Theater</a></li>
+									<li><a href="#">Camera, Photo & Video</a></li>
+									<li><a href="#">Cell Phones & Accessories</a></li>
+									<li><a href="#">Video Games</a></li>
+									<li><a href="#">MP3 Players & Accessories</a></li>
+									<li><a href="#">Car Electronics & GPS</a></li>
+									<li><a href="#">Home Appliances</a></li>
+									<li><a href="#">Musical Instruments</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Toys, Kids & Baby</a>
+								<ul>
+									<li><a href="#">Toys & Games</a></li>
+									<li><a href="#">Baby</a></li>
+									<li><a href="#">Clothing (Kids & Baby)</a></li>
+									<li><a href="#">Video Games for Kids</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Sports & Outdoors</a>
+								<ul>
+									<li><a href="#">Exercise & Fitness</a></li>
+									<li><a href="#">Outdoor Recreation</a></li>
+									<li><a href="#">Athletic & Outdoor Clothing</a></li>
+									<li><a href="#">Team Sports</a></li>
+									<li><a href="#">Bikes & Scooters</a></li>
+									<li><a href="#">Golf</a></li>
+									<li><a href="#">Boating & Water Sports</a></li>
+									<li><a href="#">Fan Shop</a></li>
+									<li><a href="#">All Sports & Outdoors</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">About us</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="niceMenu-bottom"></div>
+			</div>
+		</div>
+		
+		<div class="grid_7">
+			<img src="images/demo.png" alt="demo" />
+		</div>
+	</div>
+	<div class="clear"></div>
+	
+	<div id="footer" style="text-align: center; border-top: 1px solid #dddddd; margin-top:25px; padding-bottom: 20px;padding-top:5px;">
+	</div>
+</div>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

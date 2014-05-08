@@ -1,0 +1,1 @@
+jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.mail,{txt_info:"Envoyer par courrier &eacute;lectronique &agrave; un ami.",txt_button:"Envoyer courriel"});

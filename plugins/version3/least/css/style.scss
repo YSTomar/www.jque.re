@@ -1,0 +1,340 @@
+/**
+*** least.
+*** Author: Kamil Czujowski, Sergej Müller
+*** Version: 1.5
+*** Made with ♥ - Copyright (c) 2013 Hamburg, Germany - All rights reserved.
+*** https://twitter.com/kamilczujowski, http://wpcoder.de
+**/
+
+/* @group SCSS */
+/* FONT */	 
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+/* @end */
+
+/* @group Mixins */
+
+@mixin Georgia($size, $height, $weight: normal) {
+	font-family: Georgia, Arial, sans-serif;
+	font-size: $size;
+	line-height: $height;
+	font-weight: $weight;
+}
+@mixin Arvo($size, $height, $weight: normal) {
+	font-family: Arvo, Arial, sans-serif;
+	font-size: $size;
+	line-height: $height;
+	font-weight: $weight;
+}
+
+@mixin Helvetica($size, $height, $weight: normal) {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: $size;
+	line-height: $height;
+	font-weight: $weight;
+}
+@mixin Courier($size, $height, $weight: normal) {
+	font-family: Courier, Arial, sans-serif;
+	font-size: $size;
+	line-height: $height;
+	font-weight: $weight;
+}
+
+@mixin transition ($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+@mixin rotate($arguments) {
+    -webkit-transform: $arguments;
+    -moz-transform: $arguments;
+    -ms-transform: $arguments;
+    -o-transform: $arguments;
+    transform: $arguments;
+}
+
+/* @end */
+
+/* @group Colors */
+$black: #000;
+$white: #fff;
+$red: #e94439;
+$codeBlue: #53a0cd;
+$whiteLight: #fafafa;
+
+$borderWhite: #FFF;
+$borderBlack: #333;
+
+/* @end */
+
+/* @group Default */
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+}
+
+html {
+	background-color: #fdfcfb;
+}
+
+body {
+	height: 100%;
+	min-height: 100%;
+	position: relative;
+	margin: 50px auto 20px auto;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: $red;
+	text-decoration: none;
+	
+	&:hover {
+		color: lighten($red, 10%);
+		text-decoration: underline;
+	}
+}
+
+h2 {
+	@include Arvo(30px, 25px, 500);
+	text-transform: uppercase;
+	color: $white;
+	letter-spacing: 1px;
+}
+
+h1 {
+	@include Arvo(60px, 75px, 800);
+	color: $red;
+	
+	text-transform: lowercase;
+}
+
+p {
+	@include Georgia(15px, 15px, 100);
+	color: $white;
+}
+/* @group Placeholder */
+::-webkit-input-placeholder {
+	color: lighten($black, 50%);
+}
+::-moz-placeholder {
+	color: lighten($black, 50%);
+}
+:-ms-input-placeholder {
+	color: lighten($black, 50%);
+}
+input:-moz-placeholder {
+	color: lighten($black, 50%);
+}
+/* @end */
+/* @end */
+
+/* @group Header */
+header {
+	min-width:100%;
+	width: 100%;
+	text-align: center;
+	
+	min-height: 150px;
+	
+	p {
+		@include Arvo(15px, 25px, 400);
+		color: $red;
+		
+		text-transform: uppercase;
+	}
+	
+	figure {
+		width: 250px;
+		background-color: $red;
+		
+		box-shadow: 1px 1px 5px;
+		
+		position: absolute;
+		right: -60px;
+		top: 0;
+		
+		overflow: hidden;
+		
+		padding: 5px 0;
+
+		@include rotate(rotate(45deg));
+		@include transition(background-color, 0.5s, linear);
+
+		a {
+			@include Helvetica(14px, 18px, 400);
+			color: $white;
+			
+			&:hover {
+				color: $white;
+				text-decoration: none;
+			}
+		}
+		
+		&:hover {
+			background-color: fadeout($red, 25%);
+		}
+	}
+}
+/* @end */
+
+/* @group Article */
+article {
+	width: 100%;
+	min-width: 100%;
+	
+	text-align: center;
+	
+	margin: 0 0 30px 0;
+	
+	&:first-child {
+		margin: 0;
+	}
+
+	hr {
+		max-width: 674px;
+		border-top: 1px solid darken(#f5f2f0, 5%);
+
+		margin: 30px auto 0 auto;
+	}
+	
+	h2 {
+		@include Arvo(20px, 25px, 400);
+		color: $red;
+		
+		text-transform: uppercase;
+	}
+	
+	h3 {
+		@include Arvo(15px, 25px, 400);
+		color: $red;
+		text-transform: uppercase;
+		
+		margin: 15px 0 0 0;
+	}
+	
+	p {
+		@include Helvetica(14px, 18px, 300);
+		color: $black;
+		display: inline-block;
+		margin: 15px 0 0;
+		
+		max-width: 650px;
+	}
+	input[type=submit],
+	a#button {
+		background-color: $red;
+		
+		max-width: 150px;
+		
+		color: $white;
+		
+		display: block;
+		margin: 20px auto 0 auto;
+		
+		padding: 15px 30px;
+		border-radius: 8px;
+		
+		@include Helvetica(20px, 20px, 300);
+		@include transition(background-color, 0.5s, linear);
+		
+		&:hover {
+			text-decoration: none;
+			background-color: lighten($red, 10%);
+		}
+	}
+
+	#adsense {
+		display: block;
+
+		margin: 55px auto 0 auto;
+	}
+
+	#mc_embed_signup {
+		max-width:650px;
+		margin: 40px auto 50px auto;
+
+		label {
+			@include Arvo(20px, 25px, 400);
+			color: $red;
+			text-transform: uppercase;
+		}
+
+		input {
+			border: 1px solid #f5f2f0;
+			width: 325px;
+			padding: 10px 5px;
+
+			margin: 10px 0;
+
+			color: $black;
+
+			&[type=submit] {
+				margin: 10px auto;
+				color: $white;
+
+				cursor: pointer;
+			}
+		}
+	}
+	
+	strong {
+		font-weight:600;
+	}
+	
+	figure {
+		max-width: 960px;
+		margin: 25px auto 0 auto;
+
+		.gplus{
+		    margin-left: 15px;
+		    display: inline-block;
+		}
+	}
+}
+/* @end */
+
+/* @group Footer */
+footer {
+	min-width:100%;
+	width: 100%;
+	text-align: center;
+	
+	margin: 50px 0 0 0;
+	
+	p {
+		@include Helvetica(14px, 22px, 300);
+		color: $black;
+		display: block;
+	}
+	
+	span {
+		display: inline-block;
+		color: $red;
+		font-size: 20px;
+		margin: 0 3px;
+
+		@include transition(color, 0.5s, linear);
+		
+		&:hover {
+			color: lighten($red, 10%);
+		}
+	}
+	
+	a {
+		color: $red;
+		
+		&:hover {
+			color: lighten($red, 10%);
+			text-decoration: underline;
+		}
+	}
+}
+/* @end */

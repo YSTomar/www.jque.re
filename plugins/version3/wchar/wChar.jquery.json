@@ -1,0 +1,39 @@
+{
+  "name": "wChar",
+  "title": "wChar Character Counter Plugin",
+  "description": "A jQuery plugin for textarea, text and password inputs to add a character counter bubble that fades in while you type and fades out when you stop typing.",
+  "keywords": [
+    "websanova",
+    "wChar",
+    "input",
+    "textarea",
+    "text",
+    "forms"
+  ],
+  "version": "2.1.3",
+  "author": {
+    "name": "Websanova",
+    "email": "rob@websanova.com",
+    "url": "http://websanova.com"
+  },
+  "maintainers": [
+    {
+      "name": "Websanova",
+      "email": "rob@websanova.com",
+      "url": "http://websanova.com"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/websanova/wChar#license"
+    }
+  ],
+  "bugs": "https://github.com/websanova/wChar/issues",
+  "homepage": "http://wchar.websanova.com",
+  "docs": "https://github.com/websanova/wChar#wcharjs",
+  "download": "https://github.com/websanova/wChar/tags",
+  "dependencies": {
+    "jquery": ">=1.5"
+  }
+}

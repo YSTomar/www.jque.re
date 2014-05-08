@@ -1,0 +1,282 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>jQuery.Viewport</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+<div id="page">
+    <h1>jQuery.Viewport</h1>
+    
+    <p>
+        Very helpfull and lightweight jQuery plugin that makes an element as
+        a handy viewport for displaying elements with absolute position.
+        The plugin is hosted on <a href="https://github.com/borbit/jquery.viewport">GitHub</a>.
+        You can see it in action right there:
+    </p>
+    
+    <div id="viewport">
+        <img src="dragme.png" width="800" height="600" />
+    </div>
+
+    <p>
+        There are two additional plugins are used in this example: 
+        <a href="http://jqueryui.com/demos/draggable/">jquery.draggable</a>
+        (for dragging) from the jQuery UI library and my another fancy-pancy plugin named
+        <a href="https://github.com/borbit/jquery.scraggable">jquery.scraggable</a>
+        (for scrolling).
+    </p>
+    
+    <p>
+    
+    <script src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+    </p>
+
+    <h2>Code example</h2>
+
+<div class="code">
+<div class="hint">CSS</div>
+<pre>
+#element {
+    height:600px;
+    width:350px;
+}
+</pre>
+</div>
+
+<div class="code">
+<div class="hint">HTML</div>
+<pre>
+&lt;div id="element"&gt;
+    &lt;img src="/path/to/img.jpg"/&gt;
+&lt;/div&gt;
+</pre>
+</div>
+
+<div class="code">
+<div class="hint">JS</div>
+<pre>
+$(function() {
+    var element = $('#element').viewport();
+    var content = element.viewport('content');
+
+    content.draggable({containment: 'parent'});
+    content.scraggable({containment: 'parent'});
+});
+</pre>
+</div>
+
+    <h2>Downloads (0.2.1)</h2>
+    <p style="margin-bottom:10px;">
+        The production version is minified by <a href="http://closure-compiler.appspot.com/">Google Closure Compiler</a>
+        with simple optimization mode. To download a file just right-click and use "Save As...".
+    </p>
+    <a href="https://github.com/borbit/jquery.viewport/raw/0.2.1/jquery.viewport.min.js">Production Version</a> (minified) - <i>2.5 kb</i><br/>
+    <a href="https://github.com/borbit/jquery.viewport/raw/0.2.1/jquery.viewport.js">Development Version</a> - <i>6.5 kb</i>
+
+    <h2>Documentation</h2>
+
+    <p class="desc">
+        The plugin creates two frames to display content: the "content" frame and the "binder"
+        frame. They are aligned to the center of the main "viewport" frame. If the content you want
+        to display in a viewport is bigger then the viewport itself then the "binder" frame's size is
+        set by formula - <code>viewport_width + (content_width - viewport_width) * 2</code> (the same for height).
+        This is the easiest way I've found to prevent "content" frame's borders do not go into the viewport's
+        rect. I can easily say that "content" frame is "draggable" and its "containment" is "parent" and it 
+        won't be able to be dragged out the "binder" frame and so its borders will be in the "viewort"
+        frame's rect never.
+    <p>
+
+    <div id="xRayIfBigger">
+        <span>Binder frame</span>
+        <div class="binderFrame">
+            <span>Content frame</span>
+            <div class="contentFrame">
+                <span>Viewport frame</span>
+                <div class="viewportFrame"></div>
+            </div>
+        </div>
+    </div>
+    
+    <p class="desc">
+        If the content you want to display is smaller then "viewport" frame then the
+        "binder" frame's size wil be the same as "content" frame's size and they will
+        always be aligned to the center of the "viewport" frame.
+    <p>
+
+    <div id="xRayIfSmaller">
+        <span class="viewportTitle">Viewport frame</span>
+        <div class="viewportFrame">
+            <span class="binderTitle">Binder frame</span>
+            <span class="contentTitle">Content frame</span>
+            <div class="binderFrame"><div class="contentFrame"></div></div>
+        </div>
+    </div>
+    
+    <h3>Options</h3>
+    
+    <span class="subj">content</span>
+    <i>Default:</i> <code>false</code>
+    
+    <p class="desc">
+        Reference or selector to the DOM element which will be shown as content in the viewport box.
+        Possible values: <code>HTMLElement</code>, <code>Array(HTMLElement [,HTMLElement])</code>, <code>jQueryObject</code>,
+        <code>'.selector'</code>, <code>false</code>. In case if this option is not set or it is
+        <code>false</code> all children elements the viewport element contains will be taken as a content.
+    </p>
+
+    <span class="subj">height</span>
+    <i>Default:</i> <code>false</code>
+    
+    <p class="desc">
+        Height of the content frame. If it is not set or set to <code>false</code>
+        then the height of a content element passed throw the <code>'content'</code>
+        option will be taken, but only if the content isn't passed as array of elements.
+        Works only if the <code>'width'</code> option is set.
+    </p>
+
+    <span class="subj">width</span>
+    <i>Default:</i> <code>false</code>
+
+    <p class="desc">
+        Width of the content frame. Works in the same way as <code>'height'</code>
+        option and also doesn't work if <code>'height'</code> option isn't set.
+    </p>
+
+    <span class="subj">position</span>
+    <i>Default:</i> <code>'center'</code>
+
+    <p class="desc">
+        Starting position of the content frame in relation to the viewport frame.
+        Possible values: <code>'center'</code>, <code>'top'</code>, <code>'bottom'</code>,
+        <code>'left'</code>, <code>'right'</code>. Also you can combine values:
+        <code>'top left'</code>, <code>'top right'</code>, <code>'bottom left'</code> etc...
+    </p>
+
+    <span class="subj">contentClass</span>
+    <i>Default:</i> <code>'viewportContent'</code>
+
+    <p class="desc">
+        Class name of the content frame's element.
+    </p>
+
+    <span class="subj">binderClass</span>
+    <i>Default:</i> <code>'viewportBinder'</code>
+
+    <p class="desc">
+        Class name of the binder frame's element.
+    </p>
+    
+    <h3>Methods</h3>
+
+    <span class="subj">update</span>
+    <code>$(...).viewport('update');</code>
+
+    <p class="desc">
+        Updates position and size of the binder frame and updates position of the
+        content frame regarding the viewport frame size. This method should be called
+        if viewport element's size is changed. Without params. Return value: <code>jQueryObject</code>.
+    </p>
+    
+    <span class="subj">size</span>
+    <code>$(...).viewport('size' [, height, width]);</code>
+
+    <p class="desc">
+        Setter/getter of the content frame's size. Useful when your content doesn't
+        have static width and height. Return value: if parameters are not set -
+        <code>{height: [number], width: [number]}</code>, else - <code>jQueryObject</code>.
+    </p>
+
+    <span class="subj">height</span>
+    <code>$(...).viewport('height' [, height]);</code>
+
+    <p class="desc">
+        Setter/getter for the content frame's height. Useful when your content doesn't
+        have static height. Return value: <code>number</code> / <code>jQueryObject</code>.
+    </p>
+
+    <span class="subj">width</span>
+    <code>$(...).viewport('width' [, width]);</code>
+
+    <p class="desc">
+        Setter/getter for the content frame's width. Useful when your content doesn't
+        have static width. Return value: <code>number</code> / <code>jQueryObject</code>.
+    </p>
+
+    <span class="subj">content</span>
+    <code>$(...).viewport('content');</code>
+    
+    <p class="desc">
+        Getter for the content frame's element. Useful when you have to make your content
+        draggable or smth like that. Return value: <code>jQueryObject</code>.
+    </p>
+
+    <span class="subj">binder</span>
+    <code>$(...).viewport('binder');</code>
+    
+    <p class="desc">
+        Getter for the binder frame's element. Return value: <code>jQueryObject</code>.
+    </p>
+
+    <h2>Changelog</h2>
+    
+    <h3 style="margin:15px 0 10px 0;">0.2.1</h3>
+    <p>
+        Bugfix to stop appending whitespaces or line breakes to the content frame as text nodes.
+    </p>
+    
+    <h3 style="margin:15px 0 10px 0;">0.2.0</h3>
+    <p>
+        Added new option <code>position</code> to set the starting position of the
+        content frame in relation to the viewport frame.
+    </p>
+    
+    <h3 style="margin:15px 0 10px 0;">0.1.0</h3>
+    <p>Initial release of jquery.viewport</p>
+
+    <h2>Credits</h2>
+
+    <p>
+        <a href="https://developer.mozilla.org/en/JavaScript/Guide" title="Learn JavaScript JS" style="float:right;background:none;margin-top:-50px;">
+            <img src='http://static.jsconf.us/promotejsh.gif' height='150' width='180' alt='JavaScript Array constructor'/>
+        </a>
+        <a href="mailto:serge.borbit@gmail.com">serge.borbit@gmail.com</a><br/>
+        <a href="https://github.com/borbit/jquery.viewport/">https://github.com/borbit/jquery.viewport/</a><br/>
+        <a href="http://linkedin.com/pub/serge-borbit/14/800/813">http://linkedin.com/pub/serge-borbit/14/800/813</a><br/>
+        <a href="http://www.facebook.com/serge.borbit/">http://www.facebook.com/serge.borbit/</a>
+    </p>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.5.1.min.js"><\/script>')</script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="jquery.viewport.js"></script>
+    <script type="text/javascript" src="jquery.scraggable.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            var element = $('#viewport').viewport();
+            var content = element.viewport('content');
+
+            content.draggable({
+                containment: 'parent'
+            });
+            content.scraggable({
+                sensitivity: 5,
+                containment: 'parent'
+            });
+        });
+    </script>
+</div>
+<!--
+#####################################################################################
+{/no-adpack-misc}
+#####################################################################################
+-->
+</body>
+</html>

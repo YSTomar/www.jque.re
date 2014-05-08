@@ -1,0 +1,178 @@
+﻿<!doctype html>
+
+<html>
+    
+    <head>
+        
+        <title>sausage.js</title>
+        
+        <!-- apply CSS reset because we are not savages -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.1/build/reset/reset-min.css">
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.1/build/reset-fonts/reset-fonts.css">
+        <link rel="stylesheet" type="text/css" href="../lib/sausage.css">
+        
+        <style type="text/css">
+            
+            body {
+                overflow-y: scroll;
+            }
+                #site {
+                    width: 500px;
+                    padding: 40px; margin: 0 auto;
+                }
+                    h1 {
+                        margin-bottom: 40px;
+                        font-size: 24px;
+                    }
+                    .page-set {
+                        
+                    }
+                        .page {
+                            padding: 20px; margin-bottom: 40px;
+                            background-color: #eee;
+                            -moz-border-radius: 20px;
+                            -webkit-border-bottom-left-radius: 20px;
+                            -webkit-border-top-left-radius: 20px;
+                            -webkit-border-bottom-right-radius: 20px;
+                            -webkit-border-top-right-radius: 20px;
+                        }
+            
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <div id="site">
+            
+            <h1>My Infinite Scrolling Blog (500 draws: <span id="out"></span>)</h1>
+            
+            <ol class="page-set">
+                
+            </ol>
+            
+        </div>
+        
+
+
+
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+        <script type="text/javascript" src="../lib/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="../jquery.sausage.js"></script>
+        
+        <script type="text/javascript">
+            
+            (function(){
+                
+                /*
+                    
+                    This first part is just throwaway code to simulate a lazy loaded page.
+                    
+                */
+                
+                var pages = [],
+                    ran = 5,
+                    $pages = $('.page-set'),
+                    i = 0,
+                    index = 0,
+                    loading = false;
+                
+                function addPage() {
+                    
+                    var h_page = (Math.floor((1000-499)*Math.random()) + 500)
+                    
+                    $pages
+                        .append('<li class="page" style="height:' + h_page + 'px;">Page ' + (index + 1) + '</li>')
+                        ;
+                    
+                    index ++;
+                };
+                
+                for (i = 0; i < ran; i++)
+                {
+                    addPage(i);
+                }
+                
+                $(window).scroll(function(){
+                    
+                    if (loading)
+                    {
+                        return;
+                    }
+                    
+                    if  ($(window).scrollTop() > $(document).height() - $(window).height() - 200)
+                    {
+                        loading = true;
+                        
+                        setTimeout(function(){
+                            
+                            addPage();
+
+                            $(window)
+                                .sausage('draw')
+                                ;
+                            
+                            loading = false;
+                            
+                        }, 250);
+                    }
+                    
+                });
+                
+                /*
+                    
+                    This is where the plugin is initialized.
+                    
+                */
+                
+                $(window)
+                    .sausage()
+                    ;
+                
+                function t() {  
+                    var time = new Date();  
+                    return time.getTime();  
+                }
+                
+                var s = t();   
+                
+                for (var i = 0; i < 50; i++)
+                {  
+                    $(window)
+                        .sausage('draw')
+                        ;
+                }
+                
+                $('#out').append((t() - s) + 'ms');
+                
+            }());
+            
+        </script>
+        
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+    
+</html>

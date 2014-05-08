@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>TinyNav.js &middot; Convert navigation to a select dropdown on small screen</title>
+  <meta name="author" content="Viljami Salminen" />
+  <meta name="description" content="TinyNav.js is a tiny jQuery plugin that automatically converts UL and OL navigation to a tiny select box on small screen." />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+  <link rel="stylesheet" href="styles.css?v1.09" />
+  <script src="modernizr-2.0.6.min.js"></script>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+  <script src="tinynav.min.js"></script>
+  <script>
+    // TinyNav.js
+    $(function () {
+      $('#nav').tinyNav();
+    });
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <h1>TinyNav.js</h1>
+    <h2>Responsive navigation plugin that weights just 304 bytes</h2>
+    <ul id="nav">
+      <li class="selected"><a href="http://tinynav.viljamis.com/" target="_blank">TinyNav.js</a></li>
+      <li><a href="http://responsive-slides.viljamis.com/" target="_blank">ResponsiveSlides.js</a></li>
+      <li><a href="http://viljamis.com" target="_blank">viljamis.com</a></li>
+    </ul>
+    <p><a href="http://tinynav.viljamis.com/">TinyNav.js</a> is a tiny jQuery plugin (304 bytes minified and gzipped) that converts &lt;ul> and &lt;ol> navigations to a select dropdowns for small screen. It also automatically selects the current page and adds selected="selected" for that item.</p>
+
+<p>This isn't the first plugin to do this and it doesn't provide a lot of options, but it might be the smallest (file size). Scale this page to see the plugin in action.</p>
+    <h3>Usage:</h3>
+    <h4>1. Link files</h4>
+    <pre><code>&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">&lt;/script>
+&lt;script src="tinynav.min.js">&lt;/script></code></pre>
+    <h4>2. Add Markup</h4>
+    <pre><code>&lt;ul id="nav">
+  &lt;li class="selected">&lt;a href="/">Home&lt;/a>&lt;/li>
+  &lt;li>&lt;a href="/about/">About&lt;/a>&lt;/li>
+  &lt;li>&lt;a href="/contact/">Contact&lt;/a>&lt;/li>
+&lt;/ul></code></pre>
+    <h4>3. Add Styles</h4>
+    <pre><code>/* styles for desktop */
+.tinynav { display: none }
+
+/* styles for mobile */
+@media screen and (max-width: 600px) {
+    .tinynav { display: block }
+    #nav { display: none }
+}</code></pre>
+    <h4>4. Hook up the plugin</h4>
+    <pre><code>&lt;script>
+  $(function () {
+    $("#nav").tinyNav();
+  });
+&lt;/script></code></pre>
+    <h4>5. Options you can customize</h4>
+    <pre><code>$("#nav").tinyNav({
+  active: 'selected' // Set the "active" class.
+});</code></pre>
+    <p>That is all! Note: If you worry how this will work when JS is disabled, then I suggest you to add 'js' class for &lt;html> with JavaScript and use that in CSS when hiding the normal navigation, so that the navigation is still accessible if someone is browsing the site JavaScript disabled. Example: </p>
+<h4>JavaScript:</h4>
+<pre><code>$('html').addClass('js');</code></pre>
+<h4>Styles:</h4>
+<pre><code>@media screen and (max-width: 600px) {
+    .js .tinynav { display: block }
+    .js #nav { display: none }
+}</code></pre>
+<h3>TinyNav.js is tested with the following browser</h3>
+    <ul class="list">
+      <li>Internet Explorer 6,7,8,9</li>
+      <li>Firefox 6,8</li>
+      <li>Safari 5</li>
+      <li>Chrome 15</li>
+      <li>Opera 11.5</li>
+      <li>iOS Safari</li>
+      <li>Opera Mobile 10.1</li>
+      <li>Opera Mini for iOS</li>
+      <li>IE7 Mobile</li>
+      <li>Firefox Mobile</li>
+      <li>Android browser</li>
+      <li>Kindle browser</li>
+    </ul>
+    <a href="https://github.com/viljamis/TinyNav.js" id="download" target="_blank">Download the latest version from GitHub</a>
+    <p class="footer">TinyNav.js is created by <a href="http://viljamis.com" target="_blank">@viljamis</a>. It's released under the MIT license. If you have any questions or feedback you can use the <a href="https://github.com/viljamis/TinyNav.js" target="_blank">GitHub project page</a>.</p>
+  </div>
+  <script>
+    // Respond.js
+    yepnope({
+      test : Modernizr.mq('(min-width)'),
+      nope : ['respond.min.js']
+    });
+  </script>
+
+  <a href="http://github.com/viljamis/TinyNav.js" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="fork.png" alt="Fork me on GitHub"></a>
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+<style>
+#influads_block a{
+color:white!important;
+}
+</style>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <title>Jquery Fontselect Example</title>
+    
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../fontselect.css" />
+    <script src="../jquery.fontselect.js"></script>
+    <script>
+      $(function(){
+        $('#font').fontselect().change(function(){
+        
+          // replace + signs with spaces for css
+          var font = $(this).val().replace(/\+/g, ' ');
+          
+          // split font into family and weight
+          font = font.split(':');
+          
+          // set family on paragraphs 
+          $('p').css('font-family', font[0]);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input id="font" type="text" />
+    
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+     when an unknown printer took a galley of type and scrambled it to make a type 
+     specimen book. It has survived not only five centuries, but also the leap into
+     electronic typesetting, remaining essentially unchanged. It was popularised 
+     in the 1960s with the release of Letraset sheets containing Lorem Ipsum 
+     passages, and more recently with desktop publishing software like Aldus 
+     PageMaker including versions of Lorem Ipsum.</p>
+  <!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+jQuery.extend(jQuery.fn.socialSharePrivacy.settings.services.flattr,{txt_info:"Zwei Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Flattr senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.",txt_off:"nicht mit Flattr verbunden",txt_on:"mit Flattr verbunden"});

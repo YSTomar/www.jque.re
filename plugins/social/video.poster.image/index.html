@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html>
+<head>
+	<style type="text/css">
+		/* General page styles */
+		body{
+			font-family:arial,sans-serif;
+			font-size:12px;
+		}
+		#video1, #video2{
+			margin-bottom:30px;
+		}
+	</style>
+</head>
+<body>
+
+
+	<div id="video1" class="poster">
+		<iframe width="560" height="315" src="http://www.youtube.com/embed/FrHkKXFRbCI" frameborder="0" allowfullscreen></iframe>
+	</div>
+<pre>
+$('#video1.poster').posterimage({
+	image: 'keep-calm-and-carryon.png',
+	title: 'Click to watch "Keep calm and carry on"',
+	title_color: '#fff',
+	title_backgroundcolor: '#222',
+	credits: true,
+	autoplay: true
+});
+</pre>
+	
+	<div id="video2" class="poster">
+		<iframe src="http://player.vimeo.com/video/10107253?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+	</div>
+<pre>
+$('#video2.poster').posterimage({
+	image: 'loose-world.png',
+	title: 'Play - Reggie Watts "Fuck shit stack"',
+	title_color: '#222',
+	title_backgroundcolor: '#fff',
+	credits: false,
+	autoplay: true
+});	
+</pre>
+
+	
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+<script type="text/javascript" src="js/jquery.posterimage.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){	
+	$('#video1.poster').posterimage({
+		image: 'keep-calm-and-carryon.png',
+		title: 'Click to watch "Keep calm and carry on"',
+		title_color: '#fff',
+		title_backgroundcolor: '#222',
+		credits: true,
+		autoplay: true
+	});
+	$('#video2.poster').posterimage({
+		image: 'loose-world.png',
+		title: 'Play - Reggie Watts "Fuck shit stack"',
+		title_color: '#222',
+		title_backgroundcolor: '#fff',
+		credits: false,
+		autoplay: true
+	});
+});
+</script>			
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

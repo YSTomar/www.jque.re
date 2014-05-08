@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <script src="/js/modernizr-2.0.6.min.js" type="text/javascript"></script>
+  <title>GlideTo</title>
+  <style type="text/css" media="screen">
+    body {
+      background-color: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, FreeSans, san-serif;
+      font-weight: 200;
+      color: #444;
+      background: #ddd;
+      margin: 0;
+    }
+    #main {
+      width: 700px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      margin: 0 auto;
+      position: relative;
+      background: white;
+    }
+    header {
+      position: fixed;
+      width: 660px;
+      left: 50%;
+      margin-left: -350px;
+      padding: 0 20px 20px;
+      z-index: 10;
+      background: rgba(0,0,0,0.7);
+    }
+    header > nav a {
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    header > nav > ul {
+      list-style-type: none;
+      width: 600px;
+      padding-left: 0;
+      background: gray;
+    }
+    
+    header > nav > ul > li {
+      float: left;
+      width: 150px;
+    }
+    header > nav > ul > li > ul {
+      display: block;
+      list-style: none;
+      padding-left: 10px;
+    }
+    
+    section {
+      width: 700px;
+      min-height: 400px;
+      float: left;
+    }
+    
+    section > article {
+      min-height: 400px;
+      padding: 130px 20px 0;
+    }
+    pre { 
+      background: #000; 
+      color: #fff; 
+      padding: 15px;
+      font-weight: 400;
+    }
+    
+  </style>
+</head>
+<body>
+<a href="https://github.com/jeduan/jquery-glideto"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 11;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div class='container'>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#section1">GlideTo</a>
+            <ul>
+              <li><a href="#section1art1">Description</a></li>
+              <li><a href="#section1art2">Places where it's being used</a></li>
+            </ul>
+          </li>
+          <li><a href="#section2">Author</a>
+            <ul>
+              <li><a href="#section2art1">Author</a></li>
+              <li><a href="#section2art2">Special Thanks</a></li>
+            </ul>
+          </li>
+          <li><a href="#section3">License</a></li>
+          <li><a href="#section4">Download</a>
+            <ul>
+              <li><a href="#section4art1">Git</a></li>              
+              <li><a href="#section4art2">Zip & Tar</a></li>              
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>    
+    <div id="main" role="main">
+    
+      <div class="wrapper-main" style="width: 6720px;">
+      <section id="section1">
+        <article id="section1art1" style="background: #bbb">
+          <h1>glideTo</h1>
+          <p>glideTo helps you to create modern scrolling websites (like this one) easily</p>
+        </article>
+        <article id="section1art2" style="background: #ddd">Right now it is being used at <a href="http://outofthebox.mx">Out of the Box</a>, an interactive agency on Mexico City
+        </article>
+      </section>
+      
+      <section id="section2">
+        <article id="section2art1" style="background: #e0e0e0;">
+          <h2>Author</h2>
+          <p>The plugin is written on CoffeeScript by <a href="http://github.com/jeduan">Jeduan Cornejo</a></p>
+          
+        </article>
+        <article id="section2art2">
+          <h2>Special Thanks</h2>
+          <p>The smooth scrolling bit was lifted from <a href="http://css-tricks.com/snippets/jquery/smooth-scrolling/">CSS Tricks</a> </p>
+          <p>I got great help on the API design from <a href="http://github.com/siedrix">Daniel Zavala</a> </p>
+        </article>
+      </section>
+      
+      <section id="section3">
+        <article id="section3art1" style="background: silver">
+          <h2>License</h2>
+          The code is licensed on the MIT License
+        </article>
+      </section>
+      
+      <section id="section4">
+        <article id="section4art1">
+          <h2>Download</h2>
+          You can clone the project with <a href="http://git-scm.com">Git</a>
+            by running:
+            <pre>$ git clone git://github.com/jeduan/jquery-glideto</pre>
+        </article>
+        <article id="section4art2">
+          You can also download this project in either
+          <a href="https://github.com/jeduan/jquery-glideto/zipball/master">zip</a> or
+          <a href="https://github.com/jeduan/jquery-glideto/tarball/master">tar formats.
+          <div>
+            <a href="https://github.com/jeduan/jquery-glideto/zipball/master">
+              <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
+            <a href="https://github.com/jeduan/jquery-glideto/tarball/master">
+              <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
+          </div>
+        </article>
+        
+      </section>
+    </div>
+    <footer>
+    
+    </footer>
+  </div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+<script src="jquery.easing-1.3.js" type="text/javascript"></script>
+  <script src="jquery.glideto.js" type="text/javascript"></script>
+  <script>
+    $.glideTo({
+      scrollHorizontal: '#main'
+    });
+    $('a[href*=#]').glide();
+  </script>
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>

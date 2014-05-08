@@ -1,0 +1,1 @@
+(function($,undefined){$.extend($.fn.socialSharePrivacy.settings,{txt_settings:"Instellingen",txt_help:"Als je een optie selecteert, wordt er data naar een derde partij (Facebook, Twitter, Google, ...) verzonden en daar opgeslagen. Klik voor meer informatie op <em>i</em>.",settings_perma:"Activeer al je social media accounts:",language:"nl"});})(jQuery);

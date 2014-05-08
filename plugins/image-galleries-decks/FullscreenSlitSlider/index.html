@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Fullscreen Slit Slider with CSS3 and jQuery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Fullscreen Slit Slider with CSS3 and jQuery" />
+        <meta name="keywords" content="fullscreen, slideshow, slider, slit, opens, cuts, css3, jquery, transition, animation, jquery, tutorial, web development, component, plugin" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="js/modernizr.custom.04022.js"></script> 
+		<![endif]-->
+		<!--[if lt IE 8]>
+			<style>.ie-note{display:block;}</style>
+		<![endif]-->
+		<noscript>
+			<link rel="stylesheet" type="text/css" href="css/styleNoJS.css" />
+		</noscript>
+    </head>
+    <body>
+        <div class="container">
+		
+			<!-- Codrops top bar -->
+            <div class="codrops-top">
+                <a href="http://tympanus.net/Tutorials/CSS3BouncingBall/">
+                    <strong>&laquo; Previous Demo: </strong>3D Bouncing Ball with CSS3
+                </a>
+                <span class="right">
+                    <a href="http://tympanus.net/codrops/2012/06/05/fullscreen-slit-slider-with-jquery-and-css3/">
+                        <strong>Back to the Codrops Article</strong>
+                    </a>
+                </span>
+                <div class="clr"></div>
+            </div><!--/ Codrops top bar -->
+			<div class="ie-note">Not supported by your browser</div>
+			
+			<section id="sl-slider" class="sl-slider">
+			
+				<div class="sl-slide" data-orientation="horizontal" data-cut1-rotation="-25" data-cut2-rotation="-25" data-cut1-scale="2" data-cut2-scale="2">
+					<div class="sl-deco" data-icon="6"></div>
+					<h2>A bene placito</h2>
+					<blockquote><p>You have just dined, and however scrupulously the slaughterhouse is concealed in the graceful distance of miles, there is complicity.</p><cite>Ralph Waldo Emerson</cite></blockquote>
+				</div>
+				
+				<div class="sl-slide sl-slide-dark" data-orientation="vertical" data-cut1-rotation="10" data-cut2-rotation="-15" data-cut1-scale="1.5" data-cut2-scale="1.5">
+					<div class="sl-deco" data-icon="q"></div>
+					<h2>Regula aurea</h2>
+					<blockquote><p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p><cite>Albert Schweitzer</cite></blockquote>
+				</div>
+				
+				<div class="sl-slide sl-slide-color-1" data-orientation="horizontal" data-cut1-rotation="3" data-cut2-rotation="3" data-cut1-scale="2" data-cut2-scale="1">
+					<div class="sl-deco" data-icon="O"></div>
+					<h2>Dum spiro, spero</h2>
+					<blockquote><p>Thousands of people who say they 'love' animals sit down once or twice a day to enjoy the flesh of creatures who have been utterly deprived of everything that could make their lives worth living and who endured the awful suffering and the terror of the abattoirs.</p><cite>Dame Jane Morris Goodall</cite></blockquote>
+				</div>
+				
+				<div class="sl-slide sl-slide-color-2" data-orientation="vertical" data-cut1-rotation="-5" data-cut2-rotation="25" data-cut1-scale="2" data-cut2-scale="1">
+					<div class="sl-deco" data-icon="I"></div>
+					<h2>Donna nobis pacem</h2>
+					<blockquote><p>The human body has no more need for cows' milk than it does for dogs' milk, horses' milk, or giraffes' milk.</p><cite>Michael Klaper M.D.</cite></blockquote>
+				</div>
+				
+				<div class="sl-slide sl-slide-color-3" data-orientation="horizontal" data-cut1-rotation="-5" data-cut2-rotation="10" data-cut1-scale="2" data-cut2-scale="1">
+					<div class="sl-deco" data-icon="t"></div>
+					<h2>Acta Non Verba</h2>
+					<blockquote><p>I think if you want to eat more meat you should kill it yourself and eat it raw so that you are not blinded by the hypocrisy of having it processed for you.</p><cite>Margi Clarke</cite></blockquote>
+				</div>
+			
+			</section>
+			
+        </div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+		<script type="text/javascript" src="js/jquery.ba-cond.min.js"></script>
+		<script type="text/javascript" src="js/jquery.transit.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slitslider.js"></script>
+		<script type="text/javascript">	
+			$(function() {
+			
+				$( '#sl-slider' ).slitslider();
+			
+			});
+		</script>
+	<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+</html>

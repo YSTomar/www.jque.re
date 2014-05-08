@@ -1,0 +1,118 @@
+﻿<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/> 
+	<style type="text/css">
+		/* custom styles applied to the messagebar */
+		.my-super-content {
+			line-height:46px;
+			font-size: 22px;
+			font-family:'Lucida Grande',sans-serif;
+			color: #000;
+		}
+
+		.my-bar-info {
+			/* have to use important b/c of the opacity used in the messagebar class, it takes precedence unless we use important */
+			background-color: #333 !important; 
+		}
+
+		.my-bar-error {
+			background-color: #fabb09 !important;
+		}
+
+		.my-content-info {
+			font-weight: normal;
+			color: #fff;
+		}
+
+		.my-content-error {
+			font-weight: bold;
+			color: #000;
+		}
+	</style>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+    <script src="lib/jquery.messagebar.js" type="text/javascript"></script> 
+	<script type="text/javascript">
+		$(function() {
+                        // create messagebar, customize position and styles
+                        /*
+			$('body').messagebar({
+				background_color: '#ffff00',
+				position: 'bottom',
+				content_id: 'mycontent',
+				content_class: 'my-super-content',
+				message_types: {
+					info: {barClass: 'my-bar-info', contentClass: 'my-content-info'},
+					error: {barClass: 'my-bar-error', contentClass: 'my-content-error'},
+				}
+			});
+                        */
+                        // create default messagebar
+                        $('body').messagebar();
+			
+			$('#show').click(function() {
+				$('body').messagebar("show");
+			});
+			
+			$('#hide').click(function() {
+				$('body').messagebar("hide", true);
+			});
+			
+			$('#submit-info').click(function(event) {
+				event.preventDefault();
+				$('body').messagebar('addMessage', $('#info-message').val(), 'info');
+				$('#info-message').val('');
+			});
+			
+			$('#submit-error').click(function(event) {
+				event.preventDefault();
+				$('body').messagebar('addMessage', $('#error-message').val(), 'error');
+				$('#error-message').val('');
+			});
+		});
+	</script>
+<body>
+
+	<div id="content">
+		<p>Some wonderful content goes here</p>
+		<p>Some wonderful content goes here</p>
+		<p>Some wonderful content goes here</p>
+		<br />
+		<p><a id="show" href="#">Show</a> the message bar</p>
+		<p><a id="hide" href="#">Hide</a> the message bar</p>
+		<form>
+			<label for="info-message">Message:</label><br />
+			<input id="info-message" type="text" placeholder="add an info message" />
+			<input type="submit" value="Add Info" id="submit-info" />
+		</form>
+		<form>
+			<label for="error-message">Message:</label><br />
+			<input id="error-message" type="text" placeholder="add an error message" />
+			<input type="submit" value="Add Error" id="submit-error" />
+		</form>
+	</div>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+#####################################################################################
+-->
+
+
+<!--
+#####################################################################################
+Feel free to remove when doing your development and tinkering with the plugin.
+#####################################################################################
+-->
+<style>#bsap_aplink{border:1px solid #2c36ff;border-radius:3px;padding:3px;margin:1px;margin-top:3px;text-decoration:none;font-size:9px;font-family:Verdana,Arial,Helvetica;color:#2c36ff};#bsap_aplink:hover{color:blue;background:#c0c0c0}.bsa_it_p {display: none !important;}</style>
+
+<a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Ad Packs - Classy Sites & Classy ADs">Ad Packs</a>
+<script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+
+</body>
+
+</html>

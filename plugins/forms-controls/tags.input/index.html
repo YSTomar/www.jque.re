@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>jQuery Tags Input Test Page</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<link rel="stylesheet" type="text/css" href="jquery.tagsinput.css" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+	<script type="text/javascript" src="jquery.tagsinput.js"></script>
+	
+	
+	<script type="text/javascript">
+		
+		function onAddTag(tag) {
+			alert("Added a tag: " + tag);
+		}
+		function onRemoveTag(tag) {
+			alert("Removed a tag: " + tag);
+		}
+		
+		$(function() {
+			$('input.tags').tagsInput();
+			
+// Uncomment this line to see the callback functions in action
+//			$('input.tags').tagsInput({onAddTag:onAddTag,onRemoveTag:onRemoveTag});		
+
+// Uncomment this line to see an input with no interface for adding new tags.
+//			$('input.tags').tagsInput({interactive:false});
+		});
+	
+	</script>
+	
+</head>
+<body>
+	<header>
+		jQuery Tags Input!
+	</header>	
+	<section>	
+		<form>
+			<input id="tags_1" type="text" class="tags" value="foo,bar,baz,roffle" />
+		</form>
+	</section>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+
+</body>
+</html>

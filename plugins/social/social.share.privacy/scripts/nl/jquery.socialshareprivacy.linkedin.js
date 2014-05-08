@@ -1,0 +1,1 @@
+(function($,undefined){$.extend($.fn.socialSharePrivacy.settings.services.linkedin,{txt_info:"Ter verduidelijking: De LinkedIn knop wordt hiermee geactiveerd. Hiermee wordt data naar LinkedIn verzonden – Klik voor meer informatie op <em>i</em>.",txt_off:"niet verbonden met LinkedIn",txt_on:"verbonden met LinkedIn"});})(jQuery);

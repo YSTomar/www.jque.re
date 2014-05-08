@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<title>PlumTube</title>
+	<link rel="icon" href="favicon.ico"/>
+	<link rel="stylesheet" href="global.css"/>
+</head>
+<body data-spy="scroll" data-target="#outline" data-offset="" class="no-js">
+<script src="plumrnizr.min.js"></script>
+<header role="banner"><img src="plumtube-small.png" alt="PlumTube"/></header>
+<a href="#content" id="skipnav" class="wai">Skip Navigation</a>
+<nav id="outline">
+	<ul class="nav">
+		<li><a href="#content">Welcome</a></li>
+		<li><a href="#install">Installation</a></li>
+		<li><a href="#options">Options</a></li>
+		<li><a href="#examples">Examples</a></li>
+	</ul>
+</nav>
+<article role="main" id="content">
+	<section>
+		<h1>Welcome to PlumTube!</h1>
+		<p>PlumTube utilizes the combined power of jQuery and <a href="//developers.google.com/youtube/2.0/developers_guide_protocol_video_feeds">YouTube API v2.0</a> video feeds to generate an list of links to videos on a particular YouTube channel or playlist. The output is a clean unordered list element that can be styled as desired, and can also support the addition of modal popup player functionality from plugins such as <a href="//fancyapps.com/fancybox/">fancybox</a>.</p>
+		
+		<a href="plumtube_v2.0.zip" id="download-link">Download PlumTube v2.0</a>
+		
+		<h2 id="install">Installation</h2>
+		<ol>
+			<li>Load your jQuery library of choice (as long as your choice is jQuery 1.6.0 or higher), followed by the PlumTube script. For older jQuery libraries, use <a href="v1.html">PlumTube v1.0</a>.
+				<pre class="long-line">&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/plumtube.min.js">&lt;/script&gt;</pre>
+			</li>
+			<li>Create the container element where you want the YouTube feed to generate, and assign it a unique id attribute for PlumTube to target. Insert a fallback link to the content you are pulling into the YouTube feed. This link will only display if Javascript is not enabled on the user's browser.
+			<pre>&lt;div id="yt-feed"&gt;&lt;a href="http://www.youtube.com/koryphaios"&gt;Watch my videos on YouTube.&lt;/a&gt;&lt;/div&gt;</pre>
+			</li>
+			<li>Add the appropriate data attributes to your container element. At minimum, you must include both the <code>data-plumtube</code> attribute and <em>either</em> the data-plum-user (for videos from a particular channel) or data-plum-playlist (for videos from a specific playlist) attribute.
+			<pre>&lt;div id="yt-feed" <strong>data-plumtube data-plum-user="koryphaios"</strong>&gt;&lt;a href="http://www.youtube.com/koryphaios"&gt;Watch my videos on YouTube.&lt;/a&gt;&lt;/div&gt;</pre>
+			</li>
+		</ol>
+		<p>Need help selecting the right attributes? Check out the <a href="generator.html">PlumTube Code Generator</a>.</p>
+		<h2 id="options">Attributes</h2>
+		<dl>
+			<dt><code>data-plum-large-thumb</code></dt>
+			<dd><em>boolean:</em> Inserts the larger version of the thumbnail image (480px by 360px) into the link list. Default is <code>false</code> (inserts 120px by 90px thumbnail image).</dd>
+			
+			<dt><code>data-plum-max-results</code></dt>
+			<dd><em>integer:</em> Defines the maximum number of videos to be pulled into the feed. Default is <code>10</code>.</dd>
+			
+			<dt><code>data-plum-modal</code></dt>
+			<dd><em>boolean:</em> If <code>true</code>, feed list links will direct to video embed URL instead of YouTube page URL for that video. This link format works with modal popup or other custom embed scripts, such as fancybox. Default is <code>false</code>.</dd>
+			
+			<dt><code>data-plum-modal-options</code></dt>
+			<dd><em>object:</em> Defines additional <a href="//developers.google.com/youtube/player_parameters">URL parameters</a> to be added to video embed URL. <code>data-plum-modal</code> must be <code>true</code> in order for parameters to be appended to URL. Each parameter you wish to append to the URL should be added as another parameter to the data-plum-modal-options object. Note that the attribute itself should be wrapped in single quotes, and each parameter within the attribute object should be wrapped in double quotes.<br/><br/>
+			For example, <code>data-plum-modal-options='{"controls":0, "autoplay":1}'</code> returns "http://www.youtube.com/embed/VIDEO_ID?controls=0&autoplay=1" for each video.
+			</dd>
+			
+			<dt><code>data-plum-new-window</code></dt>
+			<dd><em>boolean:</em> Sets "target='_blank'" on feed links. Default is <code>false</code>.</dd>
+			
+			<dt><code>data-plum-show-thumb</code></dt>
+			<dd><em>boolean:</em> Show image thumbnail link. If <code>false</code>, feed will load plain text link to each video (with the video name as the link text). Default is <code>true</code>.</dd>
+			
+			<dt><code>data-plum-show-title</code></dt>
+			<dd><em>string (<code>'link' || 'text'</code>):</em> Adds the title of each video to its respective list item. <code>'text'</code> inserts the title as plain text. <code>'link'</code> inserts the title as a link with the same href as the video thumbnail link. Default is <code>undefined</code> (no title will show with thumbnail).</dd>
+			
+		</dl>
+	</section>
+	<section id="example-feeds">
+	
+    
+    <script src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script>
+	
+		<h2 id="examples">Examples</h2>
+		<pre class="example">&lt;!--generates links to the video YouTube pages--&gt;
+		
+&lt;div id="youtube-feed" data-plumtube data-plum-max-results=12 data-plum-show-title="link" data-plum-user="koryphaios"&gt;&lt;a href="//www.youtube.com/koryphaios"&gt;See all of Plum's videos.&lt;/a&gt;&lt;/div&gt;</pre>
+		<div id="youtube-feed" data-plumtube data-plum-max-results=12 data-plum-show-title='link' data-plum-user='koryphaios'><a href="//www.youtube.com/koryphaios">See all of Plum's videos.</a></div>
+		
+		<pre class="example">&lt;!--generates embed links for use with modal plugin--&gt;
+		
+&lt;div id="playlist-feed" data-plumtube data-plum-playlist='PL487F75FE33618227' data-plum-max-results=5 data-plum-large-thumb='true' data-plum-modal='true' data-plum-modal-options='{"controls":0, "autoplay":1}' data-plum-new-window='true'&gt;&lt;a href="//www.youtube.com/watch?v=NfcCyQRw1dU&list=PL487F75FE33618227"&gt;See all of Plum's Cinema Muhlenberg videos.&lt;/a&gt;&lt;/div&gt;</pre>
+		<div id="playlist-feed" data-plumtube data-plum-playlist='PL487F75FE33618227' data-plum-max-results=5 data-plum-large-thumb='true' data-plum-modal='true' data-plum-modal-options='{"controls":0, "autoplay":1}' data-plum-new-window='true'><a href="//www.youtube.com/watch?v=NfcCyQRw1dU&list=PL487F75FE33618227">See all of Plum's Cinema Muhlenberg videos.</a></div>
+	</section>
+</article>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.9.1.min.js"><\/script>')</script>
+<script src="plumtube.min.js"></script>
+<script src="global.min.js"></script>
+<!--
+#####################################################################################
+{/no-adpack-misc}
+#####################################################################################
+-->
+</body>
+</html>

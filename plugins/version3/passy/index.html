@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>passy - a jQuery plugin to rate and generate passwords</title>
+
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.9.1.min.js"><\/script>')</script>
+    <script type="text/javascript" src="jquery-passy.js"></script>
+</head>
+
+<body>
+
+<div id="container">
+    <h1>passy</h1>
+
+    <p>passy is a jQuery plugin to <strong>rate</strong> and <strong>generate</strong> passwords.</p>
+
+    <div id="form">
+        <input type="text" id="input" placeholder="Type your password" />
+        <a href="javascript:void(0);" id="generate">generate</a>
+        <span id="output">...</span>
+    </div>
+
+    <pre>
+var $input = $( '#input' );
+var $output = $( '#output' );
+
+$.passy.requirements.length.min = 4;
+
+var feedback = [
+    { color: '#c00', text: 'poor' },
+    { color: '#c80', text: 'okay' },
+    { color: '#0c0', text: 'good' },
+    { color: '#0c0', text: 'fabulous!' }
+];
+
+$input.passy(function(strength, valid) {
+        $output.text(feedback[strength].text);
+        $output.css('background-color', feedback[strength].color);
+
+        if( valid ) $input.css(' border-color', 'green' );
+        else $input.css( 'border-color', 'red' );
+    });
+
+$('#generate').click(function() {
+    $input.passy( 'generate', 8 );
+});
+    </pre>
+	
+	<h2>Download</h2>
+	<p><a href="https://raw.github.com/timseverien/passy/master/js/jquery-passy.js" target="_blank">jquery-passy.js</a></p>
+
+    <h2>Features</h2>
+
+    <ul>
+        <li>Analize and validate a password real-time (see <a href="#usage">Basic usage</a>)</li>
+        <li>Looks at lowercase, uppercase, numbers, punctiation and foreign characters (eg. &uuml;, &ouml;, etc)</li>
+        <li>Compares password with patterns (see <a href="#properties">Properties</a>)</li>
+        <li>Able to compare password with a dictionary (see <a href="#properties">Properties</a>)</li>
+        <li>Password generation (see <a href="#usage">Basic usage</a>)</li>
+        <li>Customizable properties (see <a href="#properties">Properties</a>)</li>
+        <li>Utility functions (see <a href="#utility">Utility functions</a>)</li>
+    </ul>
+	
+    <h2 id="usage">Basic usage</h2>
+
+    <pre>
+$( field ).passy(function( strength, valid ) {
+    // Do stuff
+});
+
+$( field ).passy( 'generate', length );</pre>
+
+    <h2 id="properties">Properties</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <td>Property</td>
+            <td>Default</td>
+            <td>Description</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>$.passy.patterns</td>
+            <td>
+                <pre>[
+    '0123456789',
+    'abcdefghijklmnopqrstuvwxyz',
+    'qwertyuiopasdfghjklzxcvbnm',
+    'azertyuiopqsdfghjklmwxcvbn',
+    '!#$*+-.:?@^'
+]</pre>
+            </td>
+            <td>A list of patterns passwords should avoid<br />(case insensitive)</td>
+        </tr>
+        <tr>
+            <td>$.passy.threshold</td>
+            <td><pre>{
+    medium: 16,
+    high: 22,
+    extreme: 36
+}</pre></td>
+            <td>The minimum scores requires to be categorized</td>
+        </tr>
+        <tr>
+            <td>$.passy.requirements</td>
+            <td>
+                <pre>{
+    characters: passy.character.DIGIT |
+                passy.character.LOWERCASE |
+                passy.character.UPPERCASE,
+    length: {
+        min: 6,
+        max: Infinity
+    }
+}</pre>
+            </td>
+            <td>The requirements which makes a password valid</td>
+        </tr>
+        <tr>
+            <td>$.passy.dictionary</td>
+            <td><code>[]</code></td>
+            <td>A collection of words passwords should avoid<br />(case insensitive)</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2 id="utility">Utility functions</h2>
+
+    <p>Just in case you need 'em, I made utility functions!</p>
+
+    <table>
+        <thead>
+        <tr>
+            <td>Method</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>$.passy.analize( password )</td>
+            <td>Password strength<br />(see <a href="#constants">Constants</a>)</td>
+            <td>Get the quality of a password</td>
+        </tr>
+        <tr>
+            <td>$.passy.analizeCharacter( character )</td>
+            <td>1-5</td>
+            <td>Get the quality of a single character</td>
+        </tr>
+        <tr>
+            <td>$.passy.analizePatterns( password )</td>
+            <td>&lt; 0</td>
+            <td>Get the score based on pattern matching</td>
+        </tr>
+        <tr>
+            <td>$.passy.analizePattern( password, pattern )</td>
+            <td>&gt; 0</td>
+            <td>Get the quality of a password based on one pattern</td>
+        </tr>
+        <tr>
+            <td>$.passy.analizeScore( score )</td>
+            <td>Password strength<br />(see <a href="#constants">Constants</a>)</td>
+            <td>Turns a score to a password result</td>
+        </tr>
+        <tr>
+            <td>$.passy.contains( string, chartype )</td>
+            <td><code>true</code> / <code>false</code></td>
+            <td>Checks if the string contains a chartype<br />(see <a href="#constants">Constants</a>)</td>
+        </tr>
+        <tr>
+            <td>$.passy.generate( length )</td>
+            <td>A password</td>
+            <td>Generate a password</td>
+        </tr>
+        <tr>
+            <td>$.passy.valid( string )</td>
+            <td><code>true</code> / <code>false</code></td>
+            <td>Checks if a string is a valid password<br />based on $.passy.requirements</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2 id="constants">Constants</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <td>Constant</td>
+            <td>Description</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>$.passy.strength.LOW</td>
+            <td>Low quality password</td>
+        </tr>
+        <tr>
+            <td>$.passy.strength.MEDIUM</td>
+            <td>Medium quality password</td>
+        </tr>
+        <tr>
+            <td>$.passy.strength.HIGH</td>
+            <td>High quality password</td>
+        </tr>
+        <tr>
+            <td>$.passy.strength.EXTREME</td>
+            <td>Very high quality password</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+        <tr>
+            <td>Constant</td>
+            <td>Description</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>$.passy.character.DIGIT</td>
+            <td>A digit character (used in <a href="#utility">$.passy.contains()</a>)</td>
+        </tr>
+        <tr>
+            <td>$.passy.character.LOWERCASE</td>
+            <td>A lowercase character (used in <a href="#utility">$.passy.contains()</a>)</td>
+        </tr>
+        <tr>
+            <td>$.passy.character.UPPERCASE</td>
+            <td>An uppercase character (used in <a href="#utility">$.passy.contains()</a>)</td>
+        </tr>
+        <tr>
+            <td>$.passy.character.PUNCTUATION</td>
+            <td>A punctuation character (used in <a href="#utility">$.passy.contains()</a>)</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2 id="legal">Legal</h2>
+
+    <p>
+    <script src="http://cdn.adpacks.com/adpacks.js?legacyid=1278447&zoneid=1386&key=34ff9915aacae58d404570c35c360031&serve=C6SD52Y&placement=iwantaneffin&circle=dev" id="_adpacks_js"></script></p>
+</div>
+
+<script type="text/javascript">
+    var $input = $('#input');
+    var $output = $('#output');
+
+    $.passy.requirements.length.min = 4;
+
+    var feedback = [
+        { color: '#c00', text: 'poor' },
+        { color: '#c80', text: 'okay' },
+        { color: '#0c0', text: 'good' },
+        { color: '#0c0', text: 'fabulous!' }
+   ];
+
+    $input.passy(function(strength, valid) {
+        $output.text(feedback[strength].text);
+        $output.css('background-color', feedback[strength].color);
+
+        if(valid) $input.css('border-color', 'green');
+        else $input.css('border-color', 'red');
+    });
+
+    $('#generate').click(function() {
+        $input.passy('generate', 8);
+    });
+</script>
+
+<!--
+#####################################################################################
+{/no-adpack-misc}
+#####################################################################################
+-->
+</body>
+</html>

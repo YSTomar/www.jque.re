@@ -1,0 +1,57 @@
+﻿<html>
+
+
+<head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.7.2.min.js"><\/script>')</script>
+
+
+<style>
+
+.zombie {
+  background:red;
+  height:370px;
+  width: 100px;
+  position:relative;
+}
+
+</style>
+
+<script>
+
+function runit(){
+
+    $zombie = $('.zombie');
+      $zombie
+      .animate({opacity:1}, {duration:200})
+      .animate({opacity:0}, {duration:100})
+      .animate({opacity:1}, {duration:10})
+      .animate({opacity:0}, {duration:10})
+      .animate({opacity:1}, {duration:10})
+      .animate({opacity:0}, {duration:50})
+      .animate({opacity:1}, {duration:100})
+
+
+}
+
+$(document).ready(function() {
+  // Handler for .ready() called.
+
+    runit()
+
+  
+  });
+
+</script>
+
+<div class="zombie"></div>
+
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+

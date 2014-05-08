@@ -1,0 +1,1 @@
+(function($,undefined){$.extend($.fn.socialSharePrivacy.settings.services.pinterest,{txt_info:"Ter verduidelijking: De Pinterest knop wordt hiermee geactiveerd. Hiermee wordt data naar Pinterest verzonden – Klik voor meer informatie op <em>i</em>.",txt_off:"niet verbonden met Pinterest",txt_on:"verbonden met Pinterest"});})(jQuery);

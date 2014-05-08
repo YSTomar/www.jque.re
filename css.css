@@ -1,0 +1,157 @@
+* {
+    font-family: 'Lato'!important;
+    resize: none;
+}
+
+body,html {
+    overflow: hidden;
+    background: #fff;
+    padding: 0px;
+    margin: 0px;
+}
+
+::-webkit-scrollbar {
+    margin-right: 5px;
+    background-color: #eee;
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webit-box-shadow: 0 0 2px #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffc600;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #bbb;
+    box-shadow: 0 0 8px #999 inset;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+.sponsor {
+    margin-top: 30px;
+}
+
+.sponsor a {
+    display: block;
+    background: url('img/jquery.svg') no-repeat;
+    width: 113px;
+    height: 113px;
+}
+
+
+
+#main {
+    margin-top: 20px;
+    position: relative;
+    left: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#main br {
+    height: 0;
+}
+
+#main a:visited {
+    color: #db282a;
+}
+
+summary {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 26px;
+    cursor: pointer;
+    cursor: hand;
+    display:block!important;
+}
+
+details {
+    cursor: pointer;
+    cursor: hand;
+}
+
+#container {
+    width: 400px;
+    height: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+
+.menu-button {
+    text-align: left;
+    margin:0px;
+    border-radius:0px!important;
+}
+.sub-menu {
+    display: block;
+    text-align: left;
+    margin:0px;
+    border-radius:0px!important;
+}
+
+#receiver {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    height: 100%;
+    width: 0;
+}
+
+header {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.o-o {
+    visibility: hidden;
+    display: none;
+}
+
+.cc {
+    background: transparent!important;
+}
+
+
+
+#bsap_aplink {
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+#bsap_aplink:visited {
+    color: black;
+}
+
+.via_adpacks a {
+    background: #f0f0f0;
+    height: 24px;
+    width: 100px;
+    line-height: 24px;
+    padding: 0;
+    display: block;
+    text-align: center;
+    border-radius: 3px;
+}
+
+::-moz-selection {
+    background: #000;
+    color: white;
+    text-shadow: none;
+}
+
+::selection {
+    background: #000;
+    color: white;
+    text-shadow: none;
+}

@@ -1,0 +1,65 @@
+﻿<html>
+    <head>
+        <link href="css/jquery.socialfeed.css" rel="stylesheet" type="text/css">
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../../jquery.1.9.1.min.js"><\/script>')</script>
+        <script src="js/jquery.socialfeed.utility.js"></script>
+        <script src="js/jquery.socialfeed.js"></script>
+        <style>
+            /*This style is needed only for the plugin demo page. Do not use it in your projects*/
+            .credits{text-align:center;padding:20px;margin-top:10px;font-size:12px;}
+            body{ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                  font-size: 14px;
+                  line-height: 20px;
+                  color: #333333;
+                  background-color: #ffffff;
+                  text-align:center;
+            }
+            a{color: #0088cc;text-decoration: none;}
+            a:hover,a:focus {color: #005580;text-decoration: underline;}
+            .muted {color: #999999;}
+            .container {display:inline-block;width:600px;}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h3 class="muted">social - feed</h3>
+            <div class="social-feed-container">
+            </div>
+            <h6 class="credits muted"><a href="https://github.com/pavelk2/social-feed" target="_blank">Social-feed</a> jquery plugin, developed by <a target="_blank" href="http://kucherbaev.com">Pavel Kucherbaev</a></h6>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('.social-feed-container').socialfeed({
+                    fb_username:'barack.obama',
+                    fb_limit:2,
+                    fb_token:'150849908413827|uYDHoXrvPZOLkQ-zRz_XoYdEeYM',
+                    vk_username:36603,
+                    vk_limit:10,
+                    vk_source:'all',
+                    tw_limit:2,
+                    tw_username:'jack',
+                    google_access_token: 'AIzaSyA_lDYGTnTiEjhzjvkxX1KZnouhbVQ0QUU',
+                    google_user: '110579080484832019745',
+                    google_limit: 5,
+                    google_media: true,
+                    length:130,
+                    show_media:true,
+                    cookies:true
+                });
+            });
+        </script>
+        
+<!-- 
+#####################################################################################
+Some boilerplate cruft for each plugin page.
+Feel free to remove when doing your development and tinkering with the plugin.
+{/no-adpack}
+#####################################################################################
+-->
+
+        
+    </body>
+</html>

@@ -1,0 +1,1 @@
+(function($,undefined){$.extend($.fn.socialSharePrivacy.settings.services.twitter,{dummy_line_img:"images/nl/dummy_twitter.png",txt_info:"Ter verduidelijking: De Twitter knop wordt hiermee geactiveerd. Hiermee wordt data naar Twitter verzonden – Klik voor meer informatie op <em>i</em>.",txt_off:"niet verbonden met Twitter",txt_on:"verbonden met Twitter"});})(jQuery);
