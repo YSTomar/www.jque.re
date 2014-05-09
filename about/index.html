@@ -5063,14 +5063,6 @@ http://cdn.jque.re/plugins/version3/zelect/zelect.js
 CDN Powered by MaxCDN
 </pre>
 
-<script src="ba-linkify.min.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-document.getElementById('cdn-files').innerHTML = linkify(document.getElementById('cdn-files').innerHTML);
-});
-</script>
-
 <div class="sticky_bsa">
 <a href="http://adpacks.com" id="bsap_aplink" target="_blank" title="Visit Ad Packs">via Ad Packs</a>
 </div>
@@ -5082,6 +5074,11 @@ document.getElementById('cdn-files').innerHTML = linkify(document.getElementById
 position:fixed;
 top:0px;
 right:30px!important;
+}
+
+/* Remove `ads by BSA` */
+.bsa_it_p{
+display:none!important
 }
 
 /* Small, fixed AD-box*/
@@ -5108,6 +5105,14 @@ padding:15px!important;
 };
 
 </style>
+
+<script src="ba-linkify.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+document.getElementById('cdn-files').innerHTML = linkify(document.getElementById('cdn-files').innerHTML);
+});
+</script>
 
 <!-- Start Open Web Analytics Tracker -->
 <script type="text/javascript">
