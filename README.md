@@ -42,11 +42,10 @@ Many thanks to [MaxCDN](http://maxcdn.com/) for making this project possible.
 
 [![...](http://f.cl.ly/items/42161a2n23111o2F2O0t/tip.png "Fund me on Gittip")](https://www.gittip.com/dhig/)
 
-__David Higgins__ is a web developer who contributes all his free time to The Open Web. He expects nothing in return for what he does, and sees any monetary reward as a bonus. With that said, he also runs on Coffee and Beer, which are expensive habits to maintain. So fund him on Gittip, and help David do what he does best.
 
 ###[Donate - gittip.com/dhig](https://www.gittip.com/dhig/)
 
-- [higg.im](http://higg.im/)
+- [higg.im](http://www.higg.im/)
 - [higg.tel](http://higg.tel/)
 - [public@higg.im](mailto:public@higg.im)
 
@@ -278,5 +277,3 @@ __David Higgins__ is a web developer who contributes all his free time to The Op
 - http://www.jque.re/plugins/text-effects/slabtext/index.html
 - http://www.jque.re/plugins/text-effects/texteffects/index.html
 - http://www.jque.re/plugins/text-effects/textualizer/index.html
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jquer/jque.re/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
