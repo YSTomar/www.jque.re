@@ -40,10 +40,10 @@ Below is a list of CDN URLs you should use if you're going to implement a plugin
 
 Many thanks to [MaxCDN](http://maxcdn.com/) for making this project possible.
 
-[![...](http://f.cl.ly/items/42161a2n23111o2F2O0t/tip.png "Fund me on Gittip")](https://www.gittip.com/dhig/)
+[![...](http://f.cl.ly/items/42161a2n23111o2F2O0t/tip.png "Fund me on Gittip")](https://www.gittip.com/SoHiggo//)
 
 
-###[Donate - gittip.com/dhig](https://www.gittip.com/dhig/)
+###[Donate - gittip.com/dhig](https://www.gittip.com/SoHiggo//)
 
 - [higg.im](http://www.higg.im/)
 - [higg.tel](http://higg.tel/)
