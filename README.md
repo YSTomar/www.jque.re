@@ -141,7 +141,6 @@ Many thanks to [MaxCDN](http://maxcdn.com/) for making this project possible.
 - http://www.jque.re/plugins/image-galleries-decks/imageloader/index.html
 - http://www.jque.re/plugins/image-galleries-decks/jquery-screen/index.html
 - http://www.jque.re/plugins/image-galleries-decks/minimit/index.html
-- http://www.jque.re/plugins/image-galleries-decks/photobox/index.html
 - http://www.jque.re/plugins/image-galleries-decks/photofy/index.html
 - http://www.jque.re/plugins/image-galleries-decks/sequence/index.html
 - http://www.jque.re/plugins/image-galleries-decks/sideways/index.html
