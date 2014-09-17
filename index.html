@@ -359,7 +359,7 @@ $(document).ready(function(){$('details').details();$("a").click(function(){if($
 function bust(){document.write="";window.top.location=window.self.location;setTimeout(function(){document.body.innerHTML=''},0);window.self.onload=function(evt){document.body.innerHTML=''}}if(window.top!==window.self){try{if(window.top.location.host){}else{bust()}}catch(ex){bust()}}
 
 /* Open Web Analytics */
-var owa_baseUrl='http://stats.higg.im/owa/';var owa_cmds=owa_cmds||[];owa_cmds.push(['setSiteId','fe7b1f4174a41e76ee7411ab7c7d085b']);owa_cmds.push(['trackPageView']);owa_cmds.push(['trackClicks']);(function(){var _owa=document.createElement('script');_owa.type='text/javascript';_owa.async=true;owa_baseUrl=('https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl);_owa.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js';var _owa_s=document.getElementsByTagName('script')[0];_owa_s.parentNode.insertBefore(_owa,_owa_s)}());
+var owa_baseUrl='http://stats.higg.im/owa/';var owa_cmds=owa_cmds||[];owa_cmds.push(['setSiteId','fe7b1f4174a41e76ee7411ab7c7d085b']);owa_cmds.push(['trackPageView']);(function(){var _owa=document.createElement('script');_owa.type='text/javascript';_owa.async=true;owa_baseUrl=('https:'==document.location.protocol?window.owa_baseSecUrl||owa_baseUrl.replace(/http:/,'https:'):owa_baseUrl);_owa.src=owa_baseUrl+'modules/base/js/owa.tracker-combined-min.js';var _owa_s=document.getElementsByTagName('script')[0];_owa_s.parentNode.insertBefore(_owa,_owa_s)}());
 
 /* Help cedexis with valuable data */
 (function(w, d) { var a = function() { var a = d.createElement('script'); a.type = 'text/javascript';
