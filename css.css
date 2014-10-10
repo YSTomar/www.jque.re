@@ -1,58 +1,58 @@
-body,html {
+body,
+html {
     overflow: hidden;
     background: #fff;
     padding: 0px;
     margin: 0px;
-    font-family:'Anonymous Pro',sans-serif,Verdana;
-    font-weight:400;
-    font-style:normal
-
+    font-family: 'Anonymous Pro', sans-serif, Verdana;
+    font-weight: 400;
+    font-style: normal
 }
-
-details, summary { display: block; border-top: 1px solid #7fdcff; border-right: 1px solid #7fdcff; padding: 1em; }
-summary { cursor: pointer; }
-summary:hover, summary:focus { background: #ddd; }
-
+details,
+summary {
+    display: block;
+    border-top: 1px solid #7fdcff;
+    border-right: 1px solid #7fdcff;
+    padding: 1em;
+}
+summary {
+    cursor: pointer;
+}
+summary:hover,
+summary:focus {
+    background: #ddd;
+}
 ::-webkit-scrollbar {
     margin-right: 5px;
     background-color: #eee;
     width: 12px;
 }
-
 ::-webkit-scrollbar-track {
     -webit-box-shadow: 0 0 2px #ccc;
 }
-
 ::-webkit-scrollbar-thumb {
     background: #ffc600;
 }
-
 ::-webkit-scrollbar-thumb:window-inactive {
     background: #bbb;
     box-shadow: 0 0 8px #999 inset;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: #999;
 }
-
 .sponsor {
     margin-top: 30px;
 }
-
 .sponsor a {
     display: block;
     background: url('img/jquery.svg') no-repeat;
     width: 113px;
     height: 113px;
 }
-
-.menu-icon-main{
-width:20px;
-display:inline-block;
+.menu-icon-main {
+    width: 20px;
+    display: inline-block;
 }
-
-
 #main {
     margin-top: 20px;
     position: relative;
@@ -60,15 +60,12 @@ display:inline-block;
     padding: 0;
     margin: 0;
 }
-
 #main br {
     height: 0;
 }
-
 #main a:visited {
     color: #db282a;
 }
-
 summary {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -77,14 +74,12 @@ summary {
     font-size: 26px;
     cursor: pointer;
     cursor: hand;
-    display:block!important;
+    display: block!important;
 }
-
 details {
     cursor: pointer;
     cursor: hand;
 }
-
 #container {
     width: 400px;
     height: 0;
@@ -92,24 +87,20 @@ details {
     overflow-y: scroll;
     overflow-x: auto;
 }
-
-.main-menu a:visited{
-color:white!important
-
+.main-menu a:visited {
+    color: white!important
 }
-
 .menu-button {
     text-align: left;
-    margin:0px;
-    border-radius:0px!important;
+    margin: 0px;
+    border-radius: 0px!important;
 }
 .sub-menu {
     display: block;
     text-align: left;
-    margin:0px;
-    border-radius:0px!important;
+    margin: 0px;
+    border-radius: 0px!important;
 }
-
 #receiver {
     position: absolute;
     right: 0;
@@ -118,28 +109,22 @@ color:white!important
     height: 100%;
     width: 0;
 }
-
 header {
     text-align: center;
     margin-top: 14px;
 }
-
 .o-o {
     visibility: hidden;
     display: none;
 }
-
 .cc {
     background: transparent!important;
 }
-
-
 ::-moz-selection {
     background: #000;
     color: white;
     text-shadow: none;
 }
-
 ::selection {
     background: #000;
     color: white;
