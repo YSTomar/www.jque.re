@@ -16,7 +16,7 @@ function loadCDN() {
         }
     }
 
-    xmlhttp.open("GET", "/about/cdn.html", true);
+    xmlhttp.open("GET", "https://www.jque.re/about/cdn.html", true);
     xmlhttp.send();
 }
 
