@@ -3,6 +3,10 @@ body,html {
     background: #fff;
     padding: 0px;
     margin: 0px;
+    font-family:'Anonymous Pro',sans-serif,Verdana;
+    font-weight:400;
+    font-style:normal
+
 }
 
 details, summary { display: block; border-top: 1px solid #7fdcff; border-right: 1px solid #7fdcff; padding: 1em; }
@@ -43,6 +47,10 @@ summary:hover, summary:focus { background: #ddd; }
     height: 113px;
 }
 
+.menu-icon-main{
+width:20px;
+display:inline-block;
+}
 
 
 #main {
@@ -62,7 +70,6 @@ summary:hover, summary:focus { background: #ddd; }
 }
 
 summary {
-    font-family: 'Lato';
     padding-top: 12px;
     padding-bottom: 12px;
     padding-right: 0;
@@ -126,28 +133,6 @@ header {
     background: transparent!important;
 }
 
-
-
-#bsap_aplink {
-    font-size: 12px;
-    color: black;
-    text-decoration: none;
-}
-
-#bsap_aplink:visited {
-    color: black;
-}
-
-.via_adpacks a {
-    background: #f0f0f0;
-    height: 24px;
-    width: 100px;
-    line-height: 24px;
-    padding: 0;
-    display: block;
-    text-align: center;
-    border-radius: 3px;
-}
 
 ::-moz-selection {
     background: #000;
